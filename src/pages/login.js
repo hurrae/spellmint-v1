@@ -22,7 +22,7 @@ const login = () => {
   });
 
   async function handleGoogleSignin() {
-    signIn("google", { callbackUrl: "http://localhost:3000" });
+    signIn("google", { callbackUrl: "http://localhost:3000/dashboard" });
   }
 
   return (
