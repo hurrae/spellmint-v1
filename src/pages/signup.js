@@ -8,12 +8,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 
-const login = () => {
+const signup = () => {
   const [show, setShow] = useState(false);
   const router = useRouter();
   // formik hook
   const formik = useFormik({
     initialValues: {
+      fullname: "",
       email: "",
       password: "",
     },
@@ -38,10 +39,11 @@ const login = () => {
                 Spellmint
               </h1>
               <h3 className="text-[#111829] font-bold text-xl">
-                Welcome back to Spellmint
+                Create your Spellmint account
               </h3>
-              <p className="w-3/4 mx-auto text-gray-400">
-                Sign in to your account below.
+              <p className="w-[85%] mx-auto text-gray-400">
+                Let's get started! Fill in the form below to create your free
+                Spellmint account.
               </p>
             </div>
 
@@ -60,14 +62,29 @@ const login = () => {
                     <FcGoogle className="text-xl" />
                   </div>
                   Continue with Google
-                  {/* <Image
-                    src={"/assets/google.svg"}
-                    width="20"
-                    height={20}
-                  ></Image> */}
                 </button>
               </div>
               <hr className="my-2" />
+
+              <div className="space-y-1">
+                <p className="text-left ml-2 text-[#111829">Full Name</p>
+                <div
+                  className={`${styles.input_group} ${
+                    formik.errors.fullname && formik.touched.fullname
+                      ? "border-rose-600"
+                      : ""
+                  }`}
+                >
+                  <input
+                    type="text"
+                    name="fullname"
+                    placeholder="Full Name"
+                    className={styles.input_text}
+                    {...formik.getFieldProps("fullname")}
+                  />
+                </div>
+              </div>
+
               <div className="space-y-1">
                 <p className="text-left ml-2 text-[#111829">Email Address</p>
                 <div
@@ -113,18 +130,18 @@ const login = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between">
+              <div className="ml-2 flex justify-between">
                 {/* checkbox */}
                 <div className="flex space-x-2">
                   <input type="checkbox" />
-                  <p>Remember me</p>
-                </div>
-                <div>
-                  <Link href={"/"}>
-                    <span className="text-[#8046FD] underline underline-offset-2">
-                      Forgot password?
-                    </span>
-                  </Link>
+                  <p>
+                    By signing up, I agree to the{" "}
+                    <Link href={"/"}>
+                      <span className="text-[#8046FD] underline underline-offset-2">
+                        terms & conditions
+                      </span>
+                    </Link>
+                  </p>
                 </div>
               </div>
 
@@ -138,10 +155,10 @@ const login = () => {
 
             {/* bottom */}
             <p className="text-center text-gray-400 ">
-              Don't have an account?{" "}
-              <Link href={"/signup"}>
+              Already have an account?{" "}
+              <Link href={"/login"}>
                 <span className="text-blue-700 underline underline-offset-2">
-                  Sign Up
+                  Sign In
                 </span>
               </Link>
             </p>
@@ -152,4 +169,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default signup;
