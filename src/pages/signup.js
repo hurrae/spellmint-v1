@@ -7,6 +7,7 @@ import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
 
 const signup = () => {
   const [show, setShow] = useState(false);
@@ -14,16 +15,34 @@ const signup = () => {
   // formik hook
   const formik = useFormik({
     initialValues: {
-      fullname: "",
+      name: "",
       email: "",
       password: "",
     },
     // validate: login_validate,
-    // onSubmit,
+    onSubmit,
   });
 
+  async function onSubmit(values) {
+    axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/auth/signup`,
+      data: {
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      },
+    }).then(function (res) {
+      console.log(res, "new user");
+      if (res.status == 201)
+        router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
+    });
+  }
+
   async function handleGoogleSignin() {
-    signIn("google", { callbackUrl: "http://localhost:3000/dashboard" });
+    signIn("google", {
+      callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/dashboard`,
+    });
   }
 
   return (
@@ -70,17 +89,17 @@ const signup = () => {
                 <p className="text-left ml-2 text-[#111829">Full Name</p>
                 <div
                   className={`${styles.input_group} ${
-                    formik.errors.fullname && formik.touched.fullname
+                    formik.errors.name && formik.touched.name
                       ? "border-rose-600"
                       : ""
                   }`}
                 >
                   <input
                     type="text"
-                    name="fullname"
+                    name="name"
                     placeholder="Full Name"
                     className={styles.input_text}
-                    {...formik.getFieldProps("fullname")}
+                    {...formik.getFieldProps("name")}
                   />
                 </div>
               </div>
