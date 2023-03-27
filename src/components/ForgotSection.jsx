@@ -91,7 +91,7 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
       {/* bottom */}
       <p className="text-center ">
         Need help in resetting your password? Get in touch at{" "}
-        <Link href={"/signup"}>
+        <Link href={"mailto:support@spellmint.com"}>
           <span className="text-blue-700 underline underline-offset-2">
             support@spellmint.com
           </span>

@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       res.status(404).json({ msg: "User not found" });
     }
 
-    console.log("new Pass: ", req.body.newPass);
+    // console.log("new Pass: ", req.body.newPass);
     user.password = await hash(req.body.newPass, 12);
     user.resetPasswordToken = null;
     user.resetPasswordExpire = null;

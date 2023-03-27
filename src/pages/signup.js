@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
+import { registerValidate } from "../../lib/validate";
 
 const signup = () => {
   const [show, setShow] = useState(false);
@@ -19,7 +20,7 @@ const signup = () => {
       email: "",
       password: "",
     },
-    // validate: login_validate,
+    validate: registerValidate,
     onSubmit,
   });
 
@@ -121,8 +122,16 @@ const signup = () => {
                     {...formik.getFieldProps("email")}
                   />
                 </div>
+                <div className="text-start ml-2">
+                  {formik.errors.email && formik.touched.email ? (
+                    <span className="text-rose-500 text-sm text-left">
+                      {formik.errors.email}
+                    </span>
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </div>
-              {/* {formik.errors.email && formik.touched.email ? <span className='text-rose-500'>{formik.errors.email}</span> : <></>} */}
 
               <div className="space-y-1">
                 <p className="text-left ml-2 text-[#111829">Password</p>
@@ -147,12 +156,21 @@ const signup = () => {
                   <HiFingerPrint size={25} />
                 </span> */}
                 </div>
+                <div className="text-start ml-2">
+                  {formik.errors.password && formik.touched.password ? (
+                    <span className="text-rose-500 text-sm text-left">
+                      {formik.errors.password}
+                    </span>
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </div>
 
               <div className="ml-2 flex justify-between">
                 {/* checkbox */}
                 <div className="flex space-x-2">
-                  <input type="checkbox" />
+                  <input type="checkbox" required />
                   <p>
                     By signing up, I agree to the{" "}
                     <Link href={"/"}>
@@ -167,7 +185,7 @@ const signup = () => {
               {/* login buttons */}
               <div className="input-button">
                 <button type="submit" className={styles.button}>
-                  Sign In
+                  Sign Up
                 </button>
               </div>
             </form>

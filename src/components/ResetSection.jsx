@@ -5,6 +5,7 @@ import styles from "../styles/Login.module.css";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { resetPassValidate } from "../../lib/validate";
 
 const ResetSection = ({ resetToken }) => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const ResetSection = ({ resetToken }) => {
       newPass: "",
       confirmNewPass: "",
     },
-    // validate: login_validate,
+    validate: resetPassValidate,
     onSubmit,
   });
 
@@ -72,6 +73,15 @@ const ResetSection = ({ resetToken }) => {
                   <HiFingerPrint size={25} />
                 </span> */}
           </div>
+          <div className="text-start ml-2">
+            {formik.errors.newPass && formik.touched.newPass ? (
+              <span className="text-rose-500 text-sm text-left">
+                {formik.errors.newPass}
+              </span>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
 
         <div className="space-y-1">
@@ -97,6 +107,15 @@ const ResetSection = ({ resetToken }) => {
                   <HiFingerPrint size={25} />
                 </span> */}
           </div>
+          <div className="text-start ml-2">
+            {formik.errors.confirmNewPass && formik.touched.confirmNewPass ? (
+              <span className="text-rose-500 text-sm text-left">
+                {formik.errors.confirmNewPass}
+              </span>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
 
         {/* login buttons */}
@@ -110,7 +129,7 @@ const ResetSection = ({ resetToken }) => {
       {/* bottom */}
       <p className="text-center ">
         Need help in resetting your password? Get in touch at{" "}
-        <Link href={"/signup"}>
+        <Link href={"mailto:support@spellmint.com"}>
           <span className="text-blue-700 underline underline-offset-2">
             support@spellmint.com
           </span>

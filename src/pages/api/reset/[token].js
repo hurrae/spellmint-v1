@@ -16,6 +16,12 @@ export default async function handler(req, res) {
     if (!user) {
       res.status(404).json({ msg: "User not found" });
     }
+
+    if (Date.now() > user.resetPasswordExpire) {
+      console.log("Link has expired");
+      return res.status(404).json({ message: "Link expired" });
+    }
+
     res.status(200).json({ status: "OK", msg: "User found to reset" });
   } else {
     res.status(200).json({ name: "John Doe" });
