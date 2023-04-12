@@ -28,9 +28,9 @@ const Navbar = () => {
                 ></path>
               </svg>
             </button>
-            <a href="https://flowbite.com" class="flex ml-2 md:mr-24">
+            <a href="https://spellmint.com" class="flex ml-2 md:mr-24">
               <img
-                src="https://flowbite.com/docs/images/logo.svg"
+                src="/spellmintLogo.svg"
                 class="h-8 mr-3"
                 alt="FlowBite Logo"
               />
@@ -51,7 +51,7 @@ const Navbar = () => {
                   <span class="sr-only">Open user menu</span>
                   <img
                     class="w-8 h-8 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                    src="https://i.imgur.com/G2oJt6M.png"
                     alt="user photo"
                   />
                 </button>
@@ -68,7 +68,7 @@ const Navbar = () => {
                     class="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
                     role="none"
                   >
-                    neil.sims@flowbite.com
+                    manoj@spellmint.com
                   </p>
                 </div>
                 <ul class="py-1" role="none">
@@ -96,16 +96,7 @@ const Navbar = () => {
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
-                      Earnings
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                    >
-                      Sign out
+                      Log out
                     </a>
                   </li>
                 </ul>
