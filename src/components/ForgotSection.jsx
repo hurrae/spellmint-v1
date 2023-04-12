@@ -46,13 +46,13 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
   }
 
   return (
-    <section className=" text-center w-[80%] mx-auto flex flex-col gap-9">
+    <section className=" w-[80%] mx-auto flex flex-col gap-9">
       <div className="title space-y-4">
-        <h1 className="text-gray-800 text-4xl font-bold py-4">Spellmint</h1>
-        <h3 className="text-[#111829] font-bold text-xl">
+        <img src="/logowname.svg" className="w-[50%]" alt="" />
+        <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
           Reset your password
         </h3>
-        <p className="w-[85%] mx-auto text-gray-400">
+        <p className="w-3/4 text-xl text-gray-400">
           Please enter your email address below to reset your Spellmint
           password.
         </p>
@@ -89,7 +89,7 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
       </form>
 
       {/* bottom */}
-      <p className="text-center ">
+      <p className="text-[16px] ">
         Need help in resetting your password? Get in touch at{" "}
         <Link href={"mailto:support@spellmint.com"}>
           <span className="text-blue-700 underline underline-offset-2">
@@ -103,20 +103,20 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
 
 const AfterSubmit = () => {
   return (
-    <section className=" text-center w-[80%] mx-auto flex flex-col gap-9">
+    <section className=" w-[80%] mx-auto flex flex-col gap-9">
       <div className="title space-y-8">
-        <h1 className="text-gray-800 text-4xl font-bold py-4">Spellmint</h1>
-        <h3 className="text-[#111829] font-bold text-xl">
+        <img src="/logowname.svg" className="w-[50%]" alt="" />
+        <h3 className="text-[28px] text-[#111829] font-bold text-xl">
           Reset your password
         </h3>
-        <p className="w-[85%] mx-auto text-gray-400">
+        <p className="w-[90%] text-[20px] text-gray-400">
           We've sent a password reset link to your email address. Please follow
           the instructions in the email to reset your password.
         </p>
       </div>
 
       {/* bottom */}
-      <p className="text-center mt-4">
+      <p className="text-[20px] w-[90%] mt-4 text-gray-400">
         Need help in resetting your password? Get in touch at{" "}
         <Link href={"/signup"}>
           <span className="text-blue-700 underline underline-offset-2">

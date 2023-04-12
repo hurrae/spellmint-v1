@@ -38,13 +38,13 @@ const LoginComponent = ({ forgotBool }) => {
   }
 
   return (
-    <section className=" text-center w-[80%] mx-auto flex flex-col gap-10">
-      <div className="title space-y-4">
-        <h1 className="text-gray-800 text-4xl font-bold py-4">Spellmint</h1>
-        <h3 className="text-[#111829] font-bold text-xl">
+    <section className=" w-[80%] mx-auto flex flex-col gap-10">
+      <div className="title mt-2 space-y-3">
+        <img src="/logowname.svg" className="w-[50%]" alt="" />
+        <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
           Welcome back to Spellmint
         </h3>
-        <p className="w-3/4 mx-auto text-gray-400">
+        <p className="w-3/4 text-xl text-gray-400">
           Sign in to your account below.
         </p>
       </div>
@@ -81,7 +81,7 @@ const LoginComponent = ({ forgotBool }) => {
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="example@email.com"
               className={styles.input_text}
               {...formik.getFieldProps("email")}
             />
@@ -101,7 +101,7 @@ const LoginComponent = ({ forgotBool }) => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Must be alteast 8 characters"
               className={styles.input_text}
               {...formik.getFieldProps("password")}
             />
@@ -122,7 +122,7 @@ const LoginComponent = ({ forgotBool }) => {
           </div>
           <div>
             <div className="cursor-pointer" onClick={forgotBool}>
-              <span className="text-[#8046FD] underline underline-offset-2">
+              <span className="text-blshade underline underline-offset-2">
                 Forgot password?
               </span>
             </div>
@@ -138,7 +138,7 @@ const LoginComponent = ({ forgotBool }) => {
       </form>
 
       {/* bottom */}
-      <p className="text-center text-gray-400 ">
+      <p className=" text-gray-400 ">
         Don't have an account?{" "}
         <Link href={"/signup"}>
           <span className="text-blue-700 underline underline-offset-2">

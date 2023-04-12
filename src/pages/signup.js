@@ -47,21 +47,16 @@ const signup = () => {
   }
 
   return (
-    <div className="font-cabinet h-screen">
+    <div className="font-inter h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full">
-        <div className="col-span-1 lg:col-span-2">
-          <h3>Hello World</h3>
-        </div>
         <div className="col-span-1 py-8 flex flex-col my-auto">
-          <section className=" text-center w-[80%] mx-auto flex flex-col gap-10">
+          <section className=" w-[80%] mx-auto flex flex-col gap-10">
             <div className="title space-y-4">
-              <h1 className="text-gray-800 text-4xl font-bold py-4">
-                Spellmint
-              </h1>
-              <h3 className="text-[#111829] font-bold text-xl">
+              <img src="/logowname.svg" className="w-[50%]" alt="" />
+              <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
                 Create your Spellmint account
               </h3>
-              <p className="w-[85%] mx-auto text-gray-400">
+              <p className="w-full text-xl text-gray-400">
                 Let's get started! Fill in the form below to create your free
                 Spellmint account.
               </p>
@@ -117,7 +112,7 @@ const signup = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder="example@email.com"
                     className={styles.input_text}
                     {...formik.getFieldProps("email")}
                   />
@@ -145,7 +140,7 @@ const signup = () => {
                   <input
                     type="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder="Must be alteast 8 characters"
                     className={styles.input_text}
                     {...formik.getFieldProps("password")}
                   />
@@ -174,7 +169,7 @@ const signup = () => {
                   <p>
                     By signing up, I agree to the{" "}
                     <Link href={"/"}>
-                      <span className="text-[#8046FD] underline underline-offset-2">
+                      <span className="text-blshade underline underline-offset-2">
                         terms & conditions
                       </span>
                     </Link>
@@ -191,7 +186,7 @@ const signup = () => {
             </form>
 
             {/* bottom */}
-            <p className="text-center text-gray-400 ">
+            <p className="text-gray-400 ">
               Already have an account?{" "}
               <Link href={"/login"}>
                 <span className="text-blue-700 underline underline-offset-2">
@@ -200,6 +195,9 @@ const signup = () => {
               </Link>
             </p>
           </section>
+        </div>
+        <div className="col-span-1 lg:col-span-2">
+          <h3>Hello World</h3>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ module.exports = {
     },
     colors: {
       grshade: "#697283",
+      blshade: "#0568FD",
     },
   },
   plugins: [require("flowbite/plugin")],
