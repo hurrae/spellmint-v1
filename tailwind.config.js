@@ -17,6 +17,9 @@ module.exports = {
         inter: ["Inter Tight", "sans-serif"],
       },
     },
+    colors: {
+      grshade: "#697283",
+    },
   },
   plugins: [require("flowbite/plugin")],
 };

@@ -29,17 +29,21 @@ const Navbar = () => {
               </svg>
             </button>
             <a href="https://spellmint.com" class="flex ml-2 md:mr-24">
-              <img
-                src="/spellmintLogo.svg"
-                class="h-8 mr-3"
-                alt="FlowBite Logo"
-              />
-              <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+              <img src="/logowname.svg" class="h-8 mr-3" alt="FlowBite Logo" />
+              {/* <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                 Spellmint
-              </span>
+              </span> */}
             </a>
           </div>
           <div class="flex items-center">
+            <div>
+              <button
+                href="#"
+                class="mr-3 px-6 p-1  border-2 rounded bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+              >
+                Upgrade Plan
+              </button>
+            </div>
             <div class="flex items-center ml-3">
               <div>
                 <button

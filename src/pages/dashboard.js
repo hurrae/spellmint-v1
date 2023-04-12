@@ -3,6 +3,7 @@ import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import CreateProjectModal from "@/components/projectmodals/CreateProjectModal";
+import { useRouter } from "next/router";
 
 const dashboard = () => {
   return (

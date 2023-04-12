@@ -3,9 +3,9 @@ import React from "react";
 const ProjectTable = () => {
   return (
     <>
-      <div class=" overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-sm text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div class=" overflow-x-auto  sm:rounded-lg">
+        <table class="w-full text-base text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-base text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
                 PROJECT NAME
@@ -68,7 +68,7 @@ const TableRow = ({ ind }) => {
           // data-dropdown-toggle="dropdownDots"
           aria-expanded="false"
           data-dropdown-toggle="dropdown-menu"
-          class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          class="inline-flex items-center p-2 text-base font-medium text-center text-grshade  rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           type="button"
         >
           <svg
@@ -90,7 +90,7 @@ const TableRow = ({ ind }) => {
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >
                 Edit
@@ -99,7 +99,7 @@ const TableRow = ({ ind }) => {
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >
                 Rename
@@ -109,7 +109,7 @@ const TableRow = ({ ind }) => {
               <button
                 data-modal-target="delete-modal"
                 data-modal-toggle="delete-modal"
-                class="block w-full py-2  text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="block w-full py-2  text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 type="button"
               >
                 Delete
@@ -138,14 +138,14 @@ const DeleteProjectModal = () => {
               <h3 class="text-xl font-medium text-gray-900 dark:text-white">
                 Delete a Project
               </h3>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 text-base">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                 faucibus libero dolor.
               </p>
             </div>
             <button
               type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-base p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-hide="delete-modal"
             >
               <svg
@@ -177,13 +177,13 @@ const DeleteProjectModal = () => {
             <button
               type="button"
               data-modal-hide="delete-modal"
-              class="w-full text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="w-full text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Cancel
             </button>
             <button
               type="button"
-              class="w-full text-white bg-[#CC3F4D] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="w-full text-white bg-[#CC3F4D] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Delete Project
             </button>

@@ -16,13 +16,13 @@ const projects = () => {
             <div class="flex mb-4 justify-between">
               <div className=" rounded justify-between">
                 <h2 className="text-2xl font-bold my-auto">Browse Projects</h2>
-                <p>
+                <p className="text-grshade">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   faucibus libero dolor.
                 </p>
               </div>
               <div className="space-x-3 my-auto">
-                <button className="rounded p-2 px-4 font-semibold bg-gray-200">
+                <button className="rounded p-2 px-4 font-semibold bg-gray-100 border-2">
                   Explore Spells
                 </button>
                 <button
