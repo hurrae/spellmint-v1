@@ -4,8 +4,11 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import CreateProjectModal from "@/components/projectmodals/CreateProjectModal";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { StateContext } from "@/utils/StateContext";
 
 const dashboard = () => {
+  const { expand } = useContext(StateContext);
   return (
     <>
       <Head></Head>
@@ -14,7 +17,7 @@ const dashboard = () => {
         <Navbar />
         <Sidebar />
 
-        <div class="p-4 sm:ml-64 ">
+        <div class={`p-4 ${expand ? "ml-64" : "ml-20"} `}>
           <div class="p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div class=" mb-4 rounded bg-gray-100 dark:bg-gray-800">
               <div className="p-6 rounded flex justify-between">

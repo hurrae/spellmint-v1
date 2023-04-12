@@ -3,15 +3,19 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import ProjectTable from "@/components/ProjectTable";
 import CreateProjectModal from "@/components/projectmodals/CreateProjectModal";
+import { useContext } from "react";
+import { StateContext } from "@/utils/StateContext";
 
 const projects = () => {
+  const { expand } = useContext(StateContext);
   return (
     <>
       <div>
         <Navbar />
         <Sidebar />
 
-        <div class="p-6 sm:ml-64 h-screen">
+        <div class={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
+          {/* <div class="p-6 sm:ml-64 h-screen"> */}
           <div class="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div class="flex mb-4 justify-between">
               <div className=" rounded justify-between">
