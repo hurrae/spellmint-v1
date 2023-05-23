@@ -1,9 +1,9 @@
 import React from "react";
 
-const CreateProjectModal = () => {
+const CreateSpellModal = () => {
   return (
     <div
-      id="project-modal"
+      id="spell-modal"
       tabindex="-1"
       class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
     >
@@ -14,7 +14,7 @@ const CreateProjectModal = () => {
           <div class="bg-gray-50 flex items-center justify-between p-6 border-b rounded-t dark:border-gray-600">
             <div className="">
               <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-                Create a Project
+                Mint a New Spell
               </h3>
               <p className="text-gray-500">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -24,7 +24,7 @@ const CreateProjectModal = () => {
             <button
               type="button"
               class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-              data-modal-hide="project-modal"
+              data-modal-hide="spell-modal"
             >
               <svg
                 aria-hidden="true"
@@ -165,4 +165,4 @@ const CreateProjectModal = () => {
   );
 };
 
-export default CreateProjectModal;
+export default CreateSpellModal;

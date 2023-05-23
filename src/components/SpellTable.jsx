@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProjectTable = () => {
+const SpellTable = () => {
   return (
     <>
       <div class=" overflow-x-auto  sm:rounded-lg">
@@ -8,7 +8,7 @@ const ProjectTable = () => {
           <thead class="text-sm text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-6 py-3">
-                PROJECT NAME
+                SPELL NAME
               </th>
               <th scope="col" class="px-6 py-3">
                 CREATED ON
@@ -20,16 +20,14 @@ const ProjectTable = () => {
                 CREATED BY
               </th>
               <th scope="col" class="px-6 py-3">
-                CATEGORY
+                SPELL TYPE
               </th>
               <th scope="col" className="px-6 py-3"></th>
             </tr>
           </thead>
           <tbody>
-            <TableRow ind={0} />
-            <TableRow ind={1} />
-            <TableRow ind={0} />
-            <TableRow ind={1} />
+            <SpellTableRow ind={0} />
+            <SpellTableRow ind={1} />
           </tbody>
         </table>
       </div>
@@ -38,9 +36,9 @@ const ProjectTable = () => {
   );
 };
 
-export default ProjectTable;
+export default SpellTable;
 
-const TableRow = ({ ind }) => {
+const SpellTableRow = ({ ind }) => {
   //   console.log("Log: ", ind);
   return (
     <tr
@@ -52,7 +50,7 @@ const TableRow = ({ ind }) => {
         scope="row"
         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
-        Spellmint
+        ChatApp - PRD
       </th>
       <td class="px-6 py-4">April 24, 2023</td>
       <td class="px-6 py-4">30 minutes ago</td>
@@ -67,8 +65,8 @@ const TableRow = ({ ind }) => {
           id="dropdownMenuIconButton"
           // data-dropdown-toggle="dropdownDots"
           aria-expanded="false"
-          data-dropdown-toggle="dropdown-menu"
-          class="inline-flex items-center p-2 text-base font-medium text-center text-grshade  rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          data-dropdown-toggle="dropdown-menu2"
+          className="inline-flex items-center p-2 text-base font-medium text-center text-grshade  rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           type="button"
         >
           <svg
@@ -83,8 +81,8 @@ const TableRow = ({ ind }) => {
         </button>
         {/* <!-- Dropdown menu --> */}
         <div
-          class="z-30 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-          id="dropdown-menu"
+          className="z-30 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+          id="dropdown-menu2"
         >
           <ul class="py-1" role="none">
             <li>
@@ -111,7 +109,7 @@ const TableRow = ({ ind }) => {
                 class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >
-                Settings
+                Download
               </a>
             </li>
             <li>
