@@ -7,7 +7,7 @@ const CreateSpellModal = () => {
       tabindex="-1"
       class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
     >
-      <div class="relative mt-10 w-full max-w-3xl max-h-full">
+      <div class="relative mt-10 w-full max-w-xl max-h-full">
         {/* <!-- Modal content --> */}
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           {/* <!-- Modal header --> */}
@@ -17,8 +17,7 @@ const CreateSpellModal = () => {
                 Mint a New Spell
               </h3>
               <p className="text-gray-500">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                faucibus libero dolor.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
             </div>
             <button
@@ -45,117 +44,77 @@ const CreateSpellModal = () => {
           {/* <!-- Modal body --> */}
           <div class="p-6 space-y-6">
             <form class="space-y-6" action="#">
-              <div>
-                <label
-                  for="name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Project Name
-                </label>
-                <input
-                  type="text"
-                  name="projectname"
-                  id="projectname"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="Eg: ChatApp"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  for="category"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Project Category
-                </label>
-                <select
-                  name="category"
-                  id="category"
-                  required
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                >
-                  <option>Choose Category</option>
-                  <option>Category 1</option>
-                  <option>Category 2</option>
-                  <option>Category 3</option>
-                  <option>Category 4</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  for="desc"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Project Description
-                </label>
-                <textarea
-                  type="text"
-                  name="desc"
-                  id="desc"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="Eg: ChatApp is a messaging and communication platform that allows users to send text messages, voice messages, photos, videos, and other media files to their friends, family, and colleagues. "
-                  style={{
-                    height: "auto",
-                  }}
-                  required
-                />
-              </div>
-              <hr />
-              {/* <div className="space-y-3">
-                <h2 className="font-bold text-lg">Activate Spells</h2>
-                <div className="grid grid-cols-4 gap-4">
-                  <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
+              <div className="space-y-3">
+                <div className="grid grid-cols-3 gap-3">
+                  <div class="flex items-center px-3 border-2 border-gray-300 rounded dark:border-gray-700">
+                    <img
+                      src="/spellmwhite.svg"
+                      className="rounded p-1 bg-[#A3C7FE]"
+                      alt=""
+                    />
                     <label
-                      for="bordered-checkbox-1"
+                      for="bordered-radio-1"
                       class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Product
                     </label>
                     <input
-                      id="bordered-checkbox-1"
-                      type="checkbox"
+                      id="bordered-radio-1"
+                      type="radio"
                       value="product"
-                      name="bordered-checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      name="bordered-radio"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                   </div>
+
                   <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
+                    <img
+                      src="/spellmwhite.svg"
+                      className="rounded p-1 bg-[#A3C7FE]"
+                      alt=""
+                    />
                     <label
-                      for="bordered-checkbox-2"
+                      for="bordered-radio-2"
                       class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Marketing
                     </label>
                     <input
-                      id="bordered-checkbox-2"
-                      type="checkbox"
+                      id="bordered-radio-2"
+                      type="radio"
                       value="marketing"
-                      name="bordered-checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      name="bordered-radio"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                   </div>
                   <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
+                    <img
+                      src="/spellmwhite.svg"
+                      className="rounded p-1 bg-[#A3C7FE]"
+                      alt=""
+                    />
                     <label
-                      for="bordered-checkbox-3"
+                      for="bordered-radio-3"
                       class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Design
                     </label>
                     <input
-                      id="bordered-checkbox-3"
-                      type="checkbox"
-                      value="product"
-                      name="bordered-checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      id="bordered-radio-3"
+                      type="radio"
+                      value="design"
+                      name="bordered-radio"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                   </div>
                 </div>
-              </div> */}
+              </div>
               <button
                 type="submit"
-                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="flex justify-center text-center w-full text-white bg-[#0568FD] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Create Project
+                <span className="">Start Minting</span>
+                <img src="/Sparkles.svg" className="ml-2" alt="" />
               </button>
             </form>
           </div>
