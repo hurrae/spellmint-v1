@@ -10,6 +10,7 @@ import {
   ArrowLeft24Regular,
 } from "@fluentui/react-icons";
 import CreateSpellModal from "@/components/CreateSpellModal";
+import Editor from "@/components/Editor";
 
 const SpellDashboard = () => {
   const { expand } = useContext(StateContext);
@@ -40,7 +41,7 @@ const SpellDashboard = () => {
             </div>
 
             <div className="w-full flex mb-4 justify-between">
-              <div className="w-[33%]">
+              <div className="w-1/3">
                 <div className="flex space-x-3 w-full p-5 px-6 bg-[#F8F8FB]">
                   <h2 className="text-xl font-bold my-auto">ChatApp</h2>
                   <span className="h-fit my-auto font-medium text-sm border-2 rounded bg-[#FFFFFF] px-2 rounded text-[#697283]">
@@ -163,7 +164,9 @@ const SpellDashboard = () => {
                   </div>
                 </div>
               </div>
-              <div></div>
+              <div className="w-2/3">
+                <Editor />
+              </div>
             </div>
           </div>
         </div>
