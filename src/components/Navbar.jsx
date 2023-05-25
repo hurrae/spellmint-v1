@@ -39,7 +39,7 @@ const Navbar = () => {
             <div>
               <button
                 href="#"
-                class="mr-3 px-6 p-1  border-2 rounded bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+                class="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
               >
                 Upgrade Plan
               </button>

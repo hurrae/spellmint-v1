@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 const SpellTable = () => {
   return (
@@ -40,6 +41,7 @@ export default SpellTable;
 
 const SpellTableRow = ({ ind }) => {
   //   console.log("Log: ", ind);
+  const router = useRouter();
   return (
     <tr
       class={` border-b ${
@@ -47,8 +49,9 @@ const SpellTableRow = ({ ind }) => {
       }  dark:bg-gray-900 dark:border-gray-700`}
     >
       <th
+        onClick={() => router.push(router.asPath + "/spell1")}
         scope="row"
-        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
       >
         ChatApp - PRD
       </th>

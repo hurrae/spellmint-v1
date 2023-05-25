@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 const ProjectTable = () => {
@@ -42,6 +43,7 @@ export default ProjectTable;
 
 const TableRow = ({ ind }) => {
   //   console.log("Log: ", ind);
+  const router = useRouter();
   return (
     <tr
       class={` border-b ${
@@ -49,8 +51,9 @@ const TableRow = ({ ind }) => {
       }  dark:bg-gray-900 dark:border-gray-700`}
     >
       <th
+        onClick={() => router.push(router.asPath + "/chatapp")}
         scope="row"
-        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
       >
         Spellmint
       </th>

@@ -92,7 +92,9 @@ export default dashboard;
 const Category = () => {
   return (
     <div className="border-2 rounded-lg overflow-hidden">
-      <div className="h-32 bg-gray-50"></div>
+      <div className="h-32 bg-gray-50">
+        <img src="https://i.imgur.com/jgiJm9v.png" alt="" />
+      </div>
       <div className="space-y-2 p-3 bg-white text-center">
         <h3 className="font-bold">Software Product</h3>
         <p>Lorem ipsum dolor sit amet, consectetur.</p>

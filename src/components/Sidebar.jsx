@@ -19,7 +19,7 @@ import { useEffect } from "react";
 
 const Sidebar = () => {
   const router = useRouter();
-  const actLink = router.pathname.slice(1);
+  const actLink = router.pathname.split("/")[1];
   console.log("actlink: ", router);
   const { expand, toggleMenu } = useContext(StateContext);
 

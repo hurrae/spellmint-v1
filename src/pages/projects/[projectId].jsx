@@ -6,10 +6,12 @@ import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
 import { ChevronRight20Filled, Wand48Regular } from "@fluentui/react-icons";
 import CreateSpellModal from "@/components/CreateSpellModal";
+import { useRouter } from "next/router";
 
 const ProjectDashboard = () => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
+  const router = useRouter();
   //   const table = [];
 
   return (
@@ -22,7 +24,12 @@ const ProjectDashboard = () => {
           {/* <div class="p-6 sm:ml-64 h-screen"> */}
           <div class="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div className="flex space-x-3">
-              <h2 className="text-xl my-auto">Projects</h2>
+              <h2
+                onClick={() => router.push("/projects")}
+                className="text-xl my-auto cursor-pointer"
+              >
+                Projects
+              </h2>
               <span className="my-auto">
                 <ChevronRight20Filled />
               </span>
