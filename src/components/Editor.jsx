@@ -2,11 +2,12 @@ import React from "react";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 import { useEffect } from "react";
+import { useState } from "react";
 
 // import { saveAs } from "file-saver";
 // import { pdfExporter } from "quill-to-pdf";
 
-const Editor = () => {
+const Editor = ({ initText, setinitText }) => {
   var toolbarOptions = [
     ["bold", "italic", "underline", "strike"], // toggled buttons
     [{ list: "ordered" }, { list: "bullet" }],
@@ -22,21 +23,19 @@ const Editor = () => {
     },
   });
 
-  //   useEffect(() => {
-  //     if (quill) {
-  //       quill.clipboard.dangerouslyPasteHTML(
-  //         '<p class="ql-align-center"><strong class="ql-size-large">ChatApp - Product Requirements Document</strong></p>'
-  //       );
-  //     }
-  //   }, [quill]);
-
   useEffect(() => {
     if (quill) {
-      quill.clipboard.dangerouslyPasteHTML(
-        '<h3 class="ql-align-center"><strong class="ql-size-large">ChatApp - Product Requirements Document</strong></h3><p class="ql-align-center"><br></p><p class="ql-align-justify"><br></p><h2 class="ql-align-justify"><strong>Product Strategy</strong></h2><p class="ql-align-justify"><br></p><h3 class="ql-align-justify"><strong>1. Product Vision</strong></h3><p class="ql-align-justify"><br></p><p class="ql-align-justify">Our product, Inventory Pro, will revolutionize inventory management for businesses by providing real-time stock visibility, accurate demand forecasting, and intuitive reporting.</p><p class="ql-align-justify"><br></p><h3 class="ql-align-justify"><strong>2. Product Objectives</strong></h3><p class="ql-align-justify"><br></p><ul><li>Increase inventory efficiency by automating reorder processes and reducing overstock.</li><li>Enhance prediction accuracy through AI-powered algorithms.</li><li class="ql-align-justify">Improve user experience with a user-friendly and visually appealing interface</li></ul>'
-      );
+      quill.clipboard.dangerouslyPasteHTML(initText);
     }
-  }, [quill]);
+  }, [quill, initText]);
+
+  // useEffect(() => {
+  //   if (quill) {
+  //     quill.clipboard.dangerouslyPasteHTML(
+  //       '<h3 class="ql-align-center"><strong class="ql-size-large">ChatApp - Product Requirements Document</strong></h3><p class="ql-align-center"><br></p><p class="ql-align-justify"><br></p><h2 class="ql-align-justify"><strong>Product Strategy</strong></h2><p class="ql-align-justify"><br></p><h3 class="ql-align-justify"><strong>1. Product Vision</strong></h3><p class="ql-align-justify"><br></p><p class="ql-align-justify">Our product, Inventory Pro, will revolutionize inventory management for businesses by providing real-time stock visibility, accurate demand forecasting, and intuitive reporting.</p><p class="ql-align-justify"><br></p><h3 class="ql-align-justify"><strong>2. Product Objectives</strong></h3><p class="ql-align-justify"><br></p><ul><li>Increase inventory efficiency by automating reorder processes and reducing overstock.</li><li>Enhance prediction accuracy through AI-powered algorithms.</li><li class="ql-align-justify">Improve user experience with a user-friendly and visually appealing interface</li></ul>'
+  //     );
+  //   }
+  // }, [quill]);
 
   useEffect(() => {
     if (quill) {
@@ -62,6 +61,13 @@ const Editor = () => {
       {/* <div id="toolbar"></div>
       <div id="editor" /> */}
       {/* <button onClick={clickHandler}>Click here</button> */}
+      <button
+        onClick={() => {
+          setinitText("yoyoyo");
+        }}
+      >
+        Change
+      </button>
     </div>
   );
 };
