@@ -1,6 +1,87 @@
 import React from "react";
+import SpellData from "./data/SpellsData";
+import { useState } from "react";
 
 const CreateSpellModal = () => {
+  const [spellSelect, setspellSelect] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    // const selectedValue = document.querySelector(
+    //   'input[name="bordered-radio"]:checked'
+    // ).value;
+    console.log("Selected value:", spellSelect);
+  };
+
+  const bgcolors = [
+    "bg-[#0568FD]",
+    "bg-[#46BD0E]",
+    "bg-[#EE0A18]",
+    "bg-[#FF8328]",
+    "bg-[#C158E7]",
+    "bg-[#41ADDA]",
+    "bg-[#3F5DC8]",
+    "bg-[#F041AA]",
+    "bg-[#AD6523]",
+    "bg-[#6D00FF]",
+    "bg-[#12C0C2]",
+  ];
+
+  const bordercolors = [
+    "border-[#0568FD]",
+    "border-[#46BD0E]",
+    "border-[#EE0A18]",
+    "border-[#FF8328]",
+    "border-[#C158E7]",
+    "border-[#41ADDA]",
+    "border-[#3F5DC8]",
+    "border-[#F041AA]",
+    "border-[#AD6523]",
+    "border-[#6D00FF]",
+    "border-[#12C0C2]",
+  ];
+
+  const textcolors = [
+    "text-[#0568FD]",
+    "text-[#46BD0E]",
+    "text-[#EE0A18]",
+    "text-[#FF8328]",
+    "text-[#C158E7]",
+    "text-[#41ADDA]",
+    "text-[#3F5DC8]",
+    "text-[#F041AA]",
+    "text-[#AD6523]",
+    "text-[#6D00FF]",
+    "text-[#12C0C2]",
+  ];
+
+  const ringcolors = [
+    "focus:ring-[#0568FD]",
+    "focus:ring-[#46BD0E]",
+    "focus:ring-[#EE0A18]",
+    "focus:ring-[#FF8328]",
+    "focus:ring-[#C158E7]",
+    "focus:ring-[#41ADDA]",
+    "focus:ring-[#3F5DC8]",
+    "focus:ring-[#F041AA]",
+    "focus:ring-[#AD6523]",
+    "focus:ring-[#6D00FF]",
+    "focus:ring-[#12C0C2]",
+  ];
+  // const bgSelect = bgcolors[colorNo];
+  // const borderSelect = bordercolors[colorNo];
+
+  // const bgColors = SpellData.map((spell) => {
+  //   return "bg-" + spell.color;
+  // });
+
+  // const borderColors = SpellData.map((spell) => {
+  //   return "border-" + spell.color;
+  // });
+
+  // console.log("Bgcolors: ", bgColors);
+  // console.log("Bordercolors: ", borderColors);
+
   return (
     <div
       id="spell-modal"
@@ -43,70 +124,43 @@ const CreateSpellModal = () => {
           </div>
           {/* <!-- Modal body --> */}
           <div class="p-6 space-y-6">
-            <form class="space-y-6" action="#">
+            <form class="space-y-6" onSubmit={submitHandler}>
               <div className="space-y-3">
                 <div className="grid grid-cols-3 gap-3">
-                  <div class="flex items-center px-3 border-2 border-gray-300 rounded dark:border-gray-700">
-                    <img
-                      src="/spellmwhite.svg"
-                      className="rounded p-1 bg-[#A3C7FE]"
-                      alt=""
-                    />
-                    <label
-                      for="bordered-radio-1"
-                      class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Product
-                    </label>
-                    <input
-                      id="bordered-radio-1"
-                      type="radio"
-                      value="product"
-                      name="bordered-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                  </div>
-
-                  <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
-                    <img
-                      src="/spellmwhite.svg"
-                      className="rounded p-1 bg-[#A3C7FE]"
-                      alt=""
-                    />
-                    <label
-                      for="bordered-radio-2"
-                      class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Marketing
-                    </label>
-                    <input
-                      id="bordered-radio-2"
-                      type="radio"
-                      value="marketing"
-                      name="bordered-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                  </div>
-                  <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
-                    <img
-                      src="/spellmwhite.svg"
-                      className="rounded p-1 bg-[#A3C7FE]"
-                      alt=""
-                    />
-                    <label
-                      for="bordered-radio-3"
-                      class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Design
-                    </label>
-                    <input
-                      id="bordered-radio-3"
-                      type="radio"
-                      value="design"
-                      name="bordered-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                  </div>
+                  {SpellData.map((spell, index) => {
+                    // const path = `/Spells/${spell.name}.svg`;
+                    // console.log("path: ", path);
+                    return (
+                      <div
+                        onClick={() => setspellSelect(spell.name)}
+                        className={`flex items-center ${
+                          spellSelect == spell.name ? bgcolors[index] : ""
+                        } bg-opacity-10 px-3 border-2 ${
+                          spellSelect == spell.name ? bordercolors[index] : ""
+                        } rounded`}
+                      >
+                        <img
+                          src={`/Spells/${spell.name}.svg`}
+                          // src={path}
+                          className={`rounded p-1 ${bgcolors[index]}`}
+                          alt=""
+                        />
+                        <label
+                          for={`bordered-radio-${index}`}
+                          class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >
+                          {spell.name}
+                        </label>
+                        <input
+                          id={`bordered-radio-${index}`}
+                          type="radio"
+                          value="product"
+                          name="bordered-radio"
+                          class={`w-4 h-4 ${textcolors[index]} bg-gray-100 border-gray-300 ${ringcolors[index]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
               <button
