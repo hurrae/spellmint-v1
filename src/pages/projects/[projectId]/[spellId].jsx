@@ -17,12 +17,19 @@ import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import axios from "axios";
 import { useState } from "react";
+import Editor2 from "@/components/Editor2";
 
 const SpellDashboard = () => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
-  const router = useRouter();
-  const [initText, setinitText] = useState("hello");
+  // const router = useRouter();
+  // const [initText, setinitText] = useState(
+  //   "<p><strong>Product Description:</strong> This product is an AI-powered chatbot designed to answer your questions about any topic. It is equipped with a powerful natural-language processing engine that can understand complicated conversations. It also has a vast knowledge base filled with extensive training data, so it can quickly process your inquiries and provide comprehensive and accurate answers.</p><p><strong>Scenario (Explained to a 5-Year Old):</strong> This product is like a super smart friend who knows about any topic you can think of. Whenever you have a question, just ask the AI and it will give you an answer.</p><p><strong>Use-cases:</strong></p><ol><li><strong>Research:</strong> Quickly and accurately answer questions about an unfamiliar topic.</li><li><strong>Communications:</strong> Easily explain complex concepts for conversations with friends or family.</li><li><strong>Education:</strong> Aid in learning new skills by providing clear explanations and helpful examples.</li></ol>"
+  // );
+
+  const [initText, setinitText] = useState(
+    '<h2 style="text-align: center">ChatApp - Product Requirements Document</h2><p><br></p>'
+  );
   //   const table = [];
 
   return (
@@ -87,10 +94,11 @@ const SpellDashboard = () => {
                     Software Product
                   </span>
                 </div>
-                <SpellForm setinitText={setinitText} />
+                <SpellForm initText={initText} setinitText={setinitText} />
               </div>
               <div className="w-2/3">
-                <Editor initText={initText} setinitText={setinitText} />
+                {/* <Editor initText={initText} setinitText={setinitText} /> */}
+                <Editor2 initText={initText} />
               </div>
             </div>
           </div>
@@ -103,27 +111,33 @@ const SpellDashboard = () => {
 
 export default SpellDashboard;
 
-const SpellForm = ({ setinitText }) => {
+const SpellForm = ({ initText, setinitText }) => {
   const [load, setload] = useState(false);
   const onSubmit = (values) => {
     setload(true);
-    console.log(values);
-    setinitText("response got<p><br></p><p><br></p>Hello World");
+    console.log("Values received: ", values);
+    // setinitText("response got<p><br></p><p><br></p>Hello World");
 
     axios({
       method: "post",
-      url: `${process.env.NEXT_PUBLIC_HOST}/api/prompts/test2`,
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/prompts/test3`,
       data: {
         PurposeAndScope: values.PurposeAndScope,
         ProductDescription: values.ProductDescription,
         KeyUsers: values.KeyUsers,
         UserActions: values.UserActions,
       },
+      // data: {
+      //   PurposeAndScope: "hello",
+      //   ProductDescription: "hello",
+      //   KeyUsers: "hello",
+      //   UserActions: "hello",
+      // },
     })
       .then(function (res) {
         console.log("Api Response: ", res);
         const data = res.data.prd;
-        let defStr = "";
+        let defStr = initText;
         data.forEach((el) => {
           // console.log("element text: ", el.text);
           defStr += el.text;
@@ -131,7 +145,7 @@ const SpellForm = ({ setinitText }) => {
           defStr += "<p><br></p>";
         });
         // console.log("defStr 1: ", defStr);
-        defStr.replace(/\n/g, "<p><br></p>");
+        // defStr.replace(/\n/g, "<p><br></p>");
         console.log("defStr 2: ", defStr);
         setinitText(defStr);
         setload(false);
