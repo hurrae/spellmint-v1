@@ -7,6 +7,7 @@ import { StateContext } from "@/utils/StateContext";
 import { ChevronRight20Filled, Wand48Regular } from "@fluentui/react-icons";
 import CreateSpellModal from "@/components/CreateSpellModal";
 import { useRouter } from "next/router";
+import EditProjectModal from "@/components/projectmodals/EditProjectModal";
 
 const ProjectDashboard = () => {
   const { expand } = useContext(StateContext);
@@ -48,7 +49,12 @@ const ProjectDashboard = () => {
                 </p>
               </div>
               <div className="flex space-x-3 my-auto">
-                <button className="my-auto rounded p-2 px-4  bg-gray-100 border-2">
+                <button
+                  className="my-auto rounded p-2 px-4  bg-gray-100 border-2"
+                  data-modal-target="edit-project-modal"
+                  data-modal-toggle="edit-project-modal"
+                  type="button"
+                >
                   Settings
                 </button>
                 <button
@@ -101,6 +107,7 @@ const ProjectDashboard = () => {
         </div>
       </div>
       <CreateSpellModal />
+      <EditProjectModal />
     </>
   );
 };

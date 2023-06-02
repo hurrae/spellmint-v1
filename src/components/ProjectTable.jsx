@@ -46,9 +46,10 @@ const TableRow = ({ ind }) => {
   const router = useRouter();
   return (
     <tr
-      class={` border-b ${
-        ind % 2 == 1 ? "bg-gray-50" : "bg-white"
-      }  dark:bg-gray-900 dark:border-gray-700`}
+      // class={` border-b ${
+      //   ind % 2 == 1 ? "bg-gray-50" : "bg-white"
+      // }  dark:bg-gray-900 dark:border-gray-700`}
+      class={` border-b bg-white dark:bg-gray-900 dark:border-gray-700`}
     >
       <th
         onClick={() => router.push(router.asPath + "/chatapp")}
@@ -61,7 +62,7 @@ const TableRow = ({ ind }) => {
       <td class="px-6 py-4">30 minutes ago</td>
       <td class="px-6 py-4 font-medium text-gray-900">Manoj Maheshwar</td>
       <td class="px-6 py-4">
-        <span className="font-medium bg-[#DDEBFF] p-1 px-2 rounded text-blue-600">
+        <span className="font-medium bg-[#E5E6EB] p-1 px-2 rounded text-[#697283]">
           Software Product
         </span>
       </td>
@@ -150,9 +151,8 @@ const DeleteProjectModal = () => {
               <h3 class="text-xl font-medium text-gray-900 dark:text-white">
                 Delete a Project
               </h3>
-              <p className="text-gray-500 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                faucibus libero dolor.
+              <p className="text-[#697283] text-base">
+                Remove any project from your workspace that's no longer needed.
               </p>
             </div>
             <button
@@ -178,7 +178,7 @@ const DeleteProjectModal = () => {
           </div>
           {/* <!-- Modal body --> */}
           <div class="p-6 space-y-3">
-            <div className="space-y-4 mb-3">
+            <div className="text-[#697283] space-y-4 mb-3">
               <p>
                 Are you sure you want to delete{" "}
                 <span className="font-bold">Crushvest?</span> and its contents?
@@ -189,7 +189,7 @@ const DeleteProjectModal = () => {
             <button
               type="button"
               data-modal-hide="delete-modal"
-              class="w-full text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="w-full border border-2 text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Cancel
             </button>

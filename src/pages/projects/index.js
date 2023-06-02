@@ -21,8 +21,8 @@ const projects = () => {
               <div className=" rounded justify-between">
                 <h2 className="text-2xl font-bold my-auto">Browse Projects</h2>
                 <p className="text-grshade">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  faucibus libero dolor.
+                  Navigate through your created projects and oversee your work
+                  in one place.
                 </p>
               </div>
               <div className="space-x-3 my-auto">

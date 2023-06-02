@@ -22,7 +22,7 @@ import Editor2 from "@/components/Editor2";
 const SpellDashboard = () => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
-  // const router = useRouter();
+  const router = useRouter();
   // const [initText, setinitText] = useState(
   //   "<p><strong>Product Description:</strong> This product is an AI-powered chatbot designed to answer your questions about any topic. It is equipped with a powerful natural-language processing engine that can understand complicated conversations. It also has a vast knowledge base filled with extensive training data, so it can quickly process your inquiries and provide comprehensive and accurate answers.</p><p><strong>Scenario (Explained to a 5-Year Old):</strong> This product is like a super smart friend who knows about any topic you can think of. Whenever you have a question, just ask the AI and it will give you an answer.</p><p><strong>Use-cases:</strong></p><ol><li><strong>Research:</strong> Quickly and accurately answer questions about an unfamiliar topic.</li><li><strong>Communications:</strong> Easily explain complex concepts for conversations with friends or family.</li><li><strong>Education:</strong> Aid in learning new skills by providing clear explanations and helpful examples.</li></ol>"
   // );
@@ -308,7 +308,7 @@ const DeleteSpellModal = () => {
                 Delete a Spell
               </h3>
               <p className="text-gray-500 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Remove any spell from your project that's no longer needed.
               </p>
             </div>
             <button
@@ -334,7 +334,7 @@ const DeleteSpellModal = () => {
           </div>
           {/* <!-- Modal body --> */}
           <div class="p-6 space-y-3">
-            <div className="space-y-4 mb-3">
+            <div className="space-y-4 mb-3 text-[#697283]">
               <p>
                 Are you sure you want to delete{" "}
                 <span className="font-bold">ChatApp - PRD?</span> and its
@@ -345,7 +345,7 @@ const DeleteSpellModal = () => {
             <button
               type="button"
               data-modal-hide="delete-modal"
-              class="w-full text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="w-full border border-2 text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Cancel
             </button>

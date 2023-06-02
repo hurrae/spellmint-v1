@@ -83,8 +83,12 @@ const Sidebar = () => {
           </li>
           <li>
             <a
-              href="#"
-              class="px-4 flex items-center p-2 text-grshade dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              href="/categories"
+              class={`px-4 ${
+                actLink == "categories"
+                  ? "text-[#0568FD] border-r-4"
+                  : "text-grshade"
+              } flex border-[#0568FD] items-center p-2  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Wand24Regular />
               <span

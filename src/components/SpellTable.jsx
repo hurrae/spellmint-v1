@@ -146,11 +146,10 @@ const DeleteProjectModal = () => {
           <div class="bg-gray-50 flex items-center justify-between p-6 border-b rounded-t dark:border-gray-600">
             <div className="">
               <h3 class="text-xl font-medium text-gray-900 dark:text-white">
-                Delete a Project
+                Delete a Spell
               </h3>
               <p className="text-gray-500 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                faucibus libero dolor.
+                Remove any spell from your project that's no longer needed.
               </p>
             </div>
             <button
@@ -176,18 +175,18 @@ const DeleteProjectModal = () => {
           </div>
           {/* <!-- Modal body --> */}
           <div class="p-6 space-y-3">
-            <div className="space-y-4 mb-3">
+            <div className="space-y-4 mb-3 text-[#697283]">
               <p>
                 Are you sure you want to delete{" "}
-                <span className="font-bold">Crushvest?</span> and its contents?
-                Any credit usage in progress will not be refunded.
+                <span className="font-bold">ChatApp - PRD?</span> and its
+                contents? Any credit usage in progress will not be refunded.
               </p>
               <p>Note: You can’t undo this action.</p>
             </div>
             <button
               type="button"
               data-modal-hide="delete-modal"
-              class="w-full text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="w-full border border-2 text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Cancel
             </button>
