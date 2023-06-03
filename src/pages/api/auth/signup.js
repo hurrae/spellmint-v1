@@ -1,4 +1,5 @@
 import connectMongo from "../../../../connect/DBconnect";
+import Participants from "../../../../model/AppUserSchema";
 import Users from "../../../../model/UserSchema";
 import { hash } from "bcryptjs";
 
@@ -24,6 +25,14 @@ export default async function handler(req, res) {
     });
 
     await user.save();
+
+    let participant = new Participants({
+      name,
+      email,
+    });
+
+    await participant.save();
+
     res.status(201).json(user);
   } else {
     res

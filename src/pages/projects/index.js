@@ -5,9 +5,12 @@ import ProjectTable from "@/components/ProjectTable";
 import CreateProjectModal from "@/components/projectmodals/CreateProjectModal";
 import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
+import { useSession } from "next-auth/react";
 
 const projects = () => {
   const { expand } = useContext(StateContext);
+  const { data: session } = useSession();
+  console.log("Session in Projects: ", session);
   return (
     <>
       <div>
@@ -47,7 +50,7 @@ const projects = () => {
           </div>
         </div>
       </div>
-      <CreateProjectModal />
+      <CreateProjectModal session={session} />
     </>
   );
 };

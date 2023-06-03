@@ -1,9 +1,12 @@
 import React from "react";
 import SpellData from "./data/SpellsData";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const CreateSpellModal = () => {
+const CreateSpellModal = ({ proj_id, proj_name, proj_category }) => {
   const [spellSelect, setspellSelect] = useState("");
+  const [spellName, setspellname] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -11,6 +14,55 @@ const CreateSpellModal = () => {
     //   'input[name="bordered-radio"]:checked'
     // ).value;
     console.log("Selected value:", spellSelect);
+    console.log("Spell name: ", spellName);
+
+    setload(true);
+
+    axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/newSpell`,
+      data: {
+        name: spellName,
+        user_email: session.user.email,
+        spell_type: spellSelect,
+        proj_id,
+        proj_name,
+        proj_category,
+        created_by: session.user.name,
+      },
+    })
+      .then(function (res) {
+        toast.success(
+          <div>
+            {" "}
+            Project <strong>{values.name}</strong> Created{" "}
+          </div>
+        );
+
+        // router.push("/projects/chatapp");
+        setTimeout(() => {
+          window.location.href = `${process.env.NEXT_PUBLIC_HOST}/projects/${values.name}`;
+          // router.push('/path-to-redirect');
+        }, 3000);
+        console.log("Create Project Modal, Response: ", res);
+        setload(false);
+      })
+      .catch((err) => {
+        setload(false);
+        console.log("this is create project error", err);
+        toast.error(
+          <div>
+            {" "}
+            Project <strong>{values.name}</strong> already exists{" "}
+          </div>
+        );
+        // if (err.response.status == 400) {
+        //   toast.error("This Transaction Id is already used.");
+        //   // setexistingId(true);
+        // } else if (err.response.status == 403) {
+        //   toast.error("Submit transaction id again in few minutes");
+        // }
+      });
   };
 
   const bgcolors = [
@@ -68,19 +120,6 @@ const CreateSpellModal = () => {
     "focus:ring-[#6D00FF]",
     "focus:ring-[#12C0C2]",
   ];
-  // const bgSelect = bgcolors[colorNo];
-  // const borderSelect = bordercolors[colorNo];
-
-  // const bgColors = SpellData.map((spell) => {
-  //   return "bg-" + spell.color;
-  // });
-
-  // const borderColors = SpellData.map((spell) => {
-  //   return "border-" + spell.color;
-  // });
-
-  // console.log("Bgcolors: ", bgColors);
-  // console.log("Bordercolors: ", borderColors);
 
   return (
     <div
@@ -125,47 +164,75 @@ const CreateSpellModal = () => {
           {/* <!-- Modal body --> */}
           <div class="p-6 space-y-6">
             <form class="space-y-6" onSubmit={submitHandler}>
-              <div className="space-y-3">
-                <div className="grid grid-cols-3 gap-3">
-                  {SpellData.map((spell, index) => {
-                    // const path = `/Spells/${spell.name}.svg`;
-                    // console.log("path: ", path);
-                    return (
-                      <div
-                        onClick={() => setspellSelect(spell.name)}
-                        className={`flex items-center ${
-                          spellSelect == spell.name ? bgcolors[index] : ""
-                        } bg-opacity-10 px-3 border-2 ${
-                          spellSelect == spell.name ? bordercolors[index] : ""
-                        } rounded`}
-                      >
-                        <img
-                          src={`/Spells/${spell.name}.svg`}
-                          // src={path}
-                          className={`rounded p-1 ${bgcolors[index]}`}
-                          alt=""
-                        />
-                        <label
-                          for={`bordered-radio-${index}`}
-                          class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              <div className="space-y-6">
+                <div>
+                  <label
+                    for="spellname"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Spell Name
+                  </label>
+                  <input
+                    type="text"
+                    name="spellname"
+                    id="spellname"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="Eg: ChatApp - PRD"
+                    required
+                    onChange={(e) => setspellname(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label
+                    for="name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Spell Type
+                  </label>
+                  <div className="grid grid-cols-3 gap-3">
+                    {SpellData.map((spell, index) => {
+                      // const path = `/Spells/${spell.name}.svg`;
+                      // console.log("path: ", path);
+                      return (
+                        <div
+                          onClick={() => setspellSelect(spell.name)}
+                          className={`flex items-center ${
+                            spellSelect == spell.name ? bgcolors[index] : ""
+                          } bg-opacity-10 px-3 border-2 ${
+                            spellSelect == spell.name ? bordercolors[index] : ""
+                          } rounded`}
                         >
-                          {spell.name}
-                        </label>
-                        <input
-                          id={`bordered-radio-${index}`}
-                          type="radio"
-                          value="product"
-                          name="bordered-radio"
-                          class={`w-4 h-4 ${textcolors[index]} bg-gray-100 border-gray-300 ${ringcolors[index]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
-                        />
-                      </div>
-                    );
-                  })}
+                          <img
+                            src={`/Spells/${spell.name}.svg`}
+                            // src={path}
+                            className={`rounded p-1 ${bgcolors[index]}`}
+                            alt=""
+                          />
+                          <label
+                            for={`bordered-radio-${index}`}
+                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                          >
+                            {spell.name}
+                          </label>
+                          <input
+                            id={`bordered-radio-${index}`}
+                            type="radio"
+                            value="product"
+                            name="bordered-radio"
+                            class={`w-4 h-4 ${textcolors[index]} bg-gray-100 border-gray-300 ${ringcolors[index]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
               <button
                 type="submit"
-                className="flex justify-center text-center w-full text-white bg-[#0568FD] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                disabled={!spellSelect}
+                className={`${
+                  spellSelect ? "bg-blue-700 hover:bg-blue-800" : "bg-blue-400"
+                } flex justify-center text-center w-full text-white bg-[#0568FD]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
               >
                 <span className="">Start Minting</span>
                 <img src="/Sparkles.svg" className="ml-2" alt="" />
@@ -174,6 +241,11 @@ const CreateSpellModal = () => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        className="font-primerg font-medium"
+      />
     </div>
   );
 };
