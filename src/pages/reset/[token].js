@@ -27,7 +27,7 @@ const reset = () => {
 
   return (
     valid && (
-      <div className="font-cabinet h-screen">
+      <div className="t h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full">
           <div className="col-span-1 lg:col-span-2">
             <h3>Reset Page</h3>
