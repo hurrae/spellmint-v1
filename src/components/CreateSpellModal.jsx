@@ -3,10 +3,12 @@ import SpellData from "./data/SpellsData";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
-const CreateSpellModal = ({ proj_id, proj_name, proj_category }) => {
+const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
   const [spellSelect, setspellSelect] = useState("");
   const [spellName, setspellname] = useState("");
+  const [load, setload] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,13 +37,13 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category }) => {
         toast.success(
           <div>
             {" "}
-            Project <strong>{values.name}</strong> Created{" "}
+            Spell <strong>{spellName}</strong> Created{" "}
           </div>
         );
 
         // router.push("/projects/chatapp");
         setTimeout(() => {
-          window.location.href = `${process.env.NEXT_PUBLIC_HOST}/projects/${values.name}`;
+          window.location.href = `${process.env.NEXT_PUBLIC_HOST}/projects/${proj_name}/${spellName}`;
           // router.push('/path-to-redirect');
         }, 3000);
         console.log("Create Project Modal, Response: ", res);
@@ -229,9 +231,11 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category }) => {
               </div>
               <button
                 type="submit"
-                disabled={!spellSelect}
+                disabled={!spellSelect || load}
                 className={`${
-                  spellSelect ? "bg-blue-700 hover:bg-blue-800" : "bg-blue-400"
+                  spellSelect || !load
+                    ? "bg-blue-700 hover:bg-blue-800"
+                    : "bg-blue-400"
                 } flex justify-center text-center w-full text-white bg-[#0568FD]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
               >
                 <span className="">Start Minting</span>

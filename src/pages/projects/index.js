@@ -6,12 +6,41 @@ import CreateProjectModal from "@/components/projectmodals/CreateProjectModal";
 import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
 import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { getSession } from "next-auth/react";
+import Script from "next/script";
 
-const projects = () => {
+const projects = ({ session, projectData }) => {
   const { expand } = useContext(StateContext);
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   console.log("Session in Projects: ", session);
+  const [projectsData, setprojectsData] = useState(projectData);
+  console.log("Projects Data: ", projectsData);
+  // const [load, setload] = useState(true);
+
+  // useEffect(() => {
+  //   axios({
+  //     method: "post",
+  //     url: `${process.env.NEXT_PUBLIC_HOST}/api/projects/getProject`,
+  //     data: {
+  //       user_email: session.user.email,
+  //     },
+  //   })
+  //     .then(function (res) {
+  //       console.log("Get all Project, Response: ", res);
+  //       setprojectsData(res.data);
+  //       setload(false);
+  //     })
+  //     .catch((err) => {
+  //       setload(false);
+  //       console.log("this is get project error", err);
+  //       // toast.error(<div>Project Not Found</div>);
+  //     });
+  // }, []);
+
   return (
+    // !load && (
     <>
       <div>
         <Navbar />
@@ -45,7 +74,7 @@ const projects = () => {
 
             {/* Table */}
             <div>
-              <ProjectTable />
+              <ProjectTable projectsData={projectsData.data} />
             </div>
           </div>
         </div>
@@ -53,6 +82,47 @@ const projects = () => {
       <CreateProjectModal session={session} />
     </>
   );
+  // );
 };
 
 export default projects;
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  // const [projectsData, setprojectsData] = useState(null);
+  // const [load, setload] = useState(true);
+
+  const res = await axios({
+    method: "post",
+    url: `${process.env.NEXT_PUBLIC_HOST}/api/projects/getProject`,
+    data: {
+      user_email: session.user.email,
+    },
+  });
+  console.log("response: ", res);
+  // .then(function (res) {
+  //   console.log("Get all Project, Response: ", res);
+  //   setprojectsData(res.data);
+  //   setload(false);
+  // })
+  // .catch((err) => {
+  //   setload(false);
+  //   console.log("this is get project error", err);
+  //   // toast.error(<div>Project Not Found</div>);
+  // });
+  const projectData = res.data;
+
+  return {
+    props: { session, projectData },
+  };
+}

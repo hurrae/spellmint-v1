@@ -10,6 +10,7 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
     "./node_modules/flowbite-react/**/*.js",
   ],
+  plugins: [require("flowbite/plugin")],
   theme: {
     extend: {
       fontFamily: {
@@ -22,5 +23,4 @@ module.exports = {
       blshade: "#0568FD",
     },
   },
-  plugins: [require("flowbite/plugin")],
 };

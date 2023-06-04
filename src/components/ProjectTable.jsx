@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-const ProjectTable = () => {
+const ProjectTable = ({ projectsData }) => {
+  console.log("inside project Table: ", projectsData);
   return (
     <>
       <div class=" overflow-x-auto  sm:rounded-lg">
@@ -27,10 +28,18 @@ const ProjectTable = () => {
             </tr>
           </thead>
           <tbody>
-            <TableRow ind={0} />
-            <TableRow ind={1} />
-            <TableRow ind={0} />
-            <TableRow ind={1} />
+            {projectsData.map((project) => {
+              return (
+                <TableRow
+                  name={project.name}
+                  createdOn={project.created_on}
+                  lastEditedOn={project.last_edited_on}
+                  created_by={project.created_by}
+                  category={project.category}
+                  ind={0}
+                />
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -41,9 +50,24 @@ const ProjectTable = () => {
 
 export default ProjectTable;
 
-const TableRow = ({ ind }) => {
+const TableRow = ({
+  ind,
+  name,
+  createdOn,
+  lastEditedOn,
+  created_by,
+  category,
+}) => {
   //   console.log("Log: ", ind);
   const router = useRouter();
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { month: "long", day: "numeric", year: "numeric" };
+    return date.toLocaleDateString("en-US", options);
+  }
+
+  const fCreatedOn = formatDate(createdOn);
+  const fLastEditedOn = formatDate(lastEditedOn);
   return (
     <tr
       // class={` border-b ${
@@ -52,18 +76,18 @@ const TableRow = ({ ind }) => {
       class={` border-b bg-white dark:bg-gray-900 dark:border-gray-700`}
     >
       <th
-        onClick={() => router.push(router.asPath + "/chatapp")}
+        // onClick={() => router.push(router.asPath + "/chatapp")}
         scope="row"
         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
       >
-        Spellmint
+        <a href={`/projects/${name}`}>{name}</a>
       </th>
-      <td class="px-6 py-4">April 24, 2023</td>
-      <td class="px-6 py-4">30 minutes ago</td>
-      <td class="px-6 py-4 font-medium text-gray-900">Manoj Maheshwar</td>
+      <td class="px-6 py-4">{fCreatedOn}</td>
+      <td class="px-6 py-4">{fLastEditedOn}</td>
+      <td class="px-6 py-4 font-medium text-gray-900">{created_by}</td>
       <td class="px-6 py-4">
         <span className="font-medium bg-[#E5E6EB] p-1 px-2 rounded text-[#697283]">
-          Software Product
+          {category}
         </span>
       </td>
       <td>
