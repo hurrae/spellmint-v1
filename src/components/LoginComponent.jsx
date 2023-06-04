@@ -25,7 +25,7 @@ const LoginComponent = ({ forgotBool }) => {
       redirect: false,
       email: values.email,
       password: values.password,
-      callbackUrl: "/dashboard",
+      callbackUrl: "/redirection",
     });
 
     if (status.ok) router.push(status.url);
@@ -33,7 +33,7 @@ const LoginComponent = ({ forgotBool }) => {
 
   async function handleGoogleSignin() {
     signIn("google", {
-      callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/dashboard`,
+      callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/redirection`,
     });
   }
 

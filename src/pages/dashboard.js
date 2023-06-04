@@ -11,9 +11,13 @@ import {
   SurfaceHub24Regular,
   ArrowRight16Filled,
 } from "@fluentui/react-icons";
+import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
 const dashboard = () => {
   const { expand } = useContext(StateContext);
+  const { data: session } = useSession();
+  console.log(session, "i am session you wanted");
   return (
     <>
       <Head></Head>
@@ -139,3 +143,20 @@ const Category = ({ title, desc, imgLink }) => {
     </div>
   );
 };
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}
