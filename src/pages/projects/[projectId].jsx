@@ -58,10 +58,10 @@ const ProjectDashboard = ({ session, url, projectData }) => {
           <div class="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div className="flex space-x-3">
               <h2
-                onClick={() => router.push("/projects")}
+                // onClick={() => router.push("/projects")}
                 className="text-xl my-auto cursor-pointer"
               >
-                Projects
+                <a href="/projects">Projects</a>
               </h2>
               <span className="my-auto">
                 <ChevronRight20Filled />
@@ -107,8 +107,8 @@ const ProjectDashboard = ({ session, url, projectData }) => {
 
             {/* Table */}
             <div>
-              {table.length > 0 ? (
-                <SpellTable />
+              {projData.spells.length > 0 ? (
+                <SpellTable spells={projData.spells} />
               ) : (
                 <div className="flex">
                   <div className="mx-auto mt-14 text-center space-y-6">
@@ -123,8 +123,8 @@ const ProjectDashboard = ({ session, url, projectData }) => {
                     </p>
                     {/* </div> */}
                     <button
-                      data-modal-target="project-modal"
-                      data-modal-toggle="project-modal"
+                      data-modal-target="spell-modal"
+                      data-modal-toggle="spell-modal"
                       className="mx-auto rounded my-auto flex p-2 px-4 font-semibold bg-[#0568FD] text-white"
                       type="button"
                     >

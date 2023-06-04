@@ -1,7 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
+import SpellData from "./data/SpellsData";
+import { bgcolors, textcolors } from "./data/SpellColors";
 
-const SpellTable = () => {
+const SpellTable = ({ spells }) => {
   return (
     <>
       <div class=" overflow-x-auto  sm:rounded-lg">
@@ -27,8 +29,18 @@ const SpellTable = () => {
             </tr>
           </thead>
           <tbody>
-            <SpellTableRow ind={0} />
-            <SpellTableRow ind={1} />
+            {spells.map((spell) => {
+              return (
+                <SpellTableRow
+                  ind={0}
+                  name={spell.name}
+                  created_on={spell.created_on}
+                  last_edited_on={spell.last_edited_on}
+                  created_by={spell.created_by}
+                  spell_type={spell.spell_type}
+                />
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -39,8 +51,27 @@ const SpellTable = () => {
 
 export default SpellTable;
 
-const SpellTableRow = ({ ind }) => {
+const SpellTableRow = ({
+  ind,
+  name,
+  created_on,
+  last_edited_on,
+  created_by,
+  spell_type,
+}) => {
   //   console.log("Log: ", ind);
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { month: "long", day: "numeric", year: "numeric" };
+    return date.toLocaleDateString("en-US", options);
+  }
+
+  const fCreatedOn = formatDate(created_on);
+  const fLastEditedOn = formatDate(last_edited_on);
+
+  const cid = SpellData.find((spell) => spell.name == spell_type).id;
+  console.log("Selected Spell", cid);
+
   const router = useRouter();
   return (
     <tr
@@ -53,14 +84,18 @@ const SpellTableRow = ({ ind }) => {
         scope="row"
         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
       >
-        ChatApp - PRD
+        {name}
       </th>
-      <td class="px-6 py-4">April 24, 2023</td>
-      <td class="px-6 py-4">30 minutes ago</td>
-      <td class="px-6 py-4 font-medium text-gray-900">Manoj Maheshwar</td>
+      <td class="px-6 py-4">{fCreatedOn}</td>
+      <td class="px-6 py-4">{fLastEditedOn}</td>
+      <td class="px-6 py-4 font-medium text-gray-900">{created_by}</td>
       <td class="px-6 py-4">
-        <span className="font-medium bg-[#DDEBFF] p-1 px-2 rounded text-blue-600">
-          Software Product
+        <span
+          className={`font-medium bg-opacity-20 ${
+            bgcolors[cid - 1]
+          } p-1 px-2 rounded ${textcolors[cid - 1]}`}
+        >
+          {spell_type}
         </span>
       </td>
       <td>

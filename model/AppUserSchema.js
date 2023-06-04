@@ -1,5 +1,11 @@
 import { Schema, model, models } from "mongoose";
 
+const projectSchema = new Schema({
+  proj_id: { type: String, required: true },
+  name: { type: String, required: true },
+  category: { type: String, required: true },
+});
+
 const appUserSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
@@ -8,7 +14,7 @@ const appUserSchema = new Schema({
     required: true,
     default: Math.floor(Math.random() * 100),
   },
-  projects: [{ type: Schema.Types.ObjectId, ref: "project" }],
+  projects: [projectSchema],
 });
 
 const AppUsers = models.appUser || model("appUser", appUserSchema);

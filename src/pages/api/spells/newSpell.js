@@ -1,5 +1,6 @@
 import connectMongo from "../../../../connect/DBconnect";
 import Spells from "../../../../model/SpellSchema";
+import Projects from "../../../../model/ProjectSchema";
 
 export default async function handler(req, res) {
   connectMongo().catch((error) => res.json({ error: "Connection Failed...!" }));
@@ -24,12 +25,18 @@ export default async function handler(req, res) {
     const checkexisting = await Spells.findOne({
       user_email,
       name: name,
+      proj_name,
     });
     if (checkexisting) {
       console.log("Double Spell spotted");
-      return res.status(200).json({ message: "Spell Already Exists...!" });
+      return res.status(400).json({ message: "Spell Already Exists...!" });
     } else {
       try {
+        const project = await Projects.findOne({ name: proj_name, user_email });
+        if (!project) {
+          return res.status(404).json({ error: "Project not found" });
+        }
+
         let spell = new Spells({
           spell_id: "spellid12",
           name,
@@ -42,7 +49,12 @@ export default async function handler(req, res) {
         });
 
         const resData = await spell.save();
-        console.log("Project ResData: ", resData);
+        console.log("Spell ResData: ", resData);
+
+        project.spells.push(resData);
+        // Save the updated project document
+        const prResData = await project.save();
+        console.log("Project Updated Data: ", prResData);
 
         res.status(200).json({ data: resData });
       } catch (err) {
