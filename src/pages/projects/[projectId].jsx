@@ -16,6 +16,7 @@ import { getSession } from "next-auth/react";
 const ProjectDashboard = ({ session, url, projectData }) => {
   const { expand } = useContext(StateContext);
   const router = useRouter();
+  // console.log("Project Path: ", );
   const table = [1, 2];
   // const { data: session } = useSession();
   console.log("req data: ", url);
@@ -61,7 +62,7 @@ const ProjectDashboard = ({ session, url, projectData }) => {
                 // onClick={() => router.push("/projects")}
                 className="text-xl my-auto cursor-pointer"
               >
-                <a href="/projects">Projects</a>
+                <a href={"/projects"}>Projects</a>
               </h2>
               <span className="my-auto">
                 <ChevronRight20Filled />

@@ -1,8 +1,15 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const ProjectTable = ({ projectsData }) => {
   console.log("inside project Table: ", projectsData);
+  const [toDelete, settoDelete] = useState({ name: "", id: "" });
+  function handleDeleteClick(name, id) {
+    console.log("name, id: ", name, id);
+    settoDelete({ name, id });
+  }
   return (
     <>
       <div class=" overflow-x-auto  sm:rounded-lg">
@@ -28,9 +35,12 @@ const ProjectTable = ({ projectsData }) => {
             </tr>
           </thead>
           <tbody>
-            {projectsData.map((project) => {
+            {projectsData.map((project, index) => {
               return (
                 <TableRow
+                  handleDeleteClick={handleDeleteClick}
+                  index={index}
+                  id={project._id}
                   name={project.name}
                   createdOn={project.created_on}
                   lastEditedOn={project.last_edited_on}
@@ -43,7 +53,8 @@ const ProjectTable = ({ projectsData }) => {
           </tbody>
         </table>
       </div>
-      <DeleteProjectModal />
+      (
+      <DeleteProjectModal toDelete={toDelete} />)
     </>
   );
 };
@@ -51,14 +62,18 @@ const ProjectTable = ({ projectsData }) => {
 export default ProjectTable;
 
 const TableRow = ({
+  id,
   ind,
+  handleDeleteClick,
   name,
   createdOn,
   lastEditedOn,
   created_by,
   category,
+  index,
 }) => {
-  //   console.log("Log: ", ind);
+  console.log("Log: ", name, id);
+  console.log("Index: ", index);
   const router = useRouter();
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -68,6 +83,7 @@ const TableRow = ({
 
   const fCreatedOn = formatDate(createdOn);
   const fLastEditedOn = formatDate(lastEditedOn);
+
   return (
     <tr
       // class={` border-b ${
@@ -95,7 +111,7 @@ const TableRow = ({
           id="dropdownMenuIconButton"
           // data-dropdown-toggle="dropdownDots"
           aria-expanded="false"
-          data-dropdown-toggle="dropdown-menu"
+          data-dropdown-toggle={`dropdown-menu-${index + 1}`}
           class="inline-flex items-center p-2 text-base font-medium text-center text-grshade  rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           type="button"
         >
@@ -112,7 +128,7 @@ const TableRow = ({
         {/* <!-- Dropdown menu --> */}
         <div
           class="z-30 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-          id="dropdown-menu"
+          id={`dropdown-menu-${index + 1}`}
         >
           <ul class="py-1" role="none">
             <li>
@@ -144,6 +160,7 @@ const TableRow = ({
             </li>
             <li>
               <button
+                onClick={() => handleDeleteClick(name, id)}
                 data-modal-target="delete-modal"
                 data-modal-toggle="delete-modal"
                 class="block w-full py-2  text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -159,7 +176,8 @@ const TableRow = ({
   );
 };
 
-const DeleteProjectModal = () => {
+const DeleteProjectModal = ({ toDelete }) => {
+  console.log(toDelete);
   return (
     <div
       id="delete-modal"
@@ -205,8 +223,8 @@ const DeleteProjectModal = () => {
             <div className="text-[#697283] space-y-4 mb-3">
               <p>
                 Are you sure you want to delete{" "}
-                <span className="font-bold">Crushvest?</span> and its contents?
-                Any credit usage in progress will not be refunded.
+                <span className="font-bold">{toDelete.name}?</span> and its
+                contents? Any credit usage in progress will not be refunded.
               </p>
               <p>Note: You can’t undo this action.</p>
             </div>

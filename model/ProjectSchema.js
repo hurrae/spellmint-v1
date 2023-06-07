@@ -20,7 +20,6 @@ const projectSchema = new Schema({
   last_edited_on: { type: Date, default: Date.now },
   created_by: { type: String, required: true },
   spells: [spellSchema],
-  // spells: [String]
 });
 
 const Projects = models.project || model("project", projectSchema);

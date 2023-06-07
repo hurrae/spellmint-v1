@@ -47,7 +47,7 @@ export default async function handler(req, res) {
 
         res.status(200).json({ data: resData });
       } catch (err) {
-        console.log(err, "i am in project backend");
+        console.log(err, "i am in create project backend");
       }
     }
   } else {

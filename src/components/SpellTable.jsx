@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import SpellData from "./data/SpellsData";
 import { bgcolors, textcolors } from "./data/SpellColors";
+import { useState } from "react";
 
 const SpellTable = ({ spells }) => {
   return (
@@ -33,6 +34,7 @@ const SpellTable = ({ spells }) => {
               return (
                 <SpellTableRow
                   ind={0}
+                  spellid={spell._id}
                   name={spell.name}
                   created_on={spell.created_on}
                   last_edited_on={spell.last_edited_on}
@@ -53,6 +55,7 @@ export default SpellTable;
 
 const SpellTableRow = ({
   ind,
+  spellid,
   name,
   created_on,
   last_edited_on,
@@ -73,6 +76,7 @@ const SpellTableRow = ({
   console.log("Selected Spell", cid);
 
   const router = useRouter();
+  // console.log("Spell Table Router: ", router);
   return (
     <tr
       class={` border-b ${
@@ -80,11 +84,10 @@ const SpellTableRow = ({
       }  dark:bg-gray-900 dark:border-gray-700`}
     >
       <th
-        onClick={() => router.push(router.asPath + "/spell1")}
         scope="row"
         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
       >
-        {name}
+        <a href={router.asPath + `/${name}`}>{name}</a>
       </th>
       <td class="px-6 py-4">{fCreatedOn}</td>
       <td class="px-6 py-4">{fLastEditedOn}</td>
