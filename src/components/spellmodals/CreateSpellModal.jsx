@@ -1,9 +1,15 @@
 import React from "react";
-import SpellData from "./data/SpellsData";
+import SpellData from "../data/SpellsData";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import {
+  bgcolors,
+  bordercolors,
+  textcolors,
+  ringcolors,
+} from "../data/SpellColors";
 
 const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
   const [spellSelect, setspellSelect] = useState("");
@@ -55,7 +61,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
         toast.error(
           <div>
             {" "}
-            Project <strong>{values.name}</strong> already exists{" "}
+            Spell <strong>{spellName}</strong> already exists{" "}
           </div>
         );
         // if (err.response.status == 400) {
@@ -66,62 +72,6 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
         // }
       });
   };
-
-  const bgcolors = [
-    "bg-[#0568FD]",
-    "bg-[#46BD0E]",
-    "bg-[#EE0A18]",
-    "bg-[#FF8328]",
-    "bg-[#C158E7]",
-    "bg-[#41ADDA]",
-    "bg-[#3F5DC8]",
-    "bg-[#F041AA]",
-    "bg-[#AD6523]",
-    "bg-[#6D00FF]",
-    "bg-[#12C0C2]",
-  ];
-
-  const bordercolors = [
-    "border-[#0568FD]",
-    "border-[#46BD0E]",
-    "border-[#EE0A18]",
-    "border-[#FF8328]",
-    "border-[#C158E7]",
-    "border-[#41ADDA]",
-    "border-[#3F5DC8]",
-    "border-[#F041AA]",
-    "border-[#AD6523]",
-    "border-[#6D00FF]",
-    "border-[#12C0C2]",
-  ];
-
-  const textcolors = [
-    "text-[#0568FD]",
-    "text-[#46BD0E]",
-    "text-[#EE0A18]",
-    "text-[#FF8328]",
-    "text-[#C158E7]",
-    "text-[#41ADDA]",
-    "text-[#3F5DC8]",
-    "text-[#F041AA]",
-    "text-[#AD6523]",
-    "text-[#6D00FF]",
-    "text-[#12C0C2]",
-  ];
-
-  const ringcolors = [
-    "focus:ring-[#0568FD]",
-    "focus:ring-[#46BD0E]",
-    "focus:ring-[#EE0A18]",
-    "focus:ring-[#FF8328]",
-    "focus:ring-[#C158E7]",
-    "focus:ring-[#41ADDA]",
-    "focus:ring-[#3F5DC8]",
-    "focus:ring-[#F041AA]",
-    "focus:ring-[#AD6523]",
-    "focus:ring-[#6D00FF]",
-    "focus:ring-[#12C0C2]",
-  ];
 
   return (
     <div
@@ -139,7 +89,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                 Mint a New Spell
               </h3>
               <p className="text-gray-500">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Choose a spell and start crafting your unique narrative.
               </p>
             </div>
             <button
@@ -233,7 +183,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                 type="submit"
                 disabled={!spellSelect || load}
                 className={`${
-                  spellSelect || !load
+                  spellSelect && !load
                     ? "bg-blue-700 hover:bg-blue-800"
                     : "bg-blue-400"
                 } flex justify-center text-center w-full text-white bg-[#0568FD]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}

@@ -1,4 +1,5 @@
 import connectMongo from "../../../../connect/DBconnect";
+import AppUsers from "../../../../model/AppUserSchema";
 import Projects from "../../../../model/ProjectSchema";
 
 export default async function handler(req, res) {
@@ -22,6 +23,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: "Project Already Exists...!" });
     } else {
       try {
+        const user = await AppUsers.findOne({ email: user_email });
+        if (!user) {
+          return res.status(404).json({ error: "User not found" });
+        }
+
         let project = new Projects({
           proj_id: "projid12",
           name,
@@ -34,9 +40,14 @@ export default async function handler(req, res) {
         const resData = await project.save();
         console.log("Project ResData: ", resData);
 
+        user.projects.push(resData);
+        // Save the updated project document
+        const AppUserResData = await user.save();
+        console.log("AppUser Updated Data: ", AppUserResData);
+
         res.status(200).json({ data: resData });
       } catch (err) {
-        console.log(err, "i am in project backend");
+        console.log(err, "i am in create project backend");
       }
     }
   } else {

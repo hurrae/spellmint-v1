@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { getSession } from "next-auth/react";
 import Script from "next/script";
+import { Wand48Regular } from "@fluentui/react-icons";
 
 const projects = ({ session, projectData }) => {
   const { expand } = useContext(StateContext);
@@ -74,7 +75,37 @@ const projects = ({ session, projectData }) => {
 
             {/* Table */}
             <div>
-              <ProjectTable projectsData={projectsData.data} />
+              {projectsData.data.length > 0 ? (
+                <ProjectTable projectsData={projectsData.data} />
+              ) : (
+                <div className="flex">
+                  <div className="mx-auto mt-14 text-center space-y-6">
+                    <div className="mx-auto p-4 bg-[#E6F0FF] h-fit w-fit rounded-full">
+                      <Wand48Regular className="text-[#0568FD4D]" />
+                    </div>
+                    {/* <div className=""> */}
+                    <p className="mx-auto w-[40%] text-[#697283] text-center">
+                      Leverage the power of our platform to transform your
+                      unique ideas into reality. Get started, and let your
+                      creativity flow!
+                    </p>
+                    {/* </div> */}
+                    <button
+                      data-modal-target="project-modal"
+                      data-modal-toggle="project-modal"
+                      className="mx-auto rounded my-auto flex p-2 px-4 font-semibold bg-[#0568FD] text-white"
+                      type="button"
+                    >
+                      New Project
+                      {/* <img
+                        src="/Sparkles.svg"
+                        className="my-auto ml-1"
+                        alt=""
+                      /> */}
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -98,9 +129,6 @@ export async function getServerSideProps({ req }) {
       },
     };
   }
-
-  // const [projectsData, setprojectsData] = useState(null);
-  // const [load, setload] = useState(true);
 
   const res = await axios({
     method: "post",
