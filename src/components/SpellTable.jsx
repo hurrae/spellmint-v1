@@ -57,7 +57,11 @@ const SpellTable = ({ spells }) => {
           </tbody>
         </table>
       </div>
-      <DeleteSpellModal session={session} toDelete={toDelete} />
+      <DeleteSpellModal
+        session={session}
+        toDelete={toDelete}
+        page={"project"}
+      />
     </>
   );
 };

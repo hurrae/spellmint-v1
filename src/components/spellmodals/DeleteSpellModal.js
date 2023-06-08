@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { useState } from "react";
 
-const DeleteSpellModal = ({ toDelete, session }) => {
+const DeleteSpellModal = ({ toDelete, session, page }) => {
   console.log(toDelete);
   const [load, setload] = useState(false);
   const router = useRouter();
@@ -29,7 +29,20 @@ const DeleteSpellModal = ({ toDelete, session }) => {
           </div>
         );
         setTimeout(() => {
-          window.location.href = `${process.env.NEXT_PUBLIC_HOST}${router.asPath}`;
+          if (page == "project") {
+            window.location.href = `${process.env.NEXT_PUBLIC_HOST}${router.asPath}`;
+          } else {
+            function modPath(path) {
+              const lastSlashIndex = path.lastIndexOf("/");
+              if (lastSlashIndex !== -1) {
+                return path.substring(0, lastSlashIndex);
+              }
+              return path;
+            }
+
+            const newPath = modPath(router.asPath);
+            window.location.href = `${process.env.NEXT_PUBLIC_HOST}${newPath}`;
+          }
         }, 3000);
         console.log("Delete Spell Modal, Response: ", res);
         setload(false);

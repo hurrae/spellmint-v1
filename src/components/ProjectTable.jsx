@@ -57,8 +57,7 @@ const ProjectTable = ({ projectsData }) => {
           </tbody>
         </table>
       </div>
-      (
-      <DeleteProjectModal session={session} toDelete={toDelete} />)
+      <DeleteProjectModal session={session} toDelete={toDelete} />
     </>
   );
 };

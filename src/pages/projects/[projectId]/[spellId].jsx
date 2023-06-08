@@ -20,14 +20,19 @@ import { useState } from "react";
 import Editor2 from "@/components/Editor2";
 import DeleteSpellModal from "@/components/spellmodals/DeleteSpellModal";
 import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
-const SpellDashboard = () => {
+const SpellDashboard = ({ session, spellsData }) => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
   const router = useRouter();
-  const [toDelete, settoDelete] = useState({ name: "", id: "" });
-  const { data: session } = useSession();
-
+  // const { data: session } = useSession();
+  const [spellData, setspellData] = useState(spellsData.data);
+  const [toDelete, settoDelete] = useState({
+    name: spellData.name,
+    id: spellData._id,
+  });
+  console.log("Inside spell page: ", spellData);
   // const [initText, setinitText] = useState(
   //   "<p><strong>Product Description:</strong> This product is an AI-powered chatbot designed to answer your questions about any topic. It is equipped with a powerful natural-language processing engine that can understand complicated conversations. It also has a vast knowledge base filled with extensive training data, so it can quickly process your inquiries and provide comprehensive and accurate answers.</p><p><strong>Scenario (Explained to a 5-Year Old):</strong> This product is like a super smart friend who knows about any topic you can think of. Whenever you have a question, just ask the AI and it will give you an answer.</p><p><strong>Use-cases:</strong></p><ol><li><strong>Research:</strong> Quickly and accurately answer questions about an unfamiliar topic.</li><li><strong>Communications:</strong> Easily explain complex concepts for conversations with friends or family.</li><li><strong>Education:</strong> Aid in learning new skills by providing clear explanations and helpful examples.</li></ol>"
   // );
@@ -54,7 +59,7 @@ const SpellDashboard = () => {
                 >
                   <ArrowLeft24Regular />
                 </span>
-                <h2 className="text-xl my-auto">ChatApp - PRD |</h2>
+                <h2 className="text-xl my-auto">{spellData.name} |</h2>
                 {/* <span className="my-auto">
                 <ChevronRight20Filled />
               </span>
@@ -69,8 +74,8 @@ const SpellDashboard = () => {
                   <Link24Regular />
                 </button>
                 <button
-                  data-modal-target="delete-modal"
-                  data-modal-toggle="delete-modal"
+                  data-modal-target="spell-delete-modal"
+                  data-modal-toggle="spell-delete-modal"
                   type="button"
                   className="mr-3 p-1 bg-[#EA4335] rounded text-white"
                 >
@@ -109,7 +114,7 @@ const SpellDashboard = () => {
           </div>
         </div>
       </div>
-      <DeleteSpellModal session={session} toDelete={toDelete} />
+      <DeleteSpellModal session={session} toDelete={toDelete} page={"spell"} />
     </>
   );
 };
@@ -295,3 +300,37 @@ const SpellForm = ({ initText, setinitText }) => {
     </form>
   );
 };
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  let { url } = req;
+  url = url.split("/");
+  const proj_name = url[2].replace(/%20/g, " ");
+  const spell_name = url[3].replace(/%20/g, " ");
+
+  const res = await axios({
+    method: "post",
+    url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/getSpell`,
+    data: {
+      user_email: session.user.email,
+      proj_name,
+      spell_name,
+    },
+  });
+  console.log("response: ", res);
+  const spellsData = res.data;
+
+  return {
+    props: { session, spellsData },
+  };
+}
