@@ -5,7 +5,7 @@ import SpellTable from "@/components/SpellTable";
 import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
 import { ChevronRight20Filled, Wand48Regular } from "@fluentui/react-icons";
-import CreateSpellModal from "@/components/CreateSpellModal";
+import CreateSpellModal from "@/components/spellmodals/CreateSpellModal";
 import { useRouter } from "next/router";
 import EditProjectModal from "@/components/projectmodals/EditProjectModal";
 import { useEffect, useState } from "react";

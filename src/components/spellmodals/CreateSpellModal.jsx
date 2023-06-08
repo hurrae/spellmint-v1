@@ -1,5 +1,5 @@
 import React from "react";
-import SpellData from "./data/SpellsData";
+import SpellData from "../data/SpellsData";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,7 +9,7 @@ import {
   bordercolors,
   textcolors,
   ringcolors,
-} from "./data/SpellColors";
+} from "../data/SpellColors";
 
 const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
   const [spellSelect, setspellSelect] = useState("");
