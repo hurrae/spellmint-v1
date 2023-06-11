@@ -134,7 +134,7 @@ const TableRow = ({
           id={`dropdown-menu-${index + 1}`}
         >
           <ul class="py-1" role="none">
-            <li>
+            {/* <li>
               <a
                 href="#"
                 class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -142,8 +142,8 @@ const TableRow = ({
               >
                 Edit
               </a>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <a
                 href="#"
                 class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -151,7 +151,7 @@ const TableRow = ({
               >
                 Rename
               </a>
-            </li>
+            </li> */}
             <li>
               <a
                 href="#"

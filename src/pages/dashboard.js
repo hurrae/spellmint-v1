@@ -133,7 +133,7 @@ export default dashboard;
 const Category = ({ title, desc, imgLink }) => {
   return (
     <div className="border-2 rounded-lg overflow-hidden">
-      <div className="h-32 bg-gray-50">
+      <div className="h-34 bg-gray-50">
         <img src={imgLink} alt="" />
       </div>
       <div className="space-y-2 p-3 bg-white text-center">

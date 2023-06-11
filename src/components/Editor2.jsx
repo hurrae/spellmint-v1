@@ -33,8 +33,8 @@ const Editor2 = ({ initText }) => {
       setDefaultStyle="font-family: 'Inter Tight', sans-serif; font-size: 18px;"
       setOptions={{
         showPathLabel: false,
-        minHeight: "50vh",
-        maxHeight: "50vh",
+        minHeight: "70vh",
+        maxHeight: "70vh",
         placeholder: "Enter your text here!!!",
 
         buttonList: [
