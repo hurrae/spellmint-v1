@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import SpellData from "./data/SpellsData";
+import SpellTypes from "./data/SpellsData";
 import { bgcolors, textcolors } from "./data/SpellColors";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
@@ -89,7 +89,7 @@ const SpellTableRow = ({
   const fCreatedOn = formatDate(created_on);
   const fLastEditedOn = formatDate(last_edited_on);
 
-  const cid = SpellData.find((spell) => spell.name == spell_type).id;
+  const cid = SpellTypes.find((spell) => spell.name == spell_type).id;
   console.log("Selected Spell", cid);
 
   const router = useRouter();
@@ -145,7 +145,7 @@ const SpellTableRow = ({
           <ul class="py-1" role="none">
             <li>
               <a
-                href="#"
+                href={router.asPath + `/${name}`}
                 class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >

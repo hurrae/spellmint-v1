@@ -1,18 +1,14 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import SpellTable from "@/components/SpellTable";
 import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
 import {
-  ChevronRight20Filled,
-  Wand48Regular,
   ArrowLeft24Regular,
   Delete24Regular,
   Link24Regular,
 } from "@fluentui/react-icons";
-import CreateSpellModal from "@/components/spellmodals/CreateSpellModal";
-import Editor from "@/components/Editor";
+// import Editor from "@/components/Editor";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import axios from "axios";
@@ -21,6 +17,10 @@ import Editor2 from "@/components/Editor2";
 import DeleteSpellModal from "@/components/spellmodals/DeleteSpellModal";
 import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Edit20Regular } from "@fluentui/react-icons";
+import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
 
 const SpellDashboard = ({ session, spellsData }) => {
   const { expand } = useContext(StateContext);
@@ -28,11 +28,13 @@ const SpellDashboard = ({ session, spellsData }) => {
   const router = useRouter();
   // const { data: session } = useSession();
   const [spellData, setspellData] = useState(spellsData.data);
+  const [spellName, setspellName] = useState(spellData.name);
   const [toDelete, settoDelete] = useState({
     name: spellData.name,
     id: spellData._id,
   });
   console.log("Inside spell page: ", spellData);
+  // let oldSpellName = spellName;
   // const [initText, setinitText] = useState(
   //   "<p><strong>Product Description:</strong> This product is an AI-powered chatbot designed to answer your questions about any topic. It is equipped with a powerful natural-language processing engine that can understand complicated conversations. It also has a vast knowledge base filled with extensive training data, so it can quickly process your inquiries and provide comprehensive and accurate answers.</p><p><strong>Scenario (Explained to a 5-Year Old):</strong> This product is like a super smart friend who knows about any topic you can think of. Whenever you have a question, just ask the AI and it will give you an answer.</p><p><strong>Use-cases:</strong></p><ol><li><strong>Research:</strong> Quickly and accurately answer questions about an unfamiliar topic.</li><li><strong>Communications:</strong> Easily explain complex concepts for conversations with friends or family.</li><li><strong>Education:</strong> Aid in learning new skills by providing clear explanations and helpful examples.</li></ol>"
   // );
@@ -40,7 +42,39 @@ const SpellDashboard = ({ session, spellsData }) => {
   const [initText, setinitText] = useState(
     '<h2 style="text-align: center">ChatApp - Product Requirements Document</h2><p><br></p>'
   );
-  //   const table = [];
+
+  const [isEditing, setisEditing] = useState(false);
+  function handleBlurClick() {
+    if (spellName.length >= 3) {
+      axios({
+        method: "post",
+        url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/renameSpell`,
+        data: {
+          proj_name: spellData.proj_name,
+          spellId: spellData._id,
+          user_email: session.user.email,
+          newSpellName: spellName,
+        },
+      })
+        .then(function (res) {
+          setisEditing(false);
+          // oldSpellName = spellName;
+          toast.success(<div> Spell Name Updated </div>);
+          // router.push(`/projects/${spellData.proj_name}/${spellName}`);
+          const newUrl = `/projects/${spellData.proj_name}/${spellName}`;
+          window.history.pushState({}, "", newUrl);
+          console.log("Rename spell, Response: ", res);
+          // setload(false);
+        })
+        .catch((err) => {
+          // setload(false);
+          console.log("this is edit spell name error", err);
+          toast.error(
+            <div> Spell with that name already exists in this project </div>
+          );
+        });
+    }
+  }
 
   return (
     <>
@@ -59,7 +93,26 @@ const SpellDashboard = ({ session, spellsData }) => {
                 >
                   <ArrowLeft24Regular />
                 </span>
-                <h2 className="text-xl my-auto">{spellData.name} |</h2>
+
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={spellName}
+                    required
+                    onChange={(e) => setspellName(e.target.value)}
+                    onBlur={handleBlurClick}
+                    className="py-0 px-2 text-lg"
+                    autoFocus
+                  />
+                ) : (
+                  <>
+                    <h2 className="text-xl my-auto">{spellName}</h2>
+                    <Edit20Regular
+                      className="cursor-pointer text-[#697283] my-auto "
+                      onClick={() => setisEditing(true)}
+                    />
+                  </>
+                )}
                 {/* <span className="my-auto">
                 <ChevronRight20Filled />
               </span>
@@ -70,7 +123,11 @@ const SpellDashboard = ({ session, spellsData }) => {
               </div>
 
               <div>
-                <button className="mr-3 p-1 bg-[#0568FD] rounded text-white">
+                <button
+                  data-modal-target="spell-share-modal"
+                  data-modal-toggle="spell-share-modal"
+                  className="mr-3 p-1 bg-[#0568FD] rounded text-white"
+                >
                   <Link24Regular />
                 </button>
                 <button
@@ -114,7 +171,13 @@ const SpellDashboard = ({ session, spellsData }) => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        className="font-medium"
+      />
       <DeleteSpellModal session={session} toDelete={toDelete} page={"spell"} />
+      <ShareSpellModal spellData={spellData} />
     </>
   );
 };

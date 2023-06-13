@@ -12,25 +12,17 @@ export default async function handler(req, res) {
     console.log("req body: ", req.body);
     const { user_email, proj_name, spell_name } = req.body;
 
-    // if (user_email && !spell_name) {
-    //   try {
-    //     const spells = await Spells.find({ user_email, proj_name, spell_name });
-    //     res.status(200).json({ data: spells });
-    //   } catch (error) {
-    //     res.status(500).json({ message: "Server error" });
-    //   }
-    // } else
     if (user_email && spell_name && proj_name) {
       try {
-        const project = await Spells.findOne({
+        const spell = await Spells.findOne({
           user_email,
           proj_name,
           name: spell_name,
         });
-        if (project) {
-          res.status(200).json({ data: project });
+        if (spell) {
+          res.status(200).json({ data: spell });
         } else {
-          res.status(404).json({ message: "Project not found" });
+          res.status(404).json({ message: "Spell not found" });
         }
       } catch (error) {
         res.status(500).json({ message: "Server error" });

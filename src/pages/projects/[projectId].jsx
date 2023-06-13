@@ -149,7 +149,7 @@ const ProjectDashboard = ({ session, url, projectData }) => {
         proj_category={projData.category}
         session={session}
       />
-      <EditProjectModal />
+      <EditProjectModal projData={projData} session={session} />
     </>
   );
 };

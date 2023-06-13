@@ -1,5 +1,4 @@
 import React from "react";
-import SpellData from "../data/SpellsData";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,11 +9,18 @@ import {
   textcolors,
   ringcolors,
 } from "../data/SpellColors";
+import { CatSpellMap } from "../data/SpellsData";
+import SpellTypes from "../data/SpellsData";
 
 const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
   const [spellSelect, setspellSelect] = useState("");
   const [spellName, setspellname] = useState("");
   const [load, setload] = useState(false);
+
+  const spellsubset = CatSpellMap[proj_category] || [];
+  const SpellData = SpellTypes.filter((spellType) =>
+    spellsubset.includes(spellType.name)
+  );
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -145,33 +151,34 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                     {SpellData.map((spell, index) => {
                       // const path = `/Spells/${spell.name}.svg`;
                       // console.log("path: ", path);
+                      const id = spell.id - 1;
                       return (
                         <div
                           onClick={() => setspellSelect(spell.name)}
                           className={`flex items-center ${
-                            spellSelect == spell.name ? bgcolors[index] : ""
+                            spellSelect == spell.name ? bgcolors[id] : ""
                           } bg-opacity-10 px-3 border-2 ${
-                            spellSelect == spell.name ? bordercolors[index] : ""
+                            spellSelect == spell.name ? bordercolors[id] : ""
                           } rounded`}
                         >
                           <img
                             src={`/Spells/${spell.name}.svg`}
                             // src={path}
-                            className={`rounded p-1 ${bgcolors[index]}`}
+                            className={`rounded p-1 ${bgcolors[id]}`}
                             alt=""
                           />
                           <label
-                            for={`bordered-radio-${index}`}
+                            for={`bordered-radio-${id}`}
                             class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                           >
                             {spell.name}
                           </label>
                           <input
-                            id={`bordered-radio-${index}`}
+                            id={`bordered-radio-${id}`}
                             type="radio"
                             value="product"
                             name="bordered-radio"
-                            class={`w-4 h-4 ${textcolors[index]} bg-gray-100 border-gray-300 ${ringcolors[index]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
+                            class={`w-4 h-4 ${textcolors[id]} bg-gray-100 border-gray-300 ${ringcolors[id]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
                           />
                         </div>
                       );

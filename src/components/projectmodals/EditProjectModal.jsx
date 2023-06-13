@@ -1,6 +1,70 @@
 import React from "react";
+import { useFormik } from "formik";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
-const EditProjectModal = () => {
+const EditProjectModal = ({ projData, session }) => {
+  const [load, setload] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      name: projData.name,
+      category: projData.category,
+      description: projData.description,
+    },
+    // validate,
+    onSubmit,
+  });
+
+  function onSubmit(values) {
+    console.log("Edit Project values: ", values);
+    setload(true);
+
+    axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/projects/editProject`,
+      data: {
+        projectId: projData._id,
+        newName: values.name,
+        newDescription: values.description,
+        user_email: session.user.email,
+      },
+    })
+      .then(function (res) {
+        toast.success(
+          <div>
+            {" "}
+            Project <strong>{values.name}</strong> Updated{" "}
+          </div>
+        );
+
+        // router.push("/projects/chatapp");
+        setTimeout(() => {
+          window.location.href = `${process.env.NEXT_PUBLIC_HOST}/projects/${values.name}`;
+          // router.push('/path-to-redirect');
+        }, 3000);
+        console.log("Edit Project Modal, Response: ", res);
+        setload(false);
+      })
+      .catch((err) => {
+        setload(false);
+        console.log("this is edit project error", err);
+        toast.error(
+          <div>
+            {" "}
+            Project <strong>{values.name}</strong> already exists{" "}
+          </div>
+        );
+        // if (err.response.status == 400) {
+        //   toast.error("This Transaction Id is already used.");
+        //   // setexistingId(true);
+        // } else if (err.response.status == 403) {
+        //   toast.error("Submit transaction id again in few minutes");
+        // }
+      });
+  }
   return (
     <div
       id="edit-project-modal"
@@ -44,7 +108,7 @@ const EditProjectModal = () => {
           </div>
           {/* <!-- Modal body --> */}
           <div class="p-6 space-y-6">
-            <form class="space-y-6" action="#">
+            <form class="space-y-6" onSubmit={formik.handleSubmit}>
               <div>
                 <label
                   for="name"
@@ -59,6 +123,7 @@ const EditProjectModal = () => {
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Eg: ChatApp"
                   required
+                  {...formik.getFieldProps("name")}
                 />
               </div>
               <div>
@@ -71,7 +136,9 @@ const EditProjectModal = () => {
                 <select
                   name="category"
                   id="category"
+                  disabled
                   required
+                  {...formik.getFieldProps("category")}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 >
                   <option>Choose Category</option>
@@ -106,6 +173,7 @@ const EditProjectModal = () => {
                     height: "auto",
                   }}
                   required
+                  {...formik.getFieldProps("description")}
                 />
               </div>
               <hr />
@@ -161,7 +229,10 @@ const EditProjectModal = () => {
               </div> */}
               <button
                 type="submit"
-                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                disabled={load}
+                class={`w-full text-white ${
+                  !load ? "bg-blue-700 hover:bg-blue-800" : "bg-blue-400"
+                } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
               >
                 Save Changes
               </button>
@@ -169,6 +240,11 @@ const EditProjectModal = () => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        className="font-medium"
+      />
     </div>
   );
 };
