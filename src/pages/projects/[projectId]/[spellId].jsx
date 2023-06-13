@@ -19,6 +19,8 @@ import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Edit20Regular } from "@fluentui/react-icons";
+import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
 
 const SpellDashboard = ({ session, spellsData }) => {
   const { expand } = useContext(StateContext);
@@ -32,6 +34,7 @@ const SpellDashboard = ({ session, spellsData }) => {
     id: spellData._id,
   });
   console.log("Inside spell page: ", spellData);
+  // let oldSpellName = spellName;
   // const [initText, setinitText] = useState(
   //   "<p><strong>Product Description:</strong> This product is an AI-powered chatbot designed to answer your questions about any topic. It is equipped with a powerful natural-language processing engine that can understand complicated conversations. It also has a vast knowledge base filled with extensive training data, so it can quickly process your inquiries and provide comprehensive and accurate answers.</p><p><strong>Scenario (Explained to a 5-Year Old):</strong> This product is like a super smart friend who knows about any topic you can think of. Whenever you have a question, just ask the AI and it will give you an answer.</p><p><strong>Use-cases:</strong></p><ol><li><strong>Research:</strong> Quickly and accurately answer questions about an unfamiliar topic.</li><li><strong>Communications:</strong> Easily explain complex concepts for conversations with friends or family.</li><li><strong>Education:</strong> Aid in learning new skills by providing clear explanations and helpful examples.</li></ol>"
   // );
@@ -55,6 +58,7 @@ const SpellDashboard = ({ session, spellsData }) => {
       })
         .then(function (res) {
           setisEditing(false);
+          // oldSpellName = spellName;
           toast.success(<div> Spell Name Updated </div>);
           // router.push(`/projects/${spellData.proj_name}/${spellName}`);
           const newUrl = `/projects/${spellData.proj_name}/${spellName}`;
@@ -101,12 +105,13 @@ const SpellDashboard = ({ session, spellsData }) => {
                     autoFocus
                   />
                 ) : (
-                  <h2
-                    className="text-xl my-auto"
-                    onClick={() => setisEditing(true)}
-                  >
-                    {spellName} |
-                  </h2>
+                  <>
+                    <h2 className="text-xl my-auto">{spellName}</h2>
+                    <Edit20Regular
+                      className="cursor-pointer text-[#697283] my-auto "
+                      onClick={() => setisEditing(true)}
+                    />
+                  </>
                 )}
                 {/* <span className="my-auto">
                 <ChevronRight20Filled />
@@ -118,7 +123,11 @@ const SpellDashboard = ({ session, spellsData }) => {
               </div>
 
               <div>
-                <button className="mr-3 p-1 bg-[#0568FD] rounded text-white">
+                <button
+                  data-modal-target="spell-share-modal"
+                  data-modal-toggle="spell-share-modal"
+                  className="mr-3 p-1 bg-[#0568FD] rounded text-white"
+                >
                   <Link24Regular />
                 </button>
                 <button
@@ -168,6 +177,7 @@ const SpellDashboard = ({ session, spellsData }) => {
         className="font-medium"
       />
       <DeleteSpellModal session={session} toDelete={toDelete} page={"spell"} />
+      <ShareSpellModal spellData={spellData} />
     </>
   );
 };

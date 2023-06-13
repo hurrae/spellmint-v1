@@ -38,6 +38,7 @@ export default async function handler(req, res) {
     const generatedResponses = responses.map((response, index) => ({
       name: generatedPrompts[index].name,
       text: response.data.choices[0].text,
+      usage: response.data.usage,
     }));
     console.log("Gen Responses: ", generatedResponses);
 

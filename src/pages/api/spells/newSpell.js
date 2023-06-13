@@ -1,6 +1,7 @@
 import connectMongo from "../../../../connect/DBconnect";
 import Spells from "../../../../model/SpellSchema";
 import Projects from "../../../../model/ProjectSchema";
+import { nanoid } from "nanoid";
 
 export default async function handler(req, res) {
   connectMongo().catch((error) => res.json({ error: "Connection Failed...!" }));
@@ -37,6 +38,10 @@ export default async function handler(req, res) {
           return res.status(404).json({ error: "Project not found" });
         }
 
+        const shareCode =
+          nanoid(11) + "_" + nanoid(10) + "-" + nanoid(12) + "_" + nanoid(11);
+        console.log("Share code: ", shareCode);
+
         let spell = new Spells({
           spell_id: "spellid12",
           name,
@@ -46,6 +51,7 @@ export default async function handler(req, res) {
           proj_name,
           proj_category,
           created_by,
+          share_code: shareCode,
         });
 
         const resData = await spell.save();
