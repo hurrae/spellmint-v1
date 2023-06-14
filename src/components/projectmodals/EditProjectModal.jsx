@@ -7,8 +7,10 @@ import axios from "axios";
 
 const EditProjectModal = ({ projData, session }) => {
   const [load, setload] = useState(false);
+  // console.log("Project Data in Edit Project Modal: ", projData);
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       name: projData.name,
       category: projData.category,

@@ -4,13 +4,25 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import DeleteProjectModal from "./projectmodals/DeleteProjectModal";
+import EditProjectModal from "./projectmodals/EditProjectModal";
 
 const ProjectTable = ({ projectsData }) => {
   console.log("inside project Table: ", projectsData);
   const [toDelete, settoDelete] = useState({ name: "", id: "" });
+  const [projData, setprojData] = useState({
+    name: "",
+    category: "",
+    description: "",
+  });
   function handleDeleteClick(name, id) {
     console.log("name, id: ", name, id);
     settoDelete({ name, id });
+  }
+
+  function handleEditClick(index) {
+    console.log("index: ", index);
+    setprojData(projectsData[index]);
+    console.log("Proj Data at handle edit click: ", projectsData[index]);
   }
   const { data: session } = useSession();
   // console.log("Session Data: ", session);
@@ -42,6 +54,10 @@ const ProjectTable = ({ projectsData }) => {
             {projectsData.map((project, index) => {
               return (
                 <TableRow
+                  handleEditClick={() => {
+                    console.log("index here: ", index);
+                    handleEditClick(index);
+                  }}
                   handleDeleteClick={handleDeleteClick}
                   index={index}
                   id={project._id}
@@ -58,6 +74,7 @@ const ProjectTable = ({ projectsData }) => {
         </table>
       </div>
       <DeleteProjectModal session={session} toDelete={toDelete} />
+      <EditProjectModal projData={projData} session={session} />
     </>
   );
 };
@@ -68,6 +85,7 @@ const TableRow = ({
   id,
   ind,
   handleDeleteClick,
+  handleEditClick,
   name,
   createdOn,
   lastEditedOn,
@@ -153,13 +171,15 @@ const TableRow = ({
               </a>
             </li> */}
             <li>
-              <a
-                href="#"
+              <button
+                onClick={handleEditClick}
+                data-modal-target="edit-project-modal"
+                data-modal-toggle="edit-project-modal"
                 class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >
                 Settings
-              </a>
+              </button>
             </li>
             <li className="hover:bg-gray-100">
               <button

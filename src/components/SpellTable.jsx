@@ -170,12 +170,12 @@ const SpellTableRow = ({
                 Download
               </a>
             </li>
-            <li className="hover:bg-gray-100">
+            <li>
               <button
                 onClick={() => handleDeleteClick(name, id)}
                 data-modal-target="spell-delete-modal"
                 data-modal-toggle="spell-delete-modal"
-                class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="hover:bg-gray-100 block px-4 py-2 w-full text-left text-base text-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 type="button"
               >
                 Delete

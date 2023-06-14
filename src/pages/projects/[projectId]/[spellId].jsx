@@ -47,7 +47,11 @@ const SpellDashboard = ({ session, spellsData }) => {
   // );
 
   const [initText, setinitText] = useState(
-    '<h2 style="text-align: center">ChatApp - Product Requirements Document</h2><p><br></p>'
+    spellData.res_text
+      ? spellData.res_text
+      : '<h2 style="text-align: center"> ' +
+          spellData.proj_name +
+          " - Product Requirements Document</h2><p><br></p>"
   );
 
   const [isEditing, setisEditing] = useState(false);
@@ -170,7 +174,11 @@ const SpellDashboard = ({ session, spellsData }) => {
                         Software Product
                       </span>
                     </div>
-                    <SpellForm initText={initText} setinitText={setinitText} />
+                    <SpellForm
+                      initText={initText}
+                      setinitText={setinitText}
+                      spellData={spellData}
+                    />
                   </div>
                   <div className="w-2/3">
                     {/* <Editor initText={initText} setinitText={setinitText} /> */}
@@ -207,8 +215,12 @@ const SpellDashboard = ({ session, spellsData }) => {
 
 export default SpellDashboard;
 
-const SpellForm = ({ initText, setinitText }) => {
+const SpellForm = ({ initText, setinitText, spellData }) => {
   const [load, setload] = useState(false);
+  if (spellData.res_text) {
+    setinitText(spellData.res_text);
+  }
+
   const onSubmit = (values) => {
     setload(true);
     console.log("Values received: ", values);
@@ -233,16 +245,29 @@ const SpellForm = ({ initText, setinitText }) => {
       .then(function (res) {
         console.log("Api Response: ", res);
         const data = res.data.prd;
-        let defStr = initText;
+        let defStr =
+          '<h2 style="text-align: center"> ' +
+          spellData.proj_name +
+          " - Product Requirements Document</h2><p><br></p>";
         data.forEach((el) => {
-          // console.log("element text: ", el.text);
           defStr += el.text;
-          // defStr += el.text.replace("/\n/g", "<br>");
           defStr += "<p><br></p>";
         });
-        // console.log("defStr 1: ", defStr);
-        // defStr.replace(/\n/g, "<p><br></p>");
         console.log("defStr 2: ", defStr);
+
+        axios({
+          method: "post",
+          url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
+          data: {
+            spellId: spellData._id,
+            res_text: defStr,
+          },
+        })
+          .then((res) => {
+            console.log("New Res Text updated successfully");
+          })
+          .catch((err) => console.log("error occured: ", err));
+
         setinitText(defStr);
         setload(false);
       })
@@ -415,8 +440,8 @@ export async function getServerSideProps({ req }) {
         spell_name,
       },
     });
+    spellsData = res.data;
     console.log("response: ", res);
-    const spellsData = res.data;
   } catch (error) {
     spellsData = {};
   }
