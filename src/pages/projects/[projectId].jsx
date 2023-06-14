@@ -63,9 +63,9 @@ const ProjectDashboard = ({ session, url, projectData }) => {
             <Navbar />
             <Sidebar />
 
-            <div class={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
-              {/* <div class="p-6 sm:ml-64 h-screen"> */}
-              <div class="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+            <div className={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
+              {/* <div className="p-6 sm:ml-64 h-screen"> */}
+              <div className="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
                 <div className="flex space-x-3">
                   <h2
                     // onClick={() => router.push("/projects")}
@@ -82,7 +82,7 @@ const ProjectDashboard = ({ session, url, projectData }) => {
                   </span>
                 </div>
 
-                <div class="p-6 rounded bg-[#F8F8FB] flex mb-4 justify-between">
+                <div className="p-6 rounded bg-[#F8F8FB] flex mb-4 justify-between">
                   <div className="w-1/2 rounded justify-between">
                     <p
                       id="ellipsistext"

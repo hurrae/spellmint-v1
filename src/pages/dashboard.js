@@ -27,9 +27,9 @@ const dashboard = ({ session }) => {
         <Navbar />
         <Sidebar />
 
-        <div class={`p-4 ${expand ? "ml-64" : "ml-20"} `}>
-          <div class="p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
-            <div class=" mb-4 rounded bg-gray-100 dark:bg-gray-800">
+        <div className={`p-4 ${expand ? "ml-64" : "ml-20"} `}>
+          <div className="p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+            <div className=" mb-4 rounded bg-gray-100 dark:bg-gray-800">
               <div className="p-6 rounded flex justify-between">
                 <h2 className="text-2xl font-bold my-auto">Welcome, Manoj.</h2>
                 <button
@@ -42,7 +42,7 @@ const dashboard = ({ session }) => {
                 </button>
               </div>
             </div>
-            <div class=" mb-4 rounded-lg border-2 dark:bg-gray-800">
+            <div className=" mb-4 rounded-lg border-2 dark:bg-gray-800">
               <div className="p-6 rounded space-y-5">
                 <div className="flex justify-between">
                   <div className="flex flex-col">
@@ -85,8 +85,8 @@ const dashboard = ({ session }) => {
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="p-6 flex flex-col space-y-4 rounded border-gray-200 border-2 dark:bg-gray-800">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 flex flex-col space-y-4 rounded border-gray-200 border-2 dark:bg-gray-800">
                 <span className="bg-[#F8F8FB] text-[#697283] p-2 rounded-full w-fit">
                   <DocumentBulletList24Regular />
                 </span>
@@ -103,7 +103,7 @@ const dashboard = ({ session }) => {
                   Open Help Center <ArrowRight16Filled />
                 </a>
               </div>
-              <div class="p-6 flex flex-col space-y-4 rounded border-gray-200 border-2 dark:bg-gray-800">
+              <div className="p-6 flex flex-col space-y-4 rounded border-gray-200 border-2 dark:bg-gray-800">
                 <span className="bg-[#F8F8FB] text-[#697283] p-2 rounded-full w-fit">
                   <SurfaceHub24Regular />
                 </span>

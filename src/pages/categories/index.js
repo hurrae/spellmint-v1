@@ -17,9 +17,9 @@ const CategoriesIndex = () => {
         <Navbar />
         <Sidebar />
 
-        <div class={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
-          {/* <div class="p-6 sm:ml-64 h-screen"> */}
-          <div class="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+        <div className={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
+          {/* <div className="p-6 sm:ml-64 h-screen"> */}
+          <div className="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div className=" rounded justify-between">
               <h2 className="text-2xl font-bold my-auto">Browse Categories</h2>
               <p className="text-grshade">
@@ -28,9 +28,10 @@ const CategoriesIndex = () => {
               </p>
             </div>
             <div className="grid gap-4 grid-cols-4 w-[80%]">
-              {CategoriesData.map((category) => {
+              {CategoriesData.map((category, index) => {
                 return (
                   <Category
+                    key={index}
                     title={category.title}
                     desc={category.desc}
                     imgLink={category.imgLink}

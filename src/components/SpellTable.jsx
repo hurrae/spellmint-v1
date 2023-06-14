@@ -16,23 +16,23 @@ const SpellTable = ({ spells }) => {
   const { data: session } = useSession();
   return (
     <>
-      <div class=" overflow-x-auto  sm:rounded-lg">
-        <table class="w-full text-base text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-sm text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className=" overflow-x-auto  sm:rounded-lg">
+        <table className="w-full text-base text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-sm text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 SPELL NAME
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 CREATED ON
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 LAST EDITED ON
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 CREATED BY
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 SPELL TYPE
               </th>
               <th scope="col" className="px-6 py-3"></th>
@@ -42,6 +42,7 @@ const SpellTable = ({ spells }) => {
             {spells.map((spell, index) => {
               return (
                 <SpellTableRow
+                  key={index}
                   handleDeleteClick={handleDeleteClick}
                   id={spell._id}
                   ind={0}
@@ -96,20 +97,20 @@ const SpellTableRow = ({
   // console.log("Spell Table Router: ", router);
   return (
     <tr
-      class={` border-b ${
+      className={` border-b ${
         ind % 2 == 1 ? "bg-gray-50" : "bg-white"
       }  dark:bg-gray-900 dark:border-gray-700`}
     >
       <th
         scope="row"
-        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
+        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
       >
         <a href={router.asPath + `/${name}`}>{name}</a>
       </th>
-      <td class="px-6 py-4">{fCreatedOn}</td>
-      <td class="px-6 py-4">{fLastEditedOn}</td>
-      <td class="px-6 py-4 font-medium text-gray-900">{created_by}</td>
-      <td class="px-6 py-4">
+      <td className="px-6 py-4">{fCreatedOn}</td>
+      <td className="px-6 py-4">{fLastEditedOn}</td>
+      <td className="px-6 py-4 font-medium text-gray-900">{created_by}</td>
+      <td className="px-6 py-4">
         <span
           className={`font-medium bg-opacity-20 ${
             bgcolors[cid - 1]
@@ -128,7 +129,7 @@ const SpellTableRow = ({
           type="button"
         >
           <svg
-            class="w-5 h-5"
+            className="w-5 h-5"
             aria-hidden="true"
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -142,11 +143,11 @@ const SpellTableRow = ({
           className="z-30 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
           id={`dropdown-menu-${index + 1}`}
         >
-          <ul class="py-1" role="none">
+          <ul className="py-1" role="none">
             <li>
               <a
                 href={router.asPath + `/${name}`}
-                class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >
                 Edit
@@ -155,7 +156,7 @@ const SpellTableRow = ({
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >
                 Rename
@@ -164,7 +165,7 @@ const SpellTableRow = ({
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 role="menuitem"
               >
                 Download
@@ -175,7 +176,7 @@ const SpellTableRow = ({
                 onClick={() => handleDeleteClick(name, id)}
                 data-modal-target="spell-delete-modal"
                 data-modal-toggle="spell-delete-modal"
-                class="hover:bg-gray-100 block px-4 py-2 w-full text-left text-base text-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="hover:bg-gray-100 block px-4 py-2 w-full text-left text-base text-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 type="button"
               >
                 Delete

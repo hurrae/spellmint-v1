@@ -28,30 +28,32 @@ const Sidebar = () => {
   return (
     <aside
       id="logo-sidebar"
-      class={`fixed top-0 left-0 z-40 ${
+      className={`fixed top-0 left-0 z-40 ${
         expand ? "w-64" : ""
       } h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
       aria-label="Sidebar"
     >
-      <div class="flex flex-col justify-between h-full pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-        <ul class="space-y-2 font-medium">
+      <div className="flex flex-col justify-between h-full pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <ul className="space-y-2 font-medium">
           <li>
             <a
               href="/dashboard"
-              class={`px-4 flex items-center p-2 ${
+              className={`px-4 flex items-center p-2 ${
                 actLink == "dashboard"
                   ? "text-[#0568FD] border-r-4"
                   : "text-grshade"
               }  border-[#0568FD] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Home24Regular />
-              <span class={`ml-3 ${expand ? "" : "hidden"}`}>Dashboard</span>
+              <span className={`ml-3 ${expand ? "" : "hidden"}`}>
+                Dashboard
+              </span>
             </a>
           </li>
           <li>
             <a
               href="/projects"
-              class={`flex px-4 ${
+              className={`flex px-4 ${
                 actLink == "projects"
                   ? "text-[#0568FD] border-r-4"
                   : "text-grshade"
@@ -59,7 +61,7 @@ const Sidebar = () => {
             >
               <Diversity24Regular />
               <span
-                class={`flex-1 ml-3 whitespace-nowrap ${
+                className={`flex-1 ml-3 whitespace-nowrap ${
                   expand ? "" : "hidden"
                 }`}
               >
@@ -70,11 +72,11 @@ const Sidebar = () => {
           <li>
             <a
               href="#"
-              class="px-4 flex items-center p-2 text-grshade dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="px-4 flex items-center p-2 text-grshade dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <DataUsage24Regular />
               <span
-                class={`flex-1 ml-3 whitespace-nowrap ${
+                className={`flex-1 ml-3 whitespace-nowrap ${
                   expand ? "" : "hidden"
                 }`}
               >
@@ -85,7 +87,7 @@ const Sidebar = () => {
           <li>
             <a
               href="/categories"
-              class={`px-4 ${
+              className={`px-4 ${
                 actLink == "categories"
                   ? "text-[#0568FD] border-r-4"
                   : "text-grshade"
@@ -93,7 +95,7 @@ const Sidebar = () => {
             >
               <Wand24Regular />
               <span
-                class={`flex-1 ml-3 whitespace-nowrap ${
+                className={`flex-1 ml-3 whitespace-nowrap ${
                   expand ? "" : "hidden"
                 }`}
               >
@@ -102,39 +104,39 @@ const Sidebar = () => {
             </a>
           </li>
         </ul>
-        <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+        <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
           <li>
             <a
               href="#"
-              class="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+              className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <ArrowCircleUp24Regular />
-              <span class={`ml-4 ${expand ? "" : "hidden"}`}>Upgrade</span>
+              <span className={`ml-4 ${expand ? "" : "hidden"}`}>Upgrade</span>
             </a>
           </li>
           <li>
             <a
               href="#"
-              class="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+              className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <Settings24Regular />
-              <span class={`ml-4 ${expand ? "" : "hidden"}`}>Settings</span>
+              <span className={`ml-4 ${expand ? "" : "hidden"}`}>Settings</span>
             </a>
           </li>
           <li>
             <a
               href="#"
-              class="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+              className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <Info24Regular />
-              <span class={`ml-4 ${expand ? "" : "hidden"}`}>Support</span>
+              <span className={`ml-4 ${expand ? "" : "hidden"}`}>Support</span>
             </a>
           </li>
           <li className={`${expand ? "" : "hidden"} flex justify-between`}>
             <button
               onClick={() => signOut()}
               type="button"
-              class={`px-4 ml-3 px-6 p-1 text-grshade border-2 rounded bg-gray-100 dark:hover:bg-gray-700 dark:text-white group`}
+              className={`px-4 ml-3 px-6 p-1 text-grshade border-2 rounded bg-gray-100 dark:hover:bg-gray-700 dark:text-white group`}
             >
               Logout
             </button>

@@ -5,9 +5,9 @@ import { StateContext } from "@/utils/StateContext";
 const PageNotFound = () => {
   const { expand } = useContext(StateContext);
   return (
-    <div class={`p-6 h-screen ${expand ? "ml-64" : "ml-20"} flex `}>
-      {/* <div class="p-6 sm:ml-64 h-screen"> */}
-      <div class="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 my-auto">
+    <div className={`p-6 h-screen ${expand ? "ml-64" : "ml-20"} flex `}>
+      {/* <div className="p-6 sm:ml-64 h-screen"> */}
+      <div className="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 my-auto">
         <div className="flex">
           <div className="mx-auto mt-14 text-center space-y-6">
             <div className="mx-auto p-6 bg-[#E6F0FF] h-fit w-fit rounded-full">
