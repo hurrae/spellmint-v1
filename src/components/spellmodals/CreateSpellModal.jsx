@@ -82,16 +82,16 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
   return (
     <div
       id="spell-modal"
-      tabindex="-1"
-      class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      tabIndex="-1"
+      className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
     >
-      <div class="relative mt-10 w-full max-w-xl max-h-full">
+      <div className="relative mt-10 w-full max-w-xl max-h-full">
         {/* <!-- Modal content --> */}
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
           {/* <!-- Modal header --> */}
-          <div class="bg-gray-50 flex items-center justify-between p-6 border-b rounded-t dark:border-gray-600">
+          <div className="bg-gray-50 flex items-center justify-between p-6 border-b rounded-t dark:border-gray-600">
             <div className="">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 Mint a New Spell
               </h3>
               <p className="text-gray-500">
@@ -100,33 +100,33 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
             </div>
             <button
               type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-hide="spell-modal"
             >
               <svg
                 aria-hidden="true"
-                class="w-5 h-5"
+                className="w-5 h-5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
-              <span class="sr-only">Close modal</span>
+              <span className="sr-only">Close modal</span>
             </button>
           </div>
           {/* <!-- Modal body --> */}
-          <div class="p-6 space-y-6">
-            <form class="space-y-6" onSubmit={submitHandler}>
+          <div className="p-6 space-y-6">
+            <form className="space-y-6" onSubmit={submitHandler}>
               <div className="space-y-6">
                 <div>
                   <label
-                    for="spellname"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    htmlFor="spellname"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Spell Name
                   </label>
@@ -134,7 +134,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                     type="text"
                     name="spellname"
                     id="spellname"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                     placeholder="Eg: ChatApp - PRD"
                     required
                     onChange={(e) => setspellname(e.target.value)}
@@ -142,8 +142,8 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                 </div>
                 <div>
                   <label
-                    for="name"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    htmlFor="name"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Spell Type
                   </label>
@@ -154,6 +154,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                       const id = spell.id - 1;
                       return (
                         <div
+                          key={index}
                           onClick={() => setspellSelect(spell.name)}
                           className={`flex items-center ${
                             spellSelect == spell.name ? bgcolors[id] : ""
@@ -168,8 +169,8 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                             alt=""
                           />
                           <label
-                            for={`bordered-radio-${id}`}
-                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            htmlFor={`bordered-radio-${id}`}
+                            className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                           >
                             {spell.name}
                           </label>
@@ -178,7 +179,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                             type="radio"
                             value="product"
                             name="bordered-radio"
-                            class={`w-4 h-4 ${textcolors[id]} bg-gray-100 border-gray-300 ${ringcolors[id]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
+                            className={`w-4 h-4 ${textcolors[id]} bg-gray-100 border-gray-300 ${ringcolors[id]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
                           />
                         </div>
                       );

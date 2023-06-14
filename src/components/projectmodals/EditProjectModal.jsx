@@ -7,8 +7,10 @@ import axios from "axios";
 
 const EditProjectModal = ({ projData, session }) => {
   const [load, setload] = useState(false);
+  // console.log("Project Data in Edit Project Modal: ", projData);
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       name: projData.name,
       category: projData.category,
@@ -68,16 +70,16 @@ const EditProjectModal = ({ projData, session }) => {
   return (
     <div
       id="edit-project-modal"
-      tabindex="-1"
-      class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      tabIndex="-1"
+      className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
     >
-      <div class="relative mt-10 w-full max-w-3xl max-h-full">
+      <div className="relative mt-10 w-full max-w-3xl max-h-full">
         {/* <!-- Modal content --> */}
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
           {/* <!-- Modal header --> */}
-          <div class="bg-gray-50 flex items-center justify-between p-6 border-b rounded-t dark:border-gray-600">
+          <div className="bg-gray-50 flex items-center justify-between p-6 border-b rounded-t dark:border-gray-600">
             <div className="">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 Edit a Project
               </h3>
               <p className="text-gray-500">
@@ -87,32 +89,32 @@ const EditProjectModal = ({ projData, session }) => {
             </div>
             <button
               type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-hide="edit-project-modal"
             >
               <svg
                 aria-hidden="true"
-                class="w-5 h-5"
+                className="w-5 h-5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
-              <span class="sr-only">Close modal</span>
+              <span className="sr-only">Close modal</span>
             </button>
           </div>
           {/* <!-- Modal body --> */}
-          <div class="p-6 space-y-6">
-            <form class="space-y-6" onSubmit={formik.handleSubmit}>
+          <div className="p-6 space-y-6">
+            <form className="space-y-6" onSubmit={formik.handleSubmit}>
               <div>
                 <label
-                  for="name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="name"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Project Name
                 </label>
@@ -120,7 +122,7 @@ const EditProjectModal = ({ projData, session }) => {
                   type="text"
                   name="projectname"
                   id="projectname"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Eg: ChatApp"
                   required
                   {...formik.getFieldProps("name")}
@@ -128,8 +130,8 @@ const EditProjectModal = ({ projData, session }) => {
               </div>
               <div>
                 <label
-                  for="category"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="category"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Project Category
                 </label>
@@ -139,7 +141,7 @@ const EditProjectModal = ({ projData, session }) => {
                   disabled
                   required
                   {...formik.getFieldProps("category")}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 >
                   <option>Choose Category</option>
                   <option>Software Product</option>
@@ -158,8 +160,8 @@ const EditProjectModal = ({ projData, session }) => {
               </div>
               <div>
                 <label
-                  for="desc"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="desc"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Project Description
                 </label>
@@ -167,7 +169,7 @@ const EditProjectModal = ({ projData, session }) => {
                   type="text"
                   name="desc"
                   id="desc"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Eg: ChatApp is a messaging and communication platform that allows users to send text messages, voice messages, photos, videos, and other media files to their friends, family, and colleagues. "
                   style={{
                     height: "auto",
@@ -180,10 +182,10 @@ const EditProjectModal = ({ projData, session }) => {
               {/* <div className="space-y-3">
                 <h2 className="font-bold text-lg">Activate Spells</h2>
                 <div className="grid grid-cols-4 gap-4">
-                  <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
+                  <div className="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
                     <label
-                      for="bordered-checkbox-1"
-                      class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      htmlFor="bordered-checkbox-1"
+                      className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Product
                     </label>
@@ -192,13 +194,13 @@ const EditProjectModal = ({ projData, session }) => {
                       type="checkbox"
                       value="product"
                       name="bordered-checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                   </div>
-                  <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
+                  <div className="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
                     <label
-                      for="bordered-checkbox-2"
-                      class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      htmlFor="bordered-checkbox-2"
+                      className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Marketing
                     </label>
@@ -207,13 +209,13 @@ const EditProjectModal = ({ projData, session }) => {
                       type="checkbox"
                       value="marketing"
                       name="bordered-checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                   </div>
-                  <div class="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
+                  <div className="flex items-center px-4 border-2 border-gray-300 rounded dark:border-gray-700">
                     <label
-                      for="bordered-checkbox-3"
-                      class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      htmlFor="bordered-checkbox-3"
+                      className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Design
                     </label>
@@ -222,7 +224,7 @@ const EditProjectModal = ({ projData, session }) => {
                       type="checkbox"
                       value="product"
                       name="bordered-checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
                   </div>
                 </div>
@@ -230,7 +232,7 @@ const EditProjectModal = ({ projData, session }) => {
               <button
                 type="submit"
                 disabled={load}
-                class={`w-full text-white ${
+                className={`w-full text-white ${
                   !load ? "bg-blue-700 hover:bg-blue-800" : "bg-blue-400"
                 } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
               >

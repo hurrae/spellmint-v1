@@ -12,6 +12,7 @@ const spellSchema = new Schema({
   last_edited_on: { type: Date, default: Date.now },
   created_by: { type: String, required: true },
   share_code: { type: String, required: true },
+  res_text: { type: String },
 });
 
 const Spells = models.spell || model("spell", spellSchema);

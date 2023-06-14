@@ -11,6 +11,7 @@ import axios from "axios";
 import { getSession } from "next-auth/react";
 import Script from "next/script";
 import { Wand48Regular } from "@fluentui/react-icons";
+import Head from "next/head";
 
 const projects = ({ session, projectData }) => {
   const { expand } = useContext(StateContext);
@@ -43,14 +44,17 @@ const projects = ({ session, projectData }) => {
   return (
     // !load && (
     <>
+      <Head>
+        <title>Projects | Spellmint</title>
+      </Head>
       <div>
         <Navbar />
         <Sidebar />
 
-        <div class={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
-          {/* <div class="p-6 sm:ml-64 h-screen"> */}
-          <div class="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
-            <div class="flex mb-4 justify-between">
+        <div className={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
+          {/* <div className="p-6 sm:ml-64 h-screen"> */}
+          <div className="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+            <div className="flex mb-4 justify-between">
               <div className=" rounded justify-between">
                 <h2 className="text-2xl font-bold my-auto">Browse Projects</h2>
                 <p className="text-grshade">
