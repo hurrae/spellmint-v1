@@ -161,12 +161,12 @@ const TableRow = ({
                 Settings
               </a>
             </li>
-            <li>
+            <li className="hover:bg-gray-100">
               <button
                 onClick={() => handleDeleteClick(name, id)}
                 data-modal-target="project-delete-modal"
                 data-modal-toggle="project-delete-modal"
-                class="block w-full py-2  text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="block px-4 py-2  text-base text-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                 type="button"
               >
                 Delete

@@ -21,18 +21,25 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Edit20Regular } from "@fluentui/react-icons";
 import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
+import PageNotFound from "@/components/PageNotFound";
 
 const SpellDashboard = ({ session, spellsData }) => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
   const router = useRouter();
   // const { data: session } = useSession();
-  const [spellData, setspellData] = useState(spellsData.data);
-  const [spellName, setspellName] = useState(spellData.name);
-  const [toDelete, settoDelete] = useState({
-    name: spellData.name,
-    id: spellData._id,
-  });
+  const [spellData, setspellData] = useState(
+    spellsData.data ? spellsData.data : null
+  );
+  const [spellName, setspellName] = useState(spellData ? spellData.name : null);
+  const [toDelete, settoDelete] = useState(
+    spellData
+      ? {
+          name: spellData.name,
+          id: spellData._id,
+        }
+      : null
+  );
   console.log("Inside spell page: ", spellData);
   // let oldSpellName = spellName;
   // const [initText, setinitText] = useState(
@@ -78,106 +85,122 @@ const SpellDashboard = ({ session, spellsData }) => {
 
   return (
     <>
-      <div className="h-screen">
-        <Navbar />
-        <Sidebar />
+      {spellData ? (
+        <>
+          <div className="h-screen">
+            <Navbar />
+            <Sidebar />
 
-        <div class={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-20"} `}>
-          {/* <div class="p-6 sm:ml-64 h-screen"> */}
-          <div class="p-6 pl-0 pt-4 pb-0 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
-            <div className="flex justify-between">
-              <div className="ml-4 flex space-x-3">
-                <span
-                  onClick={() => router.back()}
-                  className="cursor-pointer my-auto"
-                >
-                  <ArrowLeft24Regular />
-                </span>
+            <div class={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-20"} `}>
+              {/* <div class="p-6 sm:ml-64 h-screen"> */}
+              <div class="p-6 pl-0 pt-4 pb-0 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+                <div className="flex justify-between">
+                  <div className="ml-4 flex space-x-3">
+                    <span
+                      onClick={() => router.back()}
+                      className="cursor-pointer my-auto"
+                    >
+                      <ArrowLeft24Regular />
+                    </span>
 
-                {isEditing ? (
-                  <input
-                    type="text"
-                    value={spellName}
-                    required
-                    onChange={(e) => setspellName(e.target.value)}
-                    onBlur={handleBlurClick}
-                    className="py-0 px-2 text-lg"
-                    autoFocus
-                  />
-                ) : (
-                  <>
-                    <h2 className="text-xl my-auto">{spellName}</h2>
-                    <Edit20Regular
-                      className="cursor-pointer text-[#697283] my-auto "
-                      onClick={() => setisEditing(true)}
-                    />
-                  </>
-                )}
-                {/* <span className="my-auto">
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        value={spellName}
+                        required
+                        onChange={(e) => setspellName(e.target.value)}
+                        onBlur={handleBlurClick}
+                        className="py-0 px-2 text-lg"
+                        autoFocus
+                      />
+                    ) : (
+                      <>
+                        <h2 className="text-xl my-auto">{spellName}</h2>
+                        <Edit20Regular
+                          className="cursor-pointer text-[#697283] my-auto "
+                          onClick={() => setisEditing(true)}
+                        />
+                      </>
+                    )}
+                    {/* <span className="my-auto">
                 <ChevronRight20Filled />
               </span>
               <h2 className="text-xl font-bold my-auto">ChatApp Spell</h2>
               <span className="h-fit my-auto font-medium text-sm border-2 rounded bg-gray-100 px-2 rounded text-[#697283]">
                 Software Product
               </span> */}
-              </div>
+                  </div>
 
-              <div>
-                <button
-                  data-modal-target="spell-share-modal"
-                  data-modal-toggle="spell-share-modal"
-                  className="mr-3 p-1 bg-[#0568FD] rounded text-white"
-                >
-                  <Link24Regular />
-                </button>
-                <button
-                  data-modal-target="spell-delete-modal"
-                  data-modal-toggle="spell-delete-modal"
-                  type="button"
-                  className="mr-3 p-1 bg-[#EA4335] rounded text-white"
-                >
-                  <Delete24Regular />
-                </button>
-                <button
-                  href="#"
-                  class="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
-                >
-                  Download as DOC
-                </button>
-                <button
-                  href="#"
-                  class="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
-                >
-                  Download as PDF
-                </button>
-              </div>
-            </div>
-
-            <div className="w-full flex mb-4 justify-between">
-              <div className="w-1/3">
-                <div className="border flex space-x-3 w-full p-5 px-6 bg-[#F8F8FB]">
-                  <h2 className="text-xl font-bold my-auto">ChatApp</h2>
-                  <span className="h-fit my-auto font-medium text-sm border-2 rounded bg-[#FFFFFF] px-2 rounded text-[#697283]">
-                    Software Product
-                  </span>
+                  <div>
+                    <button
+                      data-modal-target="spell-share-modal"
+                      data-modal-toggle="spell-share-modal"
+                      className="mr-3 p-1 bg-[#0568FD] rounded text-white"
+                    >
+                      <Link24Regular />
+                    </button>
+                    <button
+                      data-modal-target="spell-delete-modal"
+                      data-modal-toggle="spell-delete-modal"
+                      type="button"
+                      className="mr-3 p-1 bg-[#EA4335] rounded text-white"
+                    >
+                      <Delete24Regular />
+                    </button>
+                    <button
+                      href="#"
+                      class="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
+                    >
+                      Download as DOC
+                    </button>
+                    <button
+                      href="#"
+                      class="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
+                    >
+                      Download as PDF
+                    </button>
+                  </div>
                 </div>
-                <SpellForm initText={initText} setinitText={setinitText} />
-              </div>
-              <div className="w-2/3">
-                {/* <Editor initText={initText} setinitText={setinitText} /> */}
-                <Editor2 initText={initText} />
+
+                <div className="w-full flex mb-4 justify-between">
+                  <div className="w-1/3">
+                    <div className="border flex space-x-3 w-full p-5 px-6 bg-[#F8F8FB]">
+                      <h2 className="text-xl font-bold my-auto">ChatApp</h2>
+                      <span className="h-fit my-auto font-medium text-sm border-2 rounded bg-[#FFFFFF] px-2 rounded text-[#697283]">
+                        Software Product
+                      </span>
+                    </div>
+                    <SpellForm initText={initText} setinitText={setinitText} />
+                  </div>
+                  <div className="w-2/3">
+                    {/* <Editor initText={initText} setinitText={setinitText} /> */}
+                    <Editor2 initText={initText} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={4000}
-        className="font-medium"
-      />
-      <DeleteSpellModal session={session} toDelete={toDelete} page={"spell"} />
-      <ShareSpellModal spellData={spellData} />
+          <ToastContainer
+            position="bottom-right"
+            autoClose={4000}
+            className="font-medium"
+          />
+          <DeleteSpellModal
+            session={session}
+            toDelete={toDelete}
+            page={"spell"}
+          />
+          <ShareSpellModal spellData={spellData} />
+        </>
+      ) : (
+        <>
+          <div>
+            <Navbar />
+            <Sidebar />
+            <PageNotFound />
+          </div>
+        </>
+      )}
     </>
   );
 };
@@ -381,17 +404,22 @@ export async function getServerSideProps({ req }) {
   const proj_name = url[2].replace(/%20/g, " ");
   const spell_name = url[3].replace(/%20/g, " ");
 
-  const res = await axios({
-    method: "post",
-    url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/getSpell`,
-    data: {
-      user_email: session.user.email,
-      proj_name,
-      spell_name,
-    },
-  });
-  console.log("response: ", res);
-  const spellsData = res.data;
+  let spellsData;
+  try {
+    const res = await axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/getSpell`,
+      data: {
+        user_email: session.user.email,
+        proj_name,
+        spell_name,
+      },
+    });
+    console.log("response: ", res);
+    const spellsData = res.data;
+  } catch (error) {
+    spellsData = {};
+  }
 
   return {
     props: { session, spellsData },
