@@ -11,6 +11,7 @@ import axios from "axios";
 import { getSession } from "next-auth/react";
 import Script from "next/script";
 import { Wand48Regular } from "@fluentui/react-icons";
+import Head from "next/head";
 
 const projects = ({ session, projectData }) => {
   const { expand } = useContext(StateContext);
@@ -43,6 +44,9 @@ const projects = ({ session, projectData }) => {
   return (
     // !load && (
     <>
+      <Head>
+        <title>Projects | Spellmint</title>
+      </Head>
       <div>
         <Navbar />
         <Sidebar />

@@ -22,6 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Edit20Regular } from "@fluentui/react-icons";
 import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
 import PageNotFound from "@/components/PageNotFound";
+import Head from "next/head";
 
 const SpellDashboard = ({ session, spellsData }) => {
   const { expand } = useContext(StateContext);
@@ -89,6 +90,9 @@ const SpellDashboard = ({ session, spellsData }) => {
 
   return (
     <>
+      <Head>
+        <title>Spell | Spellmint</title>
+      </Head>
       {spellData ? (
         <>
           <div className="h-screen">
@@ -97,7 +101,7 @@ const SpellDashboard = ({ session, spellsData }) => {
 
             <div class={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-20"} `}>
               {/* <div class="p-6 sm:ml-64 h-screen"> */}
-              <div class="p-6 pl-0 pt-4 pb-0 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+              <div class="p-6 pl-0 pt-0 pb-0 space-y-3 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
                 <div className="flex justify-between">
                   <div className="ml-4 flex space-x-3">
                     <span
@@ -290,7 +294,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
   return (
     <form action="#" onSubmit={formik.handleSubmit}>
       <div>
-        <div className="h-[62vh] overflow-y-scroll py-8 px-6 mx-auto max-w-screen-md">
+        <div className="h-[65vh] overflow-y-scroll py-8 px-6 mx-auto max-w-screen-md">
           <div className="space-y-4 text-base">
             <div>
               <label

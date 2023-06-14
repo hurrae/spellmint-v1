@@ -13,6 +13,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import PageNotFound from "@/components/PageNotFound";
+import Head from "next/head";
 
 const ProjectDashboard = ({ session, url, projectData }) => {
   const { expand } = useContext(StateContext);
@@ -53,6 +54,9 @@ const ProjectDashboard = ({ session, url, projectData }) => {
 
   return (
     <>
+      <Head>
+        <title>Project | Spellmint</title>
+      </Head>
       {projData ? (
         <>
           <div>

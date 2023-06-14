@@ -28,13 +28,14 @@ const Editor2 = ({ initText }) => {
       onChange={handleChange}
       autoFocus
       getSunEditorInstance={getSunEditorInstance}
+      height="70vh"
       //   defaultValue={initText}
       setContents={defText}
       setDefaultStyle="font-family: 'Inter Tight', sans-serif; font-size: 18px;"
       setOptions={{
         showPathLabel: false,
-        minHeight: "70vh",
-        maxHeight: "70vh",
+        // minHeight: "70vh",
+        // maxHeight: "70vh",
         placeholder: "Enter your text here!!!",
 
         buttonList: [

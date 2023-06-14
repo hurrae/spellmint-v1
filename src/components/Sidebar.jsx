@@ -16,6 +16,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
 import { useEffect } from "react";
+import { signOut } from "next-auth/react";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -131,7 +132,8 @@ const Sidebar = () => {
           </li>
           <li className={`${expand ? "" : "hidden"} flex justify-between`}>
             <button
-              href="#"
+              onClick={() => signOut()}
+              type="button"
               class={`px-4 ml-3 px-6 p-1 text-grshade border-2 rounded bg-gray-100 dark:hover:bg-gray-700 dark:text-white group`}
             >
               Logout
@@ -141,7 +143,7 @@ const Sidebar = () => {
               // onClick={() => setexpand(false)}
               className=" p-1 border-2 mr-4"
             >
-              <ArrowExportRtl24Regular />
+              <ArrowExportRtl24Regular className="text-[#697283]" />
             </button>
           </li>
           <li className={`flex px-1 ${!expand ? "" : "hidden"}`}>
@@ -150,7 +152,7 @@ const Sidebar = () => {
               // onClick={() => setexpand(true)}
               className="mx-auto p-1 border-2"
             >
-              <ArrowExportLtr24Regular />
+              <ArrowExportLtr24Regular className="text-[#697283]" />
             </button>
           </li>
         </ul>

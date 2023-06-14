@@ -4,11 +4,15 @@ import Sidebar from "@/components/Sidebar";
 import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
 import CategoriesData from "@/components/data/CategoriesData";
+import Head from "next/head";
 
 const CategoriesIndex = () => {
   const { expand } = useContext(StateContext);
   return (
     <>
+      <Head>
+        <title>Categories | Spellmint</title>
+      </Head>
       <div>
         <Navbar />
         <Sidebar />

@@ -11,16 +11,17 @@ import {
   SurfaceHub24Regular,
   ArrowRight16Filled,
 } from "@fluentui/react-icons";
-import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 
-const dashboard = () => {
+const dashboard = ({ session }) => {
   const { expand } = useContext(StateContext);
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   console.log(session, "i am session you wanted");
   return (
     <>
-      <Head></Head>
+      <Head>
+        <title>Dashboard | Spellmint</title>
+      </Head>
 
       <div>
         <Navbar />
@@ -123,7 +124,7 @@ const dashboard = () => {
           </div>
         </div>
       </div>
-      <CreateProjectModal />
+      <CreateProjectModal session={session} />
     </>
   );
 };
