@@ -26,6 +26,7 @@ const ReadEditor = ({ initText }) => {
   return (
     <SunEditor
       setAllPlugins={false}
+      height="100%"
       disable={true}
       hideToolbar={true}
       getSunEditorInstance={getSunEditorInstance}

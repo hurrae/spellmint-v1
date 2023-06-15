@@ -34,3 +34,15 @@ a {
 .editor-wrapper .sun-editor .se-content {
   pointer-events: auto;
 }
+
+::-webkit-scrollbar {
+  width:4px;
+  }
+  /*track*/
+  ::-webkit-scrollbar-track {
+  border-style:none;
+  }
+  /*thumb*/
+  ::-webkit-scrollbar-thumb {
+    background:rgb(229, 230, 235);
+  }

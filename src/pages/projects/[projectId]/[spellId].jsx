@@ -99,7 +99,7 @@ const SpellDashboard = ({ session, spellsData }) => {
             <Navbar />
             <Sidebar />
 
-            <div className={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-20"} `}>
+            <div className={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-14"} `}>
               {/* <div className="p-6 sm:ml-64 h-screen"> */}
               <div className="p-6 pl-0 pt-0 pb-0 space-y-3 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
                 <div className="flex justify-between">
