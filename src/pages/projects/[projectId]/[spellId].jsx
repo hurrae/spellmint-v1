@@ -23,6 +23,7 @@ import { Edit20Regular } from "@fluentui/react-icons";
 import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
 import PageNotFound from "@/components/PageNotFound";
 import Head from "next/head";
+import NewForm from "@/components/forms/NewForm";
 
 const SpellDashboard = ({ session, spellsData }) => {
   const { expand } = useContext(StateContext);
@@ -48,11 +49,13 @@ const SpellDashboard = ({ session, spellsData }) => {
   // );
 
   const [initText, setinitText] = useState(
-    spellData.res_text
+    spellData && spellData.res_text
       ? spellData.res_text
-      : '<h2 style="text-align: center"> ' +
-          spellData.proj_name +
-          " - Product Requirements Document</h2><p><br></p>"
+      : spellData
+      ? '<h2 style="text-align: center"> ' +
+        spellData.proj_name +
+        " - Product Requirements Document</h2><p><br></p>"
+      : ""
   );
 
   const [isEditing, setisEditing] = useState(false);
@@ -99,7 +102,7 @@ const SpellDashboard = ({ session, spellsData }) => {
             <Navbar />
             <Sidebar />
 
-            <div className={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-20"} `}>
+            <div className={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-14"} `}>
               {/* <div className="p-6 sm:ml-64 h-screen"> */}
               <div className="p-6 pl-0 pt-0 pb-0 space-y-3 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
                 <div className="flex justify-between">
@@ -178,15 +181,20 @@ const SpellDashboard = ({ session, spellsData }) => {
                         Software Product
                       </span>
                     </div>
-                    <SpellForm
+                    {/* <SpellForm
                       initText={initText}
                       setinitText={setinitText}
                       spellData={spellData}
+                    /> */}
+                    <NewForm
+                      spellData={spellData}
+                      initText={initText}
+                      setinitText={setinitText}
                     />
                   </div>
                   <div className="w-2/3">
                     {/* <Editor initText={initText} setinitText={setinitText} /> */}
-                    <Editor2 initText={initText} />
+                    <Editor2 initText={initText} spellId={spellData._id} />
                   </div>
                 </div>
               </div>
@@ -239,12 +247,6 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
         KeyUsers: values.KeyUsers,
         UserActions: values.UserActions,
       },
-      // data: {
-      //   PurposeAndScope: "hello",
-      //   ProductDescription: "hello",
-      //   KeyUsers: "hello",
-      //   UserActions: "hello",
-      // },
     })
       .then(function (res) {
         console.log("Api Response: ", res);

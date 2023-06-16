@@ -4,19 +4,33 @@ import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 
-const Editor2 = ({ initText }) => {
+const Editor2 = ({ initText, spellId }) => {
   const editor = useRef();
 
   const getSunEditorInstance = (sunEditor) => {
     editor.current = sunEditor;
   };
   function handleChange(content) {
-    console.log(content); //Get Content Inside Editor
+    console.log("Here I am at handle change: ");
+    console.log(content);
+    axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
+      data: {
+        spellId,
+        res_text: content,
+      },
+    })
+      .then((res) => {
+        console.log("Res Text content updated successfully");
+      })
+      .catch((err) => console.log("error occured: ", err));
   }
   const [defText, setdefText] = useState(initText);
   useEffect(() => {

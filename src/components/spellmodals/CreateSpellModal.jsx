@@ -165,7 +165,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
                           <img
                             src={`/Spells/${spell.name}.svg`}
                             // src={path}
-                            className={`rounded p-1 ${bgcolors[id]}`}
+                            className={`rounded ${bgcolors[id]}`}
                             alt=""
                           />
                           <label

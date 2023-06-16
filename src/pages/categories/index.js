@@ -27,7 +27,7 @@ const CategoriesIndex = () => {
                 potential of our AI.
               </p>
             </div>
-            <div className="grid gap-4 grid-cols-4 w-[80%]">
+            <div className="grid gap-4 grid-cols-4 xl:grid-cols-5 w-[97%]">
               {CategoriesData.map((category, index) => {
                 return (
                   <Category
