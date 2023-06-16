@@ -23,6 +23,7 @@ import { Edit20Regular } from "@fluentui/react-icons";
 import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
 import PageNotFound from "@/components/PageNotFound";
 import Head from "next/head";
+import NewForm from "@/components/forms/NewForm";
 
 const SpellDashboard = ({ session, spellsData }) => {
   const { expand } = useContext(StateContext);
@@ -48,11 +49,13 @@ const SpellDashboard = ({ session, spellsData }) => {
   // );
 
   const [initText, setinitText] = useState(
-    spellData.res_text
+    spellData && spellData.res_text
       ? spellData.res_text
-      : '<h2 style="text-align: center"> ' +
-          spellData.proj_name +
-          " - Product Requirements Document</h2><p><br></p>"
+      : spellData
+      ? '<h2 style="text-align: center"> ' +
+        spellData.proj_name +
+        " - Product Requirements Document</h2><p><br></p>"
+      : ""
   );
 
   const [isEditing, setisEditing] = useState(false);
@@ -178,10 +181,15 @@ const SpellDashboard = ({ session, spellsData }) => {
                         Software Product
                       </span>
                     </div>
-                    <SpellForm
+                    {/* <SpellForm
                       initText={initText}
                       setinitText={setinitText}
                       spellData={spellData}
+                    /> */}
+                    <NewForm
+                      spellData={spellData}
+                      initText={initText}
+                      setinitText={setinitText}
                     />
                   </div>
                   <div className="w-2/3">
@@ -239,12 +247,6 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
         KeyUsers: values.KeyUsers,
         UserActions: values.UserActions,
       },
-      // data: {
-      //   PurposeAndScope: "hello",
-      //   ProductDescription: "hello",
-      //   KeyUsers: "hello",
-      //   UserActions: "hello",
-      // },
     })
       .then(function (res) {
         console.log("Api Response: ", res);

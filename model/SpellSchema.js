@@ -13,6 +13,7 @@ const spellSchema = new Schema({
   created_by: { type: String, required: true },
   share_code: { type: String, required: true },
   res_text: { type: String },
+  inputs: { type: String },
 });
 
 const Spells = models.spell || model("spell", spellSchema);

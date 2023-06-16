@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { useEffect } from "react";
+import Head from "next/head";
 
 const SpellShareDoc = () => {
   const [initText, setinitText] = useState(null);
@@ -35,6 +36,9 @@ const SpellShareDoc = () => {
 
   return (
     <>
+      <Head>
+        <title>PRD | Spellmint</title>
+      </Head>
       <Navbar />
       {load ? (
         <div></div>
