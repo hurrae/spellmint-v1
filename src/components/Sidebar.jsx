@@ -143,18 +143,18 @@ const Sidebar = () => {
             <button
               onClick={toggleMenu}
               // onClick={() => setexpand(false)}
-              className=" p-1 border-2 mr-4"
+              className=" p-1 rounded border-2 mr-4"
             >
-              <ArrowExportRtl24Regular className="text-[#697283]" />
+              <ArrowExportRtl24Regular className="text-[#697283] p-[3px]" />
             </button>
           </li>
           <li className={`flex px-1 ${!expand ? "" : "hidden"}`}>
             <button
               onClick={toggleMenu}
               // onClick={() => setexpand(true)}
-              className="mx-auto p-1 border-2"
+              className="mx-auto p-1 rounded border-2"
             >
-              <ArrowExportLtr24Regular className="text-[#697283]" />
+              <ArrowExportLtr24Regular className="text-[#697283] p-[3px]" />
             </button>
           </li>
         </ul>
