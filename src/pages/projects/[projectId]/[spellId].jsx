@@ -186,7 +186,7 @@ const SpellDashboard = ({ session, spellsData }) => {
                   </div>
                   <div className="w-2/3">
                     {/* <Editor initText={initText} setinitText={setinitText} /> */}
-                    <Editor2 initText={initText} />
+                    <Editor2 initText={initText} spellId={spellData._id} />
                   </div>
                 </div>
               </div>
