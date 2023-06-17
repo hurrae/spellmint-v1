@@ -41,6 +41,16 @@ const InputFields = [
     required: true,
   },
   {
+    id: "Feature",
+    name: "Feature",
+    type: "text",
+    label: "Feature",
+    placeholder: "",
+    inputType: "textarea",
+    rows: "2",
+    required: false,
+  },
+  {
     id: "TargetMarket",
     name: "TargetMarket",
     type: "text",

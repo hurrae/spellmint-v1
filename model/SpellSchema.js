@@ -15,6 +15,7 @@ const spellSchema = new Schema({
   share_code: { type: String, required: true },
   res_text: { type: String },
   inputs: { type: String },
+  featureNo: [Number],
 });
 
 const Spells = models.spell || model("spell", spellSchema);

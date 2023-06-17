@@ -4,10 +4,13 @@ export default async function handler(req, res) {
   connectMongo().catch((error) => res.json({ error: "Connection Failed...!" }));
 
   if (req.method === "POST") {
-    const { spellId, inputs } = req.body;
+    const { spellId, inputs, featureNo } = req.body;
 
     try {
-      const spell = await Spells.findOneAndUpdate({ _id: spellId }, { inputs });
+      const spell = await Spells.findOneAndUpdate(
+        { _id: spellId },
+        { inputs, featureNo }
+      );
 
       if (!spell) {
         return res.status(404).json({ error: "Spell not found" });

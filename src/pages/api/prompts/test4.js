@@ -1,6 +1,6 @@
 // import openai from "@/utils/openai";
 import { OpenAIApi, Configuration } from "openai";
-// import prompts from "@/components/data/Prompts";
+import allPrompts from "@/components/data/Prompts";
 import PromptsMap from "@/components/data/Prompts/PromptsMap";
 
 export default async function handler(req, res) {
@@ -10,12 +10,36 @@ export default async function handler(req, res) {
   const openai = new OpenAIApi(configuration);
 
   try {
-    const { inputs, category, spell_type, proj_name, proj_description } =
-      req.body;
+    const {
+      inputs,
+      category,
+      spell_type,
+      proj_name,
+      proj_description,
+      featureNo,
+    } = req.body;
     console.log("Req Body: ", category, spell_type);
 
     const pInputs = JSON.parse(inputs);
-    const prompts = PromptsMap[category][spell_type];
+    let prompts;
+
+    if (PromptsMap[category] && PromptsMap[category][spell_type]) {
+      prompts = PromptsMap[category][spell_type];
+    } else {
+      prompts = allPrompts;
+    }
+
+    let featureString = "";
+    if (featureNo.length > 0) {
+      featureNo.map((el, index) => {
+        featureString += `\nFeature ${index + 1}: "${
+          pInputs[`FeatureTitle${el}`]
+        }"\nFeature ${index + 1} Description: "${
+          pInputs[`FeatureDescription${el}`]
+        }"\n`;
+      });
+    }
+    console.log("Feature String: ", featureString);
 
     const generatedPrompts = prompts.map((prompt) => {
       let updatedPrompt = prompt.prompt
@@ -26,6 +50,12 @@ export default async function handler(req, res) {
       if (prompt.replacePart) {
         prompt.replacePart.forEach((part) => {
           if (!pInputs[part]) {
+            if (part == "Features") {
+              updatedPrompt = updatedPrompt.replace(
+                "{{Features}}",
+                featureString
+              );
+            }
             if (prompt.opPrompt) {
               updatedPrompt = prompt.opPrompt;
             }

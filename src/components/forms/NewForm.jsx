@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import React from "react";
 import FieldsMap from "../data/FieldsMap";
 import axios from "axios";
+import { AddCircle20Regular, Dismiss20Regular } from "@fluentui/react-icons";
 
 const NewForm = ({ spellData, initText, setinitText }) => {
   const [load, setload] = useState(false);
@@ -21,6 +22,9 @@ const NewForm = ({ spellData, initText, setinitText }) => {
       );
     }
   }
+  const [featureNo, setfeatureNo] = useState(
+    spellData.featureNo.length > 0 ? spellData.featureNo : [1]
+  );
   console.log("Fields Arr: ", fieldsArr);
   console.log("Custom: ", CustomInputFields);
 
@@ -37,6 +41,7 @@ const NewForm = ({ spellData, initText, setinitText }) => {
         spell_type: spellData.spell_type,
         proj_name: spellData.proj_name,
         proj_description: spellData.proj_description,
+        featureNo,
       },
     })
       .then(function (res) {
@@ -79,6 +84,7 @@ const NewForm = ({ spellData, initText, setinitText }) => {
       data: {
         spellId: spellData._id,
         inputs: JSON.stringify(values),
+        featureNo,
       },
     })
       .then((res) => {
@@ -93,6 +99,7 @@ const NewForm = ({ spellData, initText, setinitText }) => {
     initialValues: spellInputs,
     onSubmit,
   });
+  // console.log("Feature No: ", featureNo);
 
   return (
     <form action="#" onSubmit={formik.handleSubmit}>
@@ -102,21 +109,115 @@ const NewForm = ({ spellData, initText, setinitText }) => {
             {CustomInputFields.map((el, index) => {
               return (
                 <div key={index}>
-                  <label
-                    htmlFor={el.name}
-                    className="block mb-2 font-medium text-gray-900 dark:text-gray-300"
-                  >
-                    {el.label}
-                  </label>
-                  <textarea
-                    type={el.type}
-                    id={el.id}
-                    rows={el.rows}
-                    className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                    placeholder={el.placeholder}
-                    required={el.required}
-                    {...formik.getFieldProps(el.name)}
-                  />
+                  {el.id !== "Feature" ? (
+                    <div>
+                      <label
+                        htmlFor={el.name}
+                        className="block mb-2 font-medium text-gray-900 dark:text-gray-300"
+                      >
+                        {el.label}
+                      </label>
+                      <textarea
+                        type={el.type}
+                        id={el.id}
+                        rows={el.rows}
+                        className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        placeholder={el.placeholder}
+                        required={el.required}
+                        {...formik.getFieldProps(el.name)}
+                      />
+                    </div>
+                  ) : (
+                    <div>
+                      {featureNo.map((feature) => {
+                        return (
+                          <div className="mb-2 space-y-4 bg-[#F8F8FB] p-4 rounded rounded-xl">
+                            {/* <div className="w-full text-end">
+                              <Dismiss20Regular className="" />
+                            </div> */}
+                            <div>
+                              <label
+                                htmlFor={"Feature" + feature}
+                                className="block flex justify-between mb-2 font-medium text-gray-900 dark:text-gray-300"
+                              >
+                                <span>Feature #{feature}</span>{" "}
+                                <span className="-mt-2">
+                                  <Dismiss20Regular
+                                    onClick={() => {
+                                      formik.setFieldValue(
+                                        el.name + "Title" + feature,
+                                        ""
+                                      );
+                                      formik.setFieldValue(
+                                        el.name + "Description" + feature,
+                                        ""
+                                      );
+                                      setfeatureNo((prevFeatureNo) =>
+                                        prevFeatureNo.filter(
+                                          (number) => number !== feature
+                                        )
+                                      );
+                                    }}
+                                  />
+                                </span>
+                              </label>
+                              <textarea
+                                type={el.type}
+                                id={"Feature" + feature}
+                                rows={1}
+                                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                placeholder={"Real-time tracking"}
+                                required={false}
+                                {...formik.getFieldProps(
+                                  el.name + "Title" + feature
+                                )}
+                              />
+                            </div>
+                            <hr className="text-[#D0D5DB] " />
+                            <div>
+                              <label
+                                htmlFor={"FeatureDescription" + feature}
+                                className="block mb-2 font-medium text-gray-900 dark:text-gray-300"
+                              >
+                                Description
+                              </label>
+                              <textarea
+                                type={el.type}
+                                id={"FeatureDescription" + feature}
+                                rows={2}
+                                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                placeholder={
+                                  "User can see their location and the driver's current location on the map."
+                                }
+                                required={false}
+                                {...formik.getFieldProps(
+                                  el.name + "Description" + feature
+                                )}
+                              />
+                            </div>
+                          </div>
+                        );
+                      })}
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const nextNumber =
+                            featureNo[featureNo.length - 1] + 1;
+                          setfeatureNo((prevFeatureNo) =>
+                            prevFeatureNo.concat(nextNumber)
+                          );
+                        }}
+                        className="text-[16px] w-full bg-[#F8F8FB] p-3 mt-4 rounded border-dashed border-2"
+                      >
+                        {" "}
+                        Add feature{" "}
+                        <span>
+                          <AddCircle20Regular className="text-[#697283]" />
+                        </span>{" "}
+                      </button>
+                    </div>
+                  )}
                 </div>
               );
             })}
