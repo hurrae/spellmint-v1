@@ -71,7 +71,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="/profile/#CreditsUsage"
               className="px-4 flex items-center p-2 text-grshade dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <DataUsage24Regular />
@@ -118,8 +118,12 @@ const Sidebar = () => {
           </li>
           <li>
             <a
-              href="#"
-              className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+              href="/profile"
+              className={`flex px-4 ${
+                actLink == "profile"
+                  ? "text-[#0568FD] border-r-4"
+                  : "text-grshade"
+              } items-center p-2 border-[#0568FD]  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Settings24Regular />
               <span className={`ml-4 ${expand ? "" : "hidden"}`}>
