@@ -107,7 +107,7 @@ const Sidebar = () => {
         <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
           <li>
             <a
-              href="#"
+              href="/profile/#pricing"
               className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <ArrowCircleUp24Regular />

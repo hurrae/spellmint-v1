@@ -298,6 +298,12 @@ const profile = ({ session, userData, appuserData }) => {
                 </div>
               </div>
             </div>
+            <div id="pricing" className=" mb-4 rounded rounded-lg border">
+              <div className="p-6 space-y-4">
+                <h3 className="text-xl font-bold">Plans & Pricing</h3>
+                <PricingPage />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -311,6 +317,16 @@ const profile = ({ session, userData, appuserData }) => {
 };
 
 export default profile;
+
+function PricingPage() {
+  // Paste the stripe-pricing-table snippet in your React component
+  return (
+    <stripe-pricing-table
+      pricing-table-id="prctbl_1NJKbySJu3RZdCRnAMCxL81R"
+      publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
+    ></stripe-pricing-table>
+  );
+}
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
