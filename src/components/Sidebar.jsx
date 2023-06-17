@@ -111,7 +111,9 @@ const Sidebar = () => {
               className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <ArrowCircleUp24Regular />
-              <span className={`ml-4 ${expand ? "" : "hidden"}`}>Upgrade</span>
+              <span className={`ml-4 ${expand ? "" : "hidden"}`}>
+                Plans & Pricing
+              </span>
             </a>
           </li>
           <li>
@@ -120,7 +122,9 @@ const Sidebar = () => {
               className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <Settings24Regular />
-              <span className={`ml-4 ${expand ? "" : "hidden"}`}>Settings</span>
+              <span className={`ml-4 ${expand ? "" : "hidden"}`}>
+                Profile Settings
+              </span>
             </a>
           </li>
           <li>
