@@ -12,7 +12,13 @@ import {
 import { CatSpellMap } from "../data/SpellsData";
 import SpellTypes from "../data/SpellsData";
 
-const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
+const CreateSpellModal = ({
+  proj_id,
+  proj_name,
+  proj_category,
+  proj_description,
+  session,
+}) => {
   const [spellSelect, setspellSelect] = useState("");
   const [spellName, setspellname] = useState("");
   const [load, setload] = useState(false);
@@ -41,6 +47,7 @@ const CreateSpellModal = ({ proj_id, proj_name, proj_category, session }) => {
         spell_type: spellSelect,
         proj_id,
         proj_name,
+        proj_description,
         proj_category,
         created_by: session.user.name,
       },

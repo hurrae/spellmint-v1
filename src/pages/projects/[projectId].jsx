@@ -159,6 +159,7 @@ const ProjectDashboard = ({ session, url, projectData }) => {
           <CreateSpellModal
             proj_id={projData.proj_id}
             proj_name={projData.name}
+            proj_description={projData.description}
             proj_category={projData.category}
             session={session}
           />

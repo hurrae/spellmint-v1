@@ -18,6 +18,7 @@ export default async function handler(req, res) {
       spell_type,
       proj_id,
       proj_name,
+      proj_description,
       proj_category,
       created_by,
     } = req.body;
@@ -49,6 +50,7 @@ export default async function handler(req, res) {
           spell_type,
           proj_id,
           proj_name,
+          proj_description,
           proj_category,
           created_by,
           share_code: shareCode,

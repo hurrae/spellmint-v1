@@ -7,6 +7,7 @@ const spellSchema = new Schema({
   spell_type: { type: String, required: true },
   proj_id: { type: String, required: true },
   proj_name: { type: String, required: true },
+  proj_description: { type: String },
   proj_category: { type: String, required: true },
   created_on: { type: Date, default: Date.now },
   last_edited_on: { type: Date, default: Date.now },

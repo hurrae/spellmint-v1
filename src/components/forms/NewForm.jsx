@@ -30,12 +30,13 @@ const NewForm = ({ spellData, initText, setinitText }) => {
 
     axios({
       method: "post",
-      url: `${process.env.NEXT_PUBLIC_HOST}/api/prompts/test3`,
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/prompts/test4`,
       data: {
-        PurposeAndScope: values.PurposeAndScope,
-        ProductDescription: values.ProductDescription,
-        KeyUsers: values.KeyUsers,
-        UserActions: values.UserActions,
+        inputs: JSON.stringify(values),
+        category: spellData.proj_category,
+        spell_type: spellData.spell_type,
+        proj_name: spellData.proj_name,
+        proj_description: spellData.proj_description,
       },
     })
       .then(function (res) {
@@ -85,7 +86,7 @@ const NewForm = ({ spellData, initText, setinitText }) => {
       })
       .catch((err) => console.log("error occured in saving inputs: ", err));
   };
-  const spellInputs = JSON.parse(spellData.inputs);
+  const spellInputs = JSON.parse(spellData.inputs ? spellData.inputs : "{}");
   console.log("Spell Inputs: ", spellInputs);
 
   const formik = useFormik({
