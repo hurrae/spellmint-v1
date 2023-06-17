@@ -1,4 +1,4 @@
-const prompts = [
+const allPrompts = [
   {
     name: "Prompt 1",
     prompt: `Generate an overview of a product that includes three sections: Product Description, Scenario (explained in a way a 5-year old would understand), and Use-cases.\n\nPurpose and Scope: "{{purposeAndScope}}"\n\nProduct Description: "{{productDescription}}"`,
@@ -13,4 +13,4 @@ const prompts = [
   },
 ];
 
-export default prompts;
+export default allPrompts;

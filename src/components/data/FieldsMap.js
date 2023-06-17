@@ -5,6 +5,7 @@ const FieldsMap = {
       "ProductDescription",
       "KeyUsers",
       "UserActions",
+      "Feature",
       "CustomerInterfaceRequirements",
       "LocalizedRequirements",
     ],

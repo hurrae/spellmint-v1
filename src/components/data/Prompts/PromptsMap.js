@@ -22,6 +22,12 @@ const PromptsMap = {
         opPrompt: `Generate a Customer Interface Requirements table with the 'Requirement' and 'Description'.`,
         replacePart: ["CustomerInterfaceRequirements"],
       },
+      {
+        name: "Prompt 5",
+        prompt: `Generate a table outlining the details of this specific feature within the product, including Feature name, Feature Description, Functional Requirements, Edge Cases, Happy Flows, and Unhappy Flows. \n\n{{Features}}`,
+        // opPrompt: `Generate a Customer Interface Requirements table with the 'Requirement' and 'Description'.`,
+        replacePart: ["Features"],
+      },
     ],
     Marketing: ["LocalizedRequirements", "Environments"],
     Growth: [],
