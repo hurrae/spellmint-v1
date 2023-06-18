@@ -25,7 +25,7 @@ import PageNotFound from "@/components/PageNotFound";
 import Head from "next/head";
 import NewForm from "@/components/forms/NewForm";
 
-const SpellDashboard = ({ session, spellsData }) => {
+const SpellDashboard = ({ session, spellsData, appUserData }) => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
   const router = useRouter();
@@ -158,18 +158,18 @@ const SpellDashboard = ({ session, spellsData }) => {
                     >
                       <Delete24Regular />
                     </button>
-                    <button
+                    {/* <button
                       href="#"
                       className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                     >
                       Download as DOC
-                    </button>
-                    <button
-                      href="#"
+                    </button> */}
+                    {/* <button
+                      type="button"
                       className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                     >
                       Download as PDF
-                    </button>
+                    </button> */}
                   </div>
                 </div>
 
@@ -190,11 +190,19 @@ const SpellDashboard = ({ session, spellsData }) => {
                       spellData={spellData}
                       initText={initText}
                       setinitText={setinitText}
+                      appUserData={appUserData}
+                      toast={toast}
                     />
                   </div>
                   <div className="w-2/3">
                     {/* <Editor initText={initText} setinitText={setinitText} /> */}
-                    <Editor2 initText={initText} spellId={spellData._id} />
+                    <Editor2
+                      initText={initText}
+                      spellId={spellData._id}
+                      proj_name={spellData.proj_name}
+                      user_email={session.user.email}
+                      spellResText={spellData.res_text}
+                    />
                   </div>
                 </div>
               </div>
@@ -452,7 +460,22 @@ export async function getServerSideProps({ req }) {
     spellsData = {};
   }
 
+  let appUserData;
+  try {
+    const res = await axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/getAppUser`,
+      data: {
+        email: session.user.email,
+      },
+    });
+    appUserData = res.data.appuser;
+    console.log("appuser response: ", res);
+  } catch (error) {
+    appUserData = {};
+  }
+
   return {
-    props: { session, spellsData },
+    props: { session, spellsData, appUserData },
   };
 }

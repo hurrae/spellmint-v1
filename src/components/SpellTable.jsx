@@ -153,7 +153,7 @@ const SpellTableRow = ({
                 Edit
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="#"
                 className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -170,7 +170,7 @@ const SpellTableRow = ({
               >
                 Download
               </a>
-            </li>
+            </li> */}
             <li>
               <button
                 onClick={() => handleDeleteClick(name, id)}

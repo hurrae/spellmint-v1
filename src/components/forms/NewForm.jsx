@@ -6,7 +6,7 @@ import FieldsMap from "../data/FieldsMap";
 import axios from "axios";
 import { AddCircle20Regular, Dismiss20Regular } from "@fluentui/react-icons";
 
-const NewForm = ({ spellData, initText, setinitText }) => {
+const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
   const [load, setload] = useState(false);
 
   let fieldsArr = [];
@@ -25,11 +25,18 @@ const NewForm = ({ spellData, initText, setinitText }) => {
   const [featureNo, setfeatureNo] = useState(
     spellData.featureNo.length > 0 ? spellData.featureNo : [1]
   );
-  console.log("Fields Arr: ", fieldsArr);
-  console.log("Custom: ", CustomInputFields);
+  // console.log("Fields Arr: ", fieldsArr);
+  // console.log("Custom: ", CustomInputFields);
+
+  const [conWords, setconWords] = useState(appUserData.consumedWords);
 
   const onSubmit = (values) => {
     setload(true);
+    if (conWords >= appUserData.allottedWords) {
+      toast.error("You have exhausted your Credits Usage");
+      setload(false);
+      return;
+    }
     console.log("Values received: ", values);
 
     axios({
@@ -57,18 +64,41 @@ const NewForm = ({ spellData, initText, setinitText }) => {
         });
         console.log("defStr 2: ", defStr);
 
+        const text = defStr.replace(/(<([^>]+)>)/gi, ""); // to remove HTML tags from the content
+        const words = text.trim().split(/\s+/); // Split the text into words
+        console.log("Words Length: ", words.length);
+        const wordsLen = words.length;
+        setconWords(conWords + wordsLen);
+
+        // axios({
+        //   method: "post",
+        //   url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
+        //   data: {
+        //     spellId: spellData._id,
+        //     res_text: defStr,
+        //     proj_name: spellData.proj_name,
+        //     user_email: appUserData.email,
+        //   },
+        // })
+        //   .then((res) => {
+        //     console.log("New Res Text updated successfully");
+        //   })
+        //   .catch((err) => console.log("error occured: ", err));
+
         axios({
           method: "post",
-          url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
+          url: `${process.env.NEXT_PUBLIC_HOST}/api/updateConsumed`,
           data: {
-            spellId: spellData._id,
-            res_text: defStr,
+            email: appUserData.email,
+            wordsLen: wordsLen,
           },
         })
           .then((res) => {
-            console.log("New Res Text updated successfully");
+            console.log("Consumed Words Updated Successfully");
           })
-          .catch((err) => console.log("error occured: ", err));
+          .catch((err) =>
+            console.log("error occured in consumed words updation: ", err)
+          );
 
         setinitText(defStr);
         setload(false);
@@ -140,7 +170,7 @@ const NewForm = ({ spellData, initText, setinitText }) => {
                                 htmlFor={"Feature" + feature}
                                 className="block flex justify-between mb-2 font-medium text-gray-900 dark:text-gray-300"
                               >
-                                <span>Feature #{feature}</span>{" "}
+                                <span>Feature </span>{" "}
                                 <span className="-mt-2">
                                   <Dismiss20Regular
                                     onClick={() => {

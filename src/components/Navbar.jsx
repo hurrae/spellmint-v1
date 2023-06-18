@@ -13,7 +13,7 @@ const Navbar = () => {
     console.log("session present");
   }
   return (
-    <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <nav className="fixed top-0 z-40 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
       <div className="px-3 py-3 lg:px-5 lg:pl-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-start">
@@ -54,12 +54,12 @@ const Navbar = () => {
           {session ? (
             <div className="flex items-center">
               <div>
-                <button
-                  href="#"
+                <a
+                  href="/profile/#pricing"
                   className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                 >
                   Upgrade Plan
-                </button>
+                </a>
               </div>
               <div className="flex items-center ml-3">
                 <div>
@@ -72,7 +72,12 @@ const Navbar = () => {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://i.imgur.com/G2oJt6M.png"
+                      src={
+                        session.user.image
+                          ? session.user.image
+                          : "/ProfileAvatar.svg"
+                      }
+                      // src="https://i.imgur.com/G2oJt6M.png"
                       alt="user photo"
                     />
                   </button>
@@ -107,7 +112,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/profile"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >

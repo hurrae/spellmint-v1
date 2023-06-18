@@ -60,6 +60,7 @@ export default async function handler(req, res) {
         console.log("Spell ResData: ", resData);
 
         project.spells.push(resData);
+        project.last_edited_on = new Date();
         // Save the updated project document
         const prResData = await project.save();
         console.log("Project Updated Data: ", prResData);

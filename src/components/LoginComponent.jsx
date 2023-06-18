@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 
-const LoginComponent = ({ forgotBool }) => {
+const LoginComponent = ({ forgotBool, toast }) => {
   const router = useRouter();
   // formik hook
   const formik = useFormik({
@@ -27,6 +27,13 @@ const LoginComponent = ({ forgotBool }) => {
       password: values.password,
       callbackUrl: "/redirection",
     });
+    console.log("status: ", status);
+
+    if (status.error == "Illegal arguments: string, undefined") {
+      toast.error("Please sign in with Google");
+    } else {
+      toast.error(status.error);
+    }
 
     if (status.ok) router.push(status.url);
   }

@@ -66,12 +66,6 @@ const ResetSection = ({ resetToken }) => {
               className={styles.input_text}
               {...formik.getFieldProps("newPass")}
             />
-            {/* <span
-                  className="icon flex items-center px-4"
-                  onClick={() => setShow(!show)}
-                >
-                  <HiFingerPrint size={25} />
-                </span> */}
           </div>
           <div className="text-start ml-2">
             {formik.errors.newPass && formik.touched.newPass ? (
@@ -100,12 +94,6 @@ const ResetSection = ({ resetToken }) => {
               className={styles.input_text}
               {...formik.getFieldProps("confirmNewPass")}
             />
-            {/* <span
-                  className="icon flex items-center px-4"
-                  onClick={() => setShow(!show)}
-                >
-                  <HiFingerPrint size={25} />
-                </span> */}
           </div>
           <div className="text-start ml-2">
             {formik.errors.confirmNewPass && formik.touched.confirmNewPass ? (

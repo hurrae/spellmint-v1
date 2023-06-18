@@ -28,7 +28,7 @@ const Sidebar = () => {
   return (
     <aside
       id="logo-sidebar"
-      className={`fixed top-0 left-0 z-40 ${
+      className={` block fixed top-0 left-0 z-40 lg:z-30 ${
         expand ? "w-64" : ""
       } h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
       aria-label="Sidebar"
@@ -71,7 +71,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="/profile/#CreditsUsage"
               className="px-4 flex items-center p-2 text-grshade dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <DataUsage24Regular />
@@ -107,20 +107,28 @@ const Sidebar = () => {
         <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
           <li>
             <a
-              href="#"
+              href="/profile/#pricing"
               className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <ArrowCircleUp24Regular />
-              <span className={`ml-4 ${expand ? "" : "hidden"}`}>Upgrade</span>
+              <span className={`ml-4 ${expand ? "" : "hidden"}`}>
+                Plans & Pricing
+              </span>
             </a>
           </li>
           <li>
             <a
-              href="#"
-              className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
+              href="/profile"
+              className={`flex px-4 ${
+                actLink == "profile"
+                  ? "text-[#0568FD] border-r-4"
+                  : "text-grshade"
+              } items-center p-2 border-[#0568FD]  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Settings24Regular />
-              <span className={`ml-4 ${expand ? "" : "hidden"}`}>Settings</span>
+              <span className={`ml-4 ${expand ? "" : "hidden"}`}>
+                Profile Settings
+              </span>
             </a>
           </li>
           <li>
