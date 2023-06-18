@@ -261,49 +261,56 @@ const profile = ({ session, userData, appuserData }) => {
                 </form>
               </div>
             </div>
-            <div id="CreditsUsage" className=" mb-4 rounded rounded-lg border">
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">Credits Usage</h3>
-                <div>
-                  <p>
-                    You’re currently on{" "}
-                    <span className="text-[#0568FD] underline underline-offset-2">
-                      {appuserData.plan ? appuserData.plan : "Free"} Plan
-                    </span>{" "}
-                    <span>
-                      <CheckmarkCircle16Filled className="text-[#0568FD] mb-[2px]" />
-                    </span>
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <h2 className="text-2xl text-[#697283]">
-                    <span className="font-bold text-[#111829]">{cwc}</span> /{" "}
-                    {awc} words
-                  </h2>
-                  <div class="w-[400px] bg-gray-200 rounded-full h-2 mb-4 dark:bg-gray-700">
-                    <div
-                      class="bg-[#0568FD] h-2 rounded-full dark:bg-blue-500"
-                      style={{ width: `${(cwc / awc) * 100}%` }}
-                    ></div>
+            <div id="CreditsUsage" className="h-[60px]"></div>
+            <section>
+              <div className=" mb-4 rounded rounded-lg border">
+                <div className="p-6 space-y-4">
+                  <h3 className="text-xl font-bold">Credits Usage</h3>
+                  <div>
+                    <p>
+                      You’re currently on{" "}
+                      <span className="text-[#0568FD] underline underline-offset-2">
+                        {appuserData.plan ? appuserData.plan : "Free"} Plan
+                      </span>{" "}
+                      <span>
+                        <CheckmarkCircle16Filled className="text-[#0568FD] mb-[2px]" />
+                      </span>
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <h2 className="text-2xl text-[#697283]">
+                      <span className="font-bold text-[#111829]">{cwc}</span> /{" "}
+                      {awc} words
+                    </h2>
+                    <div class="w-[400px] bg-gray-200 rounded-full h-2 mb-4 dark:bg-gray-700">
+                      <div
+                        class="bg-[#0568FD] h-2 rounded-full dark:bg-blue-500"
+                        style={{ width: `${(cwc / awc) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      href="#"
+                      className=" px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
+                    >
+                      Upgrade Plan
+                    </button>
                   </div>
                 </div>
-                <div className="pt-2">
-                  <button
-                    type="button"
-                    href="#"
-                    className=" px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
-                  >
-                    Upgrade Plan
-                  </button>
+              </div>
+            </section>
+            <div className="h-[60px]"></div>
+            <section id="pricing">
+              <div className=" mb-4 rounded rounded-lg border">
+                <div className="p-6 space-y-4">
+                  <h3 className="text-xl font-bold">Plans & Pricing</h3>
+                  <PricingPage />
                 </div>
               </div>
-            </div>
-            <div id="pricing" className=" mb-4 rounded rounded-lg border">
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">Plans & Pricing</h3>
-                <PricingPage />
-              </div>
-            </div>
+            </section>
+            <div className="h-[60px]"></div>
           </div>
         </div>
       </div>

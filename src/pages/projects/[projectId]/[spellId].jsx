@@ -25,7 +25,7 @@ import PageNotFound from "@/components/PageNotFound";
 import Head from "next/head";
 import NewForm from "@/components/forms/NewForm";
 
-const SpellDashboard = ({ session, spellsData }) => {
+const SpellDashboard = ({ session, spellsData, appUserData }) => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
   const router = useRouter();
@@ -190,6 +190,8 @@ const SpellDashboard = ({ session, spellsData }) => {
                       spellData={spellData}
                       initText={initText}
                       setinitText={setinitText}
+                      appUserData={appUserData}
+                      toast={toast}
                     />
                   </div>
                   <div className="w-2/3">
@@ -452,7 +454,22 @@ export async function getServerSideProps({ req }) {
     spellsData = {};
   }
 
+  let appUserData;
+  try {
+    const res = await axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/getAppUser`,
+      data: {
+        email: session.user.email,
+      },
+    });
+    appUserData = res.data.appuser;
+    console.log("appuser response: ", res);
+  } catch (error) {
+    appUserData = {};
+  }
+
   return {
-    props: { session, spellsData },
+    props: { session, spellsData, appUserData },
   };
 }

@@ -6,7 +6,7 @@ import FieldsMap from "../data/FieldsMap";
 import axios from "axios";
 import { AddCircle20Regular, Dismiss20Regular } from "@fluentui/react-icons";
 
-const NewForm = ({ spellData, initText, setinitText }) => {
+const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
   const [load, setload] = useState(false);
 
   let fieldsArr = [];
@@ -28,8 +28,15 @@ const NewForm = ({ spellData, initText, setinitText }) => {
   console.log("Fields Arr: ", fieldsArr);
   console.log("Custom: ", CustomInputFields);
 
+  const [conWords, setconWords] = useState(appUserData.consumedWords);
+
   const onSubmit = (values) => {
     setload(true);
+    if (conWords >= appUserData.allottedWords) {
+      toast.error("You have exhausted your Credits Usage");
+      setload(false);
+      return;
+    }
     console.log("Values received: ", values);
 
     axios({
@@ -57,6 +64,12 @@ const NewForm = ({ spellData, initText, setinitText }) => {
         });
         console.log("defStr 2: ", defStr);
 
+        const text = defStr.replace(/(<([^>]+)>)/gi, ""); // to remove HTML tags from the content
+        const words = text.trim().split(/\s+/); // Split the text into words
+        console.log("Words Length: ", words.length);
+        const wordsLen = words.length;
+        setconWords(conWords + wordsLen);
+
         axios({
           method: "post",
           url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
@@ -69,6 +82,21 @@ const NewForm = ({ spellData, initText, setinitText }) => {
             console.log("New Res Text updated successfully");
           })
           .catch((err) => console.log("error occured: ", err));
+
+        axios({
+          method: "post",
+          url: `${process.env.NEXT_PUBLIC_HOST}/api/updateConsumed`,
+          data: {
+            email: appUserData.email,
+            wordsLen: wordsLen,
+          },
+        })
+          .then((res) => {
+            console.log("Consumed Words Updated Successfully");
+          })
+          .catch((err) =>
+            console.log("error occured in consumed words updation: ", err)
+          );
 
         setinitText(defStr);
         setload(false);

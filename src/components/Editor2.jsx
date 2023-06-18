@@ -19,6 +19,7 @@ const Editor2 = ({ initText, spellId }) => {
   function handleChange(content) {
     console.log("Here I am at handle change: ");
     console.log(content);
+
     axios({
       method: "post",
       url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
