@@ -150,7 +150,7 @@ export const CatSpellMap = {
     "Finance",
     "Website",
   ],
-  "Sport & Fitness": [
+  "Sports & Fitness": [
     "Product",
     "Marketing",
     "Sales",

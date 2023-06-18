@@ -52,9 +52,12 @@ const dashboard = ({ session }) => {
                       the potential of our AI.
                     </p>
                   </div>
-                  <button className="underline underline-offset-2 text-[#0568FD]">
+                  <a
+                    href="/categories"
+                    className="underline underline-offset-2 text-[#0568FD]"
+                  >
                     Explore Categories <ArrowRight16Filled />
-                  </button>
+                  </a>
                 </div>
                 <div className="grid gap-4 grid-cols-5">
                   <Category

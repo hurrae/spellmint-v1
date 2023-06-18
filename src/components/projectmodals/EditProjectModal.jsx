@@ -155,7 +155,7 @@ const EditProjectModal = ({ projData, session }) => {
                   <option>Hospitality</option>
                   <option>Legal Services</option>
                   <option>Insurance</option>
-                  <option>Sport & Fitness</option>
+                  <option>Sports & Fitness</option>
                 </select>
               </div>
               <div>

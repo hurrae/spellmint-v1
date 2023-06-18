@@ -5,9 +5,13 @@ import { useContext } from "react";
 import { StateContext } from "@/utils/StateContext";
 import CategoriesData from "@/components/data/CategoriesData";
 import Head from "next/head";
+import CreateProjectModal from "@/components/projectmodals/CreateProjectModal";
+import { useState } from "react";
+import { getSession } from "next-auth/react";
 
-const CategoriesIndex = () => {
+const CategoriesIndex = ({ session }) => {
   const { expand } = useContext(StateContext);
+  const [selectCat, setselectCat] = useState("");
   return (
     <>
       <Head>
@@ -31,6 +35,7 @@ const CategoriesIndex = () => {
               {CategoriesData.map((category, index) => {
                 return (
                   <Category
+                    setselectCat={setselectCat}
                     key={index}
                     title={category.title}
                     desc={category.desc}
@@ -42,15 +47,21 @@ const CategoriesIndex = () => {
           </div>
         </div>
       </div>
+      <CreateProjectModal session={session} category={selectCat} />
     </>
   );
 };
 
 export default CategoriesIndex;
 
-const Category = ({ title, desc, imgLink }) => {
+const Category = ({ title, desc, imgLink, setselectCat }) => {
   return (
-    <div className="border-2  rounded-lg overflow-hidden">
+    <div
+      className="border-2 rounded-lg overflow-hidden"
+      data-modal-target="project-modal"
+      data-modal-toggle="project-modal"
+      onClick={() => setselectCat(title)}
+    >
       <div className="h-34 bg-gray-50">
         <img className="mx-auto" src={imgLink} alt="" />
       </div>
@@ -61,3 +72,20 @@ const Category = ({ title, desc, imgLink }) => {
     </div>
   );
 };
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}
