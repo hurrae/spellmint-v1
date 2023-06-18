@@ -18,6 +18,7 @@ export default async function handler(req, res) {
       spell_type,
       proj_id,
       proj_name,
+      proj_description,
       proj_category,
       created_by,
     } = req.body;
@@ -49,6 +50,7 @@ export default async function handler(req, res) {
           spell_type,
           proj_id,
           proj_name,
+          proj_description,
           proj_category,
           created_by,
           share_code: shareCode,
@@ -58,6 +60,7 @@ export default async function handler(req, res) {
         console.log("Spell ResData: ", resData);
 
         project.spells.push(resData);
+        project.last_edited_on = new Date();
         // Save the updated project document
         const prResData = await project.save();
         console.log("Project Updated Data: ", prResData);

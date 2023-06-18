@@ -15,6 +15,9 @@ const appUserSchema = new Schema({
     default: Math.floor(Math.random() * 100),
   },
   projects: [projectSchema],
+  consumedWords: { type: Number, default: 0 },
+  allottedWords: { type: Number, default: 2000 },
+  plan: { type: String, default: "Free" },
 });
 
 const AppUsers = models.appUser || model("appUser", appUserSchema);

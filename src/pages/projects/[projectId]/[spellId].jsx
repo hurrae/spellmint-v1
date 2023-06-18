@@ -23,8 +23,9 @@ import { Edit20Regular } from "@fluentui/react-icons";
 import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
 import PageNotFound from "@/components/PageNotFound";
 import Head from "next/head";
+import NewForm from "@/components/forms/NewForm";
 
-const SpellDashboard = ({ session, spellsData }) => {
+const SpellDashboard = ({ session, spellsData, appUserData }) => {
   const { expand } = useContext(StateContext);
   const table = [1, 2];
   const router = useRouter();
@@ -48,11 +49,13 @@ const SpellDashboard = ({ session, spellsData }) => {
   // );
 
   const [initText, setinitText] = useState(
-    spellData.res_text
+    spellData && spellData.res_text
       ? spellData.res_text
-      : '<h2 style="text-align: center"> ' +
-          spellData.proj_name +
-          " - Product Requirements Document</h2><p><br></p>"
+      : spellData
+      ? '<h2 style="text-align: center"> ' +
+        spellData.proj_name +
+        " - Product Requirements Document</h2><p><br></p>"
+      : ""
   );
 
   const [isEditing, setisEditing] = useState(false);
@@ -155,18 +158,18 @@ const SpellDashboard = ({ session, spellsData }) => {
                     >
                       <Delete24Regular />
                     </button>
-                    <button
+                    {/* <button
                       href="#"
                       className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                     >
                       Download as DOC
-                    </button>
-                    <button
-                      href="#"
+                    </button> */}
+                    {/* <button
+                      type="button"
                       className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                     >
                       Download as PDF
-                    </button>
+                    </button> */}
                   </div>
                 </div>
 
@@ -178,15 +181,28 @@ const SpellDashboard = ({ session, spellsData }) => {
                         Software Product
                       </span>
                     </div>
-                    <SpellForm
+                    {/* <SpellForm
                       initText={initText}
                       setinitText={setinitText}
                       spellData={spellData}
+                    /> */}
+                    <NewForm
+                      spellData={spellData}
+                      initText={initText}
+                      setinitText={setinitText}
+                      appUserData={appUserData}
+                      toast={toast}
                     />
                   </div>
                   <div className="w-2/3">
                     {/* <Editor initText={initText} setinitText={setinitText} /> */}
-                    <Editor2 initText={initText} />
+                    <Editor2
+                      initText={initText}
+                      spellId={spellData._id}
+                      proj_name={spellData.proj_name}
+                      user_email={session.user.email}
+                      spellResText={spellData.res_text}
+                    />
                   </div>
                 </div>
               </div>
@@ -239,12 +255,6 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
         KeyUsers: values.KeyUsers,
         UserActions: values.UserActions,
       },
-      // data: {
-      //   PurposeAndScope: "hello",
-      //   ProductDescription: "hello",
-      //   KeyUsers: "hello",
-      //   UserActions: "hello",
-      // },
     })
       .then(function (res) {
         console.log("Api Response: ", res);
@@ -450,7 +460,22 @@ export async function getServerSideProps({ req }) {
     spellsData = {};
   }
 
+  let appUserData;
+  try {
+    const res = await axios({
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_HOST}/api/getAppUser`,
+      data: {
+        email: session.user.email,
+      },
+    });
+    appUserData = res.data.appuser;
+    console.log("appuser response: ", res);
+  } catch (error) {
+    appUserData = {};
+  }
+
   return {
-    props: { session, spellsData },
+    props: { session, spellsData, appUserData },
   };
 }

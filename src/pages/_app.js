@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }) {
           src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
           strategy="beforeInteractive"
         />
+        <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
       </>
     </SessionProvider>
   );

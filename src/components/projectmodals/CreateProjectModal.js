@@ -8,14 +8,16 @@ import "react-toastify/dist/ReactToastify.css";
 import redirect from "@/pages/redirection";
 import { useRouter } from "next/router";
 
-const CreateProjectModal = ({ session }) => {
+const CreateProjectModal = ({ session, category }) => {
   const [load, setload] = useState(false);
   const router = useRouter();
+  console.log("Inside create modal: ", category);
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       name: "",
-      category: "",
+      category: category || "",
       description: "",
     },
     // validate,
@@ -167,7 +169,7 @@ const CreateProjectModal = ({ session }) => {
                   <option>Hospitality</option>
                   <option>Legal Services</option>
                   <option>Insurance</option>
-                  <option>Sport & Fitness</option>
+                  <option>Sports & Fitness</option>
                 </select>
                 {/* {formik.touched.category && formik.errors.category && (
                   <p className="text-red-500">{formik.errors.category}</p>

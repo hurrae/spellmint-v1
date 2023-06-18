@@ -12,6 +12,7 @@ const userSchema = new Schema({
     type: Date,
     default: null,
   },
+  image: { type: String },
 });
 
 const Users = models.user || model("user", userSchema);

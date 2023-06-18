@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { getSession, useSession, signOut } from "next-auth/react";
 import Router from "next/router";
 import axios from "axios";
+import Loader from "@/components/Loader";
 
 const redirect = () => {
   const { data: session } = useSession();
@@ -23,9 +24,10 @@ const redirect = () => {
     console.log("i have sent the order sucessfully");
     const { data } = await axios.post("/api/appusers/newUser", data2, config);
 
-    Router.push({
-      pathname: "/dashboard",
-    });
+    // Router.push({
+    //   pathname: "/dashboard",
+    // });
+    window.location.href = `${process.env.NEXT_PUBLIC_HOST}/dashboard`;
 
     console.log("i am here", data);
   };
@@ -37,7 +39,11 @@ const redirect = () => {
     onSubmit();
   }, []);
 
-  return <div>Please Wait, while we redirect you </div>;
+  return (
+    <div>
+      Please Wait, while we redirect you <Loader />{" "}
+    </div>
+  );
 };
 
 export async function getServerSideProps({ req }) {
