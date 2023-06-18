@@ -14,6 +14,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
 
 const profile = ({ session, userData, appuserData }) => {
   const { expand } = useContext(StateContext);
@@ -290,13 +291,14 @@ const profile = ({ session, userData, appuserData }) => {
                     </div>
                   </div>
                   <div className="pt-2">
-                    <button
-                      type="button"
-                      href="#"
-                      className=" px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
-                    >
-                      Upgrade Plan
-                    </button>
+                    <Link href="#pricing">
+                      <button
+                        type="button"
+                        className=" px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
+                      >
+                        Upgrade Plan
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
