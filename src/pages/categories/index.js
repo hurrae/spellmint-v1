@@ -57,7 +57,7 @@ export default CategoriesIndex;
 const Category = ({ title, desc, imgLink, setselectCat }) => {
   return (
     <div
-      className="border-2 rounded-lg overflow-hidden"
+      className="border-2 rounded-lg overflow-hidden cursor-pointer"
       data-modal-target="project-modal"
       data-modal-toggle="project-modal"
       onClick={() => setselectCat(title)}

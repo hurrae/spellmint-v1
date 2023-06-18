@@ -16,7 +16,7 @@ const login = () => {
       </Head>
       <div className="font-inter h-screen">
         <div className="flex h-full">
-          <div className="w-[40%] py-8  flex flex-col my-auto">
+          <div className="w-[100%] lg:w-[40%] py-8  flex flex-col my-auto">
             {!forgot ? (
               <LoginComponent
                 toast={toast}
@@ -33,7 +33,7 @@ const login = () => {
             alt=""
           />
         </div> */}
-          <div className="w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
+          <div className="hidden lg:block w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
         </div>
       </div>
       <ToastContainer

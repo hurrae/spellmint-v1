@@ -65,7 +65,7 @@ const signup = () => {
       </Head>
       <div className="font-inter">
         <div className="flex h-full">
-          <div className="w-[40%] py-8  flex flex-col my-auto">
+          <div className="w-[100%] lg:w-[40%] py-8  flex flex-col my-auto">
             <section className=" w-[80%] mx-auto flex flex-col gap-10">
               <div className="title space-y-4">
                 <img src="/logowname.svg" className="w-[50%]" alt="" />
@@ -212,7 +212,7 @@ const signup = () => {
               </p>
             </section>
           </div>
-          <div className="w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
+          <div className="hidden lg:block w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
         </div>
       </div>
       <ToastContainer

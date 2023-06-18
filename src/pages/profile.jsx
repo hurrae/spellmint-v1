@@ -88,7 +88,7 @@ const profile = ({ session, userData, appuserData }) => {
 
         <div className={`p-4 ${expand ? "ml-64" : "ml-20"} `}>
           <div className="p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
-            <div id="Settings" className=" mb-4 rounded rounded-lg border">
+            <div id="Settings" className=" mb-8 rounded rounded-lg border">
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-bold">Profile Settings</h3>
                 {/* <div className="flex space-x-4">
@@ -262,9 +262,9 @@ const profile = ({ session, userData, appuserData }) => {
                 </form>
               </div>
             </div>
-            <div id="CreditsUsage" className="h-[60px]"></div>
-            <section>
-              <div className=" mb-4 rounded rounded-lg border">
+            {/* <div id="CreditsUsage" className="h-[60px]"></div> */}
+            <section id="CreditsUsage">
+              <div className=" mb-8 rounded rounded-lg border">
                 <div className="p-6 bg-[url('/CurvesPattern.svg')] bg-no-repeat bg-right space-y-4">
                   <h3 className="text-xl font-bold">Credits Usage</h3>
                   <div>
@@ -283,7 +283,7 @@ const profile = ({ session, userData, appuserData }) => {
                       <span className="font-bold text-[#111829]">{cwc}</span> /{" "}
                       {awc} words
                     </h2>
-                    <div className="w-[400px] bg-gray-200 rounded-full h-2 mb-4 dark:bg-gray-700">
+                    <div className="w-[400px] bg-gray-200 rounded-full h-2 mb-8 dark:bg-gray-700">
                       <div
                         className="bg-[#0568FD] h-2 rounded-full dark:bg-blue-500"
                         style={{ width: `${(cwc / awc) * 100}%` }}
@@ -303,16 +303,16 @@ const profile = ({ session, userData, appuserData }) => {
                 </div>
               </div>
             </section>
-            <div className="h-[60px]"></div>
+            {/* <div className="h-[60px]"></div> */}
             <section id="pricing">
-              <div className=" mb-4 rounded rounded-lg border">
+              <div className=" mb-8 rounded rounded-lg border">
                 <div className="p-6 space-y-4">
                   <h3 className="text-xl font-bold">Plans & Pricing</h3>
                   <PricingPage />
                 </div>
               </div>
             </section>
-            <div className="h-[60px]"></div>
+            {/* <div className="h-[60px]"></div> */}
           </div>
         </div>
       </div>

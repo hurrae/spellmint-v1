@@ -52,7 +52,7 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
         <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
           Reset your password
         </h3>
-        <p className="w-3/4 text-xl text-gray-400">
+        <p className="w-[100%] lg:w-3/4 text-xl text-gray-400">
           Please enter your email address below to reset your Spellmint
           password.
         </p>

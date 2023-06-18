@@ -170,7 +170,7 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
                                 htmlFor={"Feature" + feature}
                                 className="block flex justify-between mb-2 font-medium text-gray-900 dark:text-gray-300"
                               >
-                                <span>Feature #{feature}</span>{" "}
+                                <span>Feature </span>{" "}
                                 <span className="-mt-2">
                                   <Dismiss20Regular
                                     onClick={() => {
