@@ -196,7 +196,13 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
                   </div>
                   <div className="w-2/3">
                     {/* <Editor initText={initText} setinitText={setinitText} /> */}
-                    <Editor2 initText={initText} spellId={spellData._id} />
+                    <Editor2
+                      initText={initText}
+                      spellId={spellData._id}
+                      proj_name={spellData.proj_name}
+                      user_email={session.user.email}
+                      spellResText={spellData.res_text}
+                    />
                   </div>
                 </div>
               </div>

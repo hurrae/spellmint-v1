@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       // Remove the project from the projects array in the appUser document
       const ProjectRes = await Projects.findOneAndUpdate(
         { user_email, name: spell.proj_name },
-        { $pull: { spells: { _id: spell._id } } }
+        { $pull: { spells: { _id: spell._id } }, last_edited_on: new Date() }
       );
 
       //   console.log("Project Arr Update: ", ProjectRes);

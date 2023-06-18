@@ -37,6 +37,7 @@ export default async function handler(req, res) {
       // Update the project details
       project.name = newName;
       project.description = newDescription;
+      project.last_edited_on = new Date();
 
       const updatedProject = await project.save();
       console.log("Updated Project Data: ", updatedProject);
@@ -52,6 +53,7 @@ export default async function handler(req, res) {
       );
       if (projectIndex !== -1) {
         user.projects[projectIndex].name = newName;
+        user.projects[projectIndex].last_edited_on = new Date();
         await user.save();
       }
 

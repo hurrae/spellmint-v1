@@ -10,14 +10,20 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 
-const Editor2 = ({ initText, spellId }) => {
+const Editor2 = ({
+  initText,
+  spellId,
+  proj_name,
+  user_email,
+  spellResText,
+}) => {
   const editor = useRef();
 
   const getSunEditorInstance = (sunEditor) => {
     editor.current = sunEditor;
   };
   function handleChange(content) {
-    console.log("Here I am at handle change: ");
+    // console.log("Here I am at handle change: ", proj_name, user_email);
     console.log(content);
 
     axios({
@@ -26,6 +32,8 @@ const Editor2 = ({ initText, spellId }) => {
       data: {
         spellId,
         res_text: content,
+        proj_name,
+        user_email,
       },
     })
       .then((res) => {

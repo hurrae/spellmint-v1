@@ -27,6 +27,7 @@ export default async function handler(req, res) {
       // Update the spell in the Spells collection
       const updatedSpell = await Spells.findByIdAndUpdate(spellId, {
         name: newSpellName,
+        last_edited_on: new Date(),
       });
 
       if (!updatedSpell) {
@@ -36,7 +37,12 @@ export default async function handler(req, res) {
       // Update the spell in the Project's spells array
       const updatedProject = await Projects.findOneAndUpdate(
         { name: proj_name, user_email, "spells._id": spellId },
-        { $set: { "spells.$.name": newSpellName } },
+        {
+          $set: {
+            "spells.$.name": newSpellName,
+            "spells.$.last_edited_on": new Date(),
+          },
+        },
         { new: true }
       );
 

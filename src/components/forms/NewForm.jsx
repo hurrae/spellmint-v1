@@ -25,8 +25,8 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
   const [featureNo, setfeatureNo] = useState(
     spellData.featureNo.length > 0 ? spellData.featureNo : [1]
   );
-  console.log("Fields Arr: ", fieldsArr);
-  console.log("Custom: ", CustomInputFields);
+  // console.log("Fields Arr: ", fieldsArr);
+  // console.log("Custom: ", CustomInputFields);
 
   const [conWords, setconWords] = useState(appUserData.consumedWords);
 
@@ -70,18 +70,20 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
         const wordsLen = words.length;
         setconWords(conWords + wordsLen);
 
-        axios({
-          method: "post",
-          url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
-          data: {
-            spellId: spellData._id,
-            res_text: defStr,
-          },
-        })
-          .then((res) => {
-            console.log("New Res Text updated successfully");
-          })
-          .catch((err) => console.log("error occured: ", err));
+        // axios({
+        //   method: "post",
+        //   url: `${process.env.NEXT_PUBLIC_HOST}/api/spells/updateResText`,
+        //   data: {
+        //     spellId: spellData._id,
+        //     res_text: defStr,
+        //     proj_name: spellData.proj_name,
+        //     user_email: appUserData.email,
+        //   },
+        // })
+        //   .then((res) => {
+        //     console.log("New Res Text updated successfully");
+        //   })
+        //   .catch((err) => console.log("error occured: ", err));
 
         axios({
           method: "post",
