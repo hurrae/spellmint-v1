@@ -3,6 +3,8 @@ import LoginComponent from "@/components/LoginComponent";
 import ForgotSection from "@/components/ForgotSection";
 import { useState } from "react";
 import Head from "next/head";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const login = () => {
   const [forgot, setforgot] = useState(false);
@@ -16,7 +18,10 @@ const login = () => {
         <div className="flex h-full">
           <div className="w-[40%] py-8  flex flex-col my-auto">
             {!forgot ? (
-              <LoginComponent forgotBool={() => setforgot(!forgot)} />
+              <LoginComponent
+                toast={toast}
+                forgotBool={() => setforgot(!forgot)}
+              />
             ) : (
               <ForgotSection />
             )}
@@ -31,6 +36,11 @@ const login = () => {
           <div className="w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        className="font-medium"
+      />
     </>
   );
 };

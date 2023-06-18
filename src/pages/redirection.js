@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { getSession, useSession, signOut } from "next-auth/react";
 import Router from "next/router";
 import axios from "axios";
+import Loader from "@/components/Loader";
 
 const redirect = () => {
   const { data: session } = useSession();
@@ -38,7 +39,11 @@ const redirect = () => {
     onSubmit();
   }, []);
 
-  return <div>Please Wait, while we redirect you </div>;
+  return (
+    <div>
+      Please Wait, while we redirect you <Loader />{" "}
+    </div>
+  );
 };
 
 export async function getServerSideProps({ req }) {

@@ -282,9 +282,9 @@ const profile = ({ session, userData, appuserData }) => {
                       <span className="font-bold text-[#111829]">{cwc}</span> /{" "}
                       {awc} words
                     </h2>
-                    <div class="w-[400px] bg-gray-200 rounded-full h-2 mb-4 dark:bg-gray-700">
+                    <div className="w-[400px] bg-gray-200 rounded-full h-2 mb-4 dark:bg-gray-700">
                       <div
-                        class="bg-[#0568FD] h-2 rounded-full dark:bg-blue-500"
+                        className="bg-[#0568FD] h-2 rounded-full dark:bg-blue-500"
                         style={{ width: `${(cwc / awc) * 100}%` }}
                       ></div>
                     </div>

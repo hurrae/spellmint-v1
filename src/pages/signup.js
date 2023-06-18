@@ -10,6 +10,8 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import { registerValidate } from "../../lib/validate";
 import Head from "next/head";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const signup = () => {
   const [show, setShow] = useState(false);
@@ -34,11 +36,20 @@ const signup = () => {
         email: values.email,
         password: values.password,
       },
-    }).then(function (res) {
-      console.log(res, "new user");
-      if (res.status == 201)
-        router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
-    });
+    })
+      .then(function (res) {
+        console.log(res, "new user");
+        if (res.status == 201)
+          router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
+      })
+      .catch((err) => {
+        console.log("Error in sign up: ", err);
+        if (err.response.status == 422) {
+          toast.error(
+            "Account with that email already exists. Please Sign In."
+          );
+        }
+      });
   }
 
   async function handleGoogleSignin() {
@@ -204,6 +215,11 @@ const signup = () => {
           <div className="w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        className="font-medium"
+      />
     </>
   );
 };
