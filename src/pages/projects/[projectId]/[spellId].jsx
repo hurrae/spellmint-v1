@@ -158,18 +158,18 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
                     >
                       <Delete24Regular />
                     </button>
-                    <button
+                    {/* <button
                       href="#"
                       className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                     >
                       Download as DOC
-                    </button>
-                    <button
-                      href="#"
+                    </button> */}
+                    {/* <button
+                      type="button"
                       className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                     >
                       Download as PDF
-                    </button>
+                    </button> */}
                   </div>
                 </div>
 
