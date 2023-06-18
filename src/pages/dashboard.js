@@ -29,9 +29,11 @@ const dashboard = ({ session }) => {
 
         <div className={`p-4 ${expand ? "ml-64" : "ml-20"} `}>
           <div className="p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
-            <div className=" mb-4 rounded bg-gray-100 dark:bg-gray-800">
-              <div className="p-6 rounded flex justify-between">
-                <h2 className="text-2xl font-bold my-auto">Welcome, Manoj.</h2>
+            <div className=" mb-4 rounded bg-[#F8F8FB] dark:bg-gray-800">
+              <div className="p-6 bg-[url('/CurvesPattern.svg')] bg-no-repeat bg-right rounded flex justify-between">
+                <h2 className="text-2xl font-bold my-auto">
+                  Welcome, {session.user.name}.
+                </h2>
                 <button
                   data-modal-target="project-modal"
                   data-modal-toggle="project-modal"

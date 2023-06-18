@@ -264,7 +264,7 @@ const profile = ({ session, userData, appuserData }) => {
             <div id="CreditsUsage" className="h-[60px]"></div>
             <section>
               <div className=" mb-4 rounded rounded-lg border">
-                <div className="p-6 space-y-4">
+                <div className="p-6 bg-[url('/CurvesPattern.svg')] bg-no-repeat bg-right space-y-4">
                   <h3 className="text-xl font-bold">Credits Usage</h3>
                   <div>
                     <p>

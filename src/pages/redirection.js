@@ -23,9 +23,10 @@ const redirect = () => {
     console.log("i have sent the order sucessfully");
     const { data } = await axios.post("/api/appusers/newUser", data2, config);
 
-    Router.push({
-      pathname: "/dashboard",
-    });
+    // Router.push({
+    //   pathname: "/dashboard",
+    // });
+    window.location.href = `${process.env.NEXT_PUBLIC_HOST}/dashboard`;
 
     console.log("i am here", data);
   };

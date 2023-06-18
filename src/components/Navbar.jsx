@@ -72,7 +72,12 @@ const Navbar = () => {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://i.imgur.com/G2oJt6M.png"
+                      src={
+                        session.user.image
+                          ? session.user.image
+                          : "/ProfileAvatar.svg"
+                      }
+                      // src="https://i.imgur.com/G2oJt6M.png"
                       alt="user photo"
                     />
                   </button>
@@ -107,7 +112,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/profile"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
