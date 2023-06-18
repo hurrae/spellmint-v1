@@ -27,17 +27,17 @@ const dashboard = ({ session }) => {
         <Navbar />
         <Sidebar />
 
-        <div className={`p-4 ${expand ? "ml-64" : "ml-20"} `}>
-          <div className="p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+        <div className={`p-4 ${expand ? "lg:ml-64" : "ml-20"} `}>
+          <div className="py-2 lg:p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div className=" mb-4 rounded bg-[#F8F8FB] dark:bg-gray-800">
-              <div className="p-6 bg-[url('/CurvesPattern.svg')] bg-no-repeat bg-right rounded flex justify-between">
+              <div className="p-6 bg-[url('/CurvesPattern.svg')] bg-no-repeat bg-right rounded flex flex-col lg:flex-row justify-between">
                 <h2 className="text-2xl font-bold my-auto">
                   Welcome, {session.user.name}.
                 </h2>
                 <button
                   data-modal-target="project-modal"
                   data-modal-toggle="project-modal"
-                  className="rounded p-2 px-4 font-semibold bg-[#0568FD] text-white"
+                  className="w-fit mt-2 rounded p-2 px-4 font-semibold bg-[#0568FD] text-white"
                   type="button"
                 >
                   New Project
@@ -46,7 +46,7 @@ const dashboard = ({ session }) => {
             </div>
             <div className=" mb-4 rounded-lg border-2 dark:bg-gray-800">
               <div className="p-6 rounded space-y-5">
-                <div className="flex justify-between">
+                <div className="flex flex-col lg:flex-row justify-between">
                   <div className="flex flex-col">
                     <h3 className="text-xl font-bold">Explore Categories</h3>
                     <p>
@@ -56,12 +56,12 @@ const dashboard = ({ session }) => {
                   </div>
                   <a
                     href="/categories"
-                    className="underline underline-offset-2 text-[#0568FD]"
+                    className="mt-2 underline underline-offset-2 text-[#0568FD]"
                   >
                     Explore Categories <ArrowRight16Filled />
                   </a>
                 </div>
-                <div className="grid gap-4 grid-cols-5">
+                <div className="grid gap-4 grid-cols-1 lg:grid-cols-5">
                   <Category
                     title="Software Product"
                     desc="Develops and sells software products."
@@ -90,7 +90,7 @@ const dashboard = ({ session }) => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="p-6 flex flex-col space-y-4 rounded border-gray-200 border-2 dark:bg-gray-800">
                 <span className="bg-[#F8F8FB] text-[#697283] p-2 rounded-full w-fit">
                   <DocumentBulletList24Regular />
@@ -140,7 +140,7 @@ const Category = ({ title, desc, imgLink }) => {
   return (
     <div className="border-2 rounded-lg overflow-hidden">
       <div className="h-34 bg-gray-50">
-        <img src={imgLink} alt="" />
+        <img className="mx-auto" src={imgLink} alt="" />
       </div>
       <div className="space-y-2 p-3 bg-white text-center">
         <h3 className="font-bold">{title}</h3>
