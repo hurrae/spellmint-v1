@@ -36,9 +36,15 @@ export default async function handler(req, res) {
       event.data.object.payment_status == "paid"
     ) {
       let planName = "Free";
-      if (event.data.object.amount_total == 5000) {
+      if (
+        event.data.object.amount_total == 2900 ||
+        event.data.object.amount_total == 29900
+      ) {
         planName = "Basic";
-      } else if (event.data.object.amount_total == 10000) {
+      } else if (
+        event.data.object.amount_total == 9900 ||
+        event.data.object.amount_total == 99900
+      ) {
         planName = "Pro";
       }
       console.log(`Payment received!`);
