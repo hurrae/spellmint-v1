@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         method: "post",
         url: `${process.env.NEXT_PUBLIC_HOST}/api/appusers/updatePlan`,
         data: {
-          email: event.customer_details.email,
+          email: event.data.object.customer_details.email,
           plan: "Basic",
         },
       })
