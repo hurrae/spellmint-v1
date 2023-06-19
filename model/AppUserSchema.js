@@ -18,6 +18,7 @@ const appUserSchema = new Schema({
   consumedWords: { type: Number, default: 0 },
   allottedWords: { type: Number, default: 2000 },
   plan: { type: String, default: "Free" },
+  paymentDate: { type: Date, default: Date.now },
 });
 
 const AppUsers = models.appUser || model("appUser", appUserSchema);

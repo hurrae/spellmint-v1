@@ -12,6 +12,7 @@
     "@fluentui/react-icons": "^2.0.199",
     "@next-auth/mongodb-adapter": "^1.1.1",
     "@sendgrid/mail": "^7.7.0",
+    "@stripe/stripe-js": "^1.54.0",
     "axios": "^1.3.4",
     "bcryptjs": "^2.4.3",
     "copy-to-clipboard": "^3.3.3",
@@ -21,6 +22,7 @@
     "flowbite-react": "^0.4.3",
     "formik": "^2.2.9",
     "generate-password": "^1.7.0",
+    "micro": "^10.0.1",
     "mongoose": "^7.0.2",
     "nanoid": "^4.0.2",
     "next": "13.2.4",
@@ -34,8 +36,10 @@
     "react-modal": "^3.16.1",
     "react-quilljs": "^1.3.3",
     "react-toastify": "^9.1.3",
+    "stripe": "^12.9.0",
     "suneditor": "^2.44.12",
-    "suneditor-react": "^3.5.0"
+    "suneditor-react": "^3.5.0",
+    "swr": "^2.1.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
