@@ -330,9 +330,13 @@ export default profile;
 function PricingPage() {
   // Paste the stripe-pricing-table snippet in your React component
   return (
+    // <stripe-pricing-table
+    //   pricing-table-id="prctbl_1NJKbySJu3RZdCRnAMCxL81R"
+    //   publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
+    // ></stripe-pricing-table>
     <stripe-pricing-table
-      pricing-table-id="prctbl_1NJKbySJu3RZdCRnAMCxL81R"
-      publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
+      pricing-table-id="prctbl_1NKcfwSJu3RZdCRnkYy3SszP"
+      publishable-key="pk_test_51NJHfWSJu3RZdCRn7GnQSBvzaNB8VocA7dJ7Xwb0iLj27f05KLfYn2Nd5mkA7vOeF0eYfL9Krgn3FFiw6Cp8vFy100ufDRuTJn"
     ></stripe-pricing-table>
   );
 }
