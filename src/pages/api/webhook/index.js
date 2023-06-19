@@ -31,14 +31,24 @@ export default async function handler(req, res) {
 
     console.log("Success:", event.id);
 
-    if (event.type === "checkout.session.completed") {
+    if (
+      event.type === "checkout.session.completed" &&
+      event.data.object.payment_status == "paid"
+    ) {
+      let planName = "Free";
+      if (event.data.object.amount_total == 5000) {
+        planName = "Basic";
+      } else if (event.data.object.amount_total == 10000) {
+        planName = "Pro";
+      }
       console.log(`Payment received!`);
       axios({
         method: "post",
         url: `${process.env.NEXT_PUBLIC_HOST}/api/appusers/updatePlan`,
         data: {
-          email: event.data.object.customer_details.email,
-          plan: "Basic",
+          //   email: event.data.object.customer_details.email,
+          email: event.data.object.custom_fields[0].text.value,
+          plan: planName,
         },
       })
         .then((res) => {
