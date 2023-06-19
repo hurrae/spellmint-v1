@@ -60,7 +60,7 @@ export default async function handler(req, res) {
     }
 
     // 3. Return a response to acknowledge receipt of the event.
-    res.json({ received: true });
+    res.json({ received: true, planName });
   } else {
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
