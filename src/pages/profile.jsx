@@ -245,7 +245,7 @@ const profile = ({ session, userData, appuserData }) => {
                     <button
                       type="submit"
                       className={`${
-                        load ? "bg-[#82b3fe]" : "bg-[#0568FD]"
+                        load ? "bg-[#82b3fe]" : "bg-[#7371EE]"
                       } w-fit mt-4 mx-auto rounded my-auto p-2 px-5 text-white`}
                     >
                       Save Changes
@@ -270,11 +270,11 @@ const profile = ({ session, userData, appuserData }) => {
                   <div>
                     <p>
                       You’re currently on{" "}
-                      <span className="text-[#0568FD] underline underline-offset-2">
+                      <span className="text-[#7371EE] underline underline-offset-2">
                         {appuserData.plan ? appuserData.plan : "Free"} Plan
                       </span>{" "}
                       <span>
-                        <CheckmarkCircle16Filled className="text-[#0568FD] mb-[2px]" />
+                        <CheckmarkCircle16Filled className="text-[#7371EE] mb-[2px]" />
                       </span>
                     </p>
                   </div>
@@ -285,7 +285,7 @@ const profile = ({ session, userData, appuserData }) => {
                     </h2>
                     <div className="w-[400px] bg-gray-200 rounded-full h-2 mb-8 dark:bg-gray-700">
                       <div
-                        className="bg-[#0568FD] h-2 rounded-full dark:bg-blue-500"
+                        className="bg-[#7371EE] h-2 rounded-full dark:bg-blue-500"
                         style={{ width: `${(cwc / awc) * 100}%` }}
                       ></div>
                     </div>
@@ -335,7 +335,7 @@ function PricingPage() {
     //   publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
     // ></stripe-pricing-table>
     <stripe-pricing-table
-      pricing-table-id="prctbl_1NJKbySJu3RZdCRnAMCxL81R"
+      pricing-table-id="prctbl_1NKv5rSJu3RZdCRngTTFRFrM"
       publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
     ></stripe-pricing-table>
     // <stripe-pricing-table

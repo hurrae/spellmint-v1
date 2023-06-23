@@ -20,7 +20,7 @@ module.exports = {
     },
     colors: {
       grshade: "#697283",
-      blshade: "#0568FD",
+      blshade: "#7371EE",
     },
   },
 };

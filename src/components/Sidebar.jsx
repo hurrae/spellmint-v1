@@ -40,9 +40,9 @@ const Sidebar = () => {
               href="/dashboard"
               className={`px-4 flex items-center p-2 ${
                 actLink == "dashboard"
-                  ? "text-[#0568FD] border-r-4"
+                  ? "text-[#7371EE] border-r-4"
                   : "text-grshade"
-              }  border-[#0568FD] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
+              }  border-[#7371EE] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Home24Regular />
               <span className={`ml-3 ${expand ? "" : "hidden"}`}>
@@ -55,9 +55,9 @@ const Sidebar = () => {
               href="/projects"
               className={`flex px-4 ${
                 actLink == "projects"
-                  ? "text-[#0568FD] border-r-4"
+                  ? "text-[#7371EE] border-r-4"
                   : "text-grshade"
-              } items-center p-2 border-[#0568FD]  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
+              } items-center p-2 border-[#7371EE]  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Diversity24Regular />
               <span
@@ -89,9 +89,9 @@ const Sidebar = () => {
               href="/categories"
               className={`px-4 ${
                 actLink == "categories"
-                  ? "text-[#0568FD] border-r-4"
+                  ? "text-[#7371EE] border-r-4"
                   : "text-grshade"
-              } flex border-[#0568FD] items-center p-2  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
+              } flex border-[#7371EE] items-center p-2  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Wand24Regular />
               <span
@@ -121,9 +121,9 @@ const Sidebar = () => {
               href="/profile"
               className={`flex px-4 ${
                 actLink == "profile"
-                  ? "text-[#0568FD] border-r-4"
+                  ? "text-[#7371EE] border-r-4"
                   : "text-grshade"
-              } items-center p-2 border-[#0568FD]  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
+              } items-center p-2 border-[#7371EE]  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
             >
               <Settings24Regular />
               <span className={`ml-4 ${expand ? "" : "hidden"}`}>

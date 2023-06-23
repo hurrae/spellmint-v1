@@ -37,7 +37,7 @@ const dashboard = ({ session }) => {
                 <button
                   data-modal-target="project-modal"
                   data-modal-toggle="project-modal"
-                  className="w-fit mt-2 rounded p-2 px-4 font-semibold bg-[#0568FD] text-white"
+                  className="w-fit mt-2 rounded p-2 px-4 font-semibold bg-[#7371EE] text-white"
                   type="button"
                 >
                   New Project
@@ -56,7 +56,7 @@ const dashboard = ({ session }) => {
                   </div>
                   <a
                     href="/categories"
-                    className="mt-2 underline underline-offset-2 text-[#0568FD]"
+                    className="mt-2 underline underline-offset-2 text-[#7371EE]"
                   >
                     Explore Categories <ArrowRight16Filled />
                   </a>

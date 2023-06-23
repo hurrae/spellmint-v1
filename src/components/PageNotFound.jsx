@@ -11,8 +11,8 @@ const PageNotFound = () => {
         <div className="flex">
           <div className="mx-auto mt-14 text-center space-y-6">
             <div className="mx-auto p-6 bg-[#E6F0FF] h-fit w-fit rounded-full">
-              <img src="/PNFIcon.svg" className="text-[#0568FD4D]" alt="" />
-              {/* <Wand48Regular className="text-[#0568FD4D]" /> */}
+              <img src="/PNFIcon.svg" className="text-[#7371EE]" alt="" />
+              {/* <Wand48Regular className="text-[#7371EE]" /> */}
             </div>
             {/* <div className=""> */}
             <p className="mx-auto w-[40%] text-[#697283] text-center">
@@ -23,7 +23,7 @@ const PageNotFound = () => {
             {/* </div> */}
             <a
               href="/dashboard"
-              className="w-fit mx-auto rounded my-auto flex p-2 px-4 font-semibold bg-[#0568FD] text-white"
+              className="w-fit mx-auto rounded my-auto flex p-2 px-4 font-semibold bg-[#7371EE] text-white"
               type="button"
             >
               Go to Dashboard

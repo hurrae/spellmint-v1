@@ -136,7 +136,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <a
                 href="/signup"
-                className="w-fit mx-auto rounded my-auto flex p-1 px-5  bg-[#0568FD] text-white"
+                className="w-fit mx-auto rounded my-auto flex p-1 px-5  bg-[#7371EE] text-white"
                 type="button"
               >
                 Sign Up

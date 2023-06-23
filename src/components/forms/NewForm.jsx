@@ -257,7 +257,7 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
           <button
             type="submit"
             className={`flex justify-center w-full rounded my-auto flex p-2 px-4  ${
-              !load ? "bg-[#0568FD]" : "bg-[#789bcf]"
+              !load ? "bg-[#7371EE]" : "bg-[#789bcf]"
             } text-white`}
             disabled={load}
           >
