@@ -233,7 +233,7 @@ const EditProjectModal = ({ projData, session }) => {
                 type="submit"
                 disabled={load}
                 className={`w-full text-white ${
-                  !load ? "bg-blue-700 hover:bg-blue-800" : "bg-blue-400"
+                  !load ? "bg-[#7371EE] hover:bg-[#6462e1]" : "bg-[#9b9af1]"
                 } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
               >
                 Save Changes
