@@ -37,13 +37,33 @@ export default async function handler(req, res) {
     ) {
       let planName = "Free";
       if (
-        event.data.object.amount_total == 2900 ||
-        event.data.object.amount_total == 29900
+        (event.data.object.currency == "usd" &&
+          (event.data.object.amount_total == 2900 ||
+            event.data.object.amount_total == 29900)) ||
+        (event.data.object.currency == "inr" &&
+          (event.data.object.amount_total == 237754 ||
+            event.data.object.amount_total == 2451322)) ||
+        (event.data.object.currency == "aud" &&
+          (event.data.object.amount_total == 4234 ||
+            event.data.object.amount_total == 43652)) ||
+        (event.data.object.currency == "gbp" &&
+          (event.data.object.amount_total == 2267 ||
+            event.data.object.amount_total == 23372))
       ) {
         planName = "Basic";
       } else if (
-        event.data.object.amount_total == 9900 ||
-        event.data.object.amount_total == 99900
+        (event.data.object.currency == "usd" &&
+          (event.data.object.amount_total == 9900 ||
+            event.data.object.amount_total == 99900)) ||
+        (event.data.object.currency == "inr" &&
+          (event.data.object.amount_total == 811642 ||
+            event.data.object.amount_total == 8190202)) ||
+        (event.data.object.currency == "aud" &&
+          (event.data.object.amount_total == 14453 ||
+            event.data.object.amount_total == 145848)) ||
+        (event.data.object.currency == "gbp" &&
+          (event.data.object.amount_total == 7738 ||
+            event.data.object.amount_total == 78088))
       ) {
         planName = "Pro";
       }

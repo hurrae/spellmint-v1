@@ -146,7 +146,7 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
                     <button
                       data-modal-target="spell-share-modal"
                       data-modal-toggle="spell-share-modal"
-                      className="mr-3 p-1 bg-[#0568FD] rounded text-white"
+                      className="mr-3 p-1 bg-[#7371EE] rounded text-white"
                     >
                       <Link24Regular />
                     </button>
@@ -413,7 +413,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
           <button
             type="submit"
             className={`flex justify-center w-full rounded my-auto flex p-2 px-4  ${
-              !load ? "bg-[#0568FD]" : "bg-[#789bcf]"
+              !load ? "bg-[#7371EE]" : "bg-[#789bcf]"
             } text-white`}
             disabled={load}
           >

@@ -106,7 +106,7 @@ const ProjectDashboard = ({ session, url, projectData }) => {
                     <button
                       data-modal-target="spell-modal"
                       data-modal-toggle="spell-modal"
-                      className="rounded my-auto flex p-2 px-4 font-semibold bg-[#0568FD] text-white"
+                      className="rounded my-auto flex p-2 px-4 font-semibold bg-[#7371EE] text-white"
                       type="button"
                     >
                       New Spell
@@ -127,7 +127,7 @@ const ProjectDashboard = ({ session, url, projectData }) => {
                     <div className="flex">
                       <div className="mx-auto mt-14 text-center space-y-6">
                         <div className="mx-auto p-4 bg-[#E6F0FF] h-fit w-fit rounded-full">
-                          <Wand48Regular className="text-[#0568FD4D]" />
+                          <Wand48Regular className="text-[#7371EE]" />
                         </div>
                         {/* <div className=""> */}
                         <p className="mx-auto w-[40%] text-[#697283] text-center">
@@ -139,7 +139,7 @@ const ProjectDashboard = ({ session, url, projectData }) => {
                         <button
                           data-modal-target="spell-modal"
                           data-modal-toggle="spell-modal"
-                          className="mx-auto rounded my-auto flex p-2 px-4 font-semibold bg-[#0568FD] text-white"
+                          className="mx-auto rounded my-auto flex p-2 px-4 font-semibold bg-[#7371EE] text-white"
                           type="button"
                         >
                           New Spell
