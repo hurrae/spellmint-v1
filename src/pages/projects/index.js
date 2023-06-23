@@ -63,9 +63,9 @@ const projects = ({ session, projectData }) => {
                 </p>
               </div>
               <div className="space-x-3 my-auto">
-                <button className="rounded p-2 px-4 font-semibold bg-gray-100 border-2">
+                {/* <button className="rounded p-2 px-4 font-semibold bg-gray-100 border-2">
                   Explore Spells
-                </button>
+                </button> */}
                 <button
                   data-modal-target="project-modal"
                   data-modal-toggle="project-modal"

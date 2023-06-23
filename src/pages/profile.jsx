@@ -254,7 +254,7 @@ const profile = ({ session, userData, appuserData }) => {
                     <button
                       type="button"
                       disabled
-                      className="w-fit mt-4 mx-auto rounded my-auto p-2 px-5  bg-[#82b3fe] text-white"
+                      className="w-fit mt-4 mx-auto rounded my-auto p-2 px-5  bg-[#9b9af1] text-white"
                     >
                       Disconnect Google
                     </button>
@@ -291,14 +291,27 @@ const profile = ({ session, userData, appuserData }) => {
                     </div>
                   </div>
                   <div className="pt-2">
-                    <Link href="#pricing">
-                      <button
-                        type="button"
+                    {appuserData.plan &&
+                    (appuserData.plan == "Basic" ||
+                      appuserData.plan == "Pro") ? (
+                      <a
+                        target="_blank"
+                        href="https://billing.stripe.com/p/login/6oE4id9RdeHV1EI3cc"
                         className=" px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                       >
-                        Upgrade Plan
-                      </button>
-                    </Link>
+                        Manage Plan
+                      </a>
+                    ) : (
+                      <Link href="/profile/#pricing">
+                        {" "}
+                        <button
+                          type="button"
+                          className=" px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
+                        >
+                          Upgrade Plan
+                        </button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
