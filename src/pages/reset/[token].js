@@ -27,14 +27,12 @@ const reset = () => {
 
   return (
     valid && (
-      <div className="t h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full">
-          <div className="col-span-1 lg:col-span-2">
-            <h3>Reset Page</h3>
-          </div>
-          <div className="col-span-1 py-8 flex flex-col my-auto">
+      <div className="font-inter h-screen">
+        <div className="flex h-full">
+          <div className="w-[100%] lg:w-[40%] py-8  flex flex-col my-auto">
             <ResetSection resetToken={token} />
           </div>
+          <div className="hidden lg:block w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
         </div>
       </div>
     )
