@@ -4,7 +4,8 @@ import { useState } from "react";
 import styles from "../styles/Login.module.css";
 import Link from "next/link";
 import axios from "axios";
-import { set } from "mongoose";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ForgotSection = () => {
   const [forgetSubmit, setforgetSubmit] = useState(false);
@@ -39,10 +40,15 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
       data: {
         email: values.email,
       },
-    }).then(function (res) {
-      console.log(res, "Forget Email send response");
-      if (res.status == 201 && res.data.status == "OK") setforgetSubmit();
-    });
+    })
+      .then(function (res) {
+        console.log(res, "Forget Email send response");
+        if (res.status == 201 && res.data.status == "OK") setforgetSubmit();
+      })
+      .catch((err) => {
+        console.log("Error in Forgot section", err);
+        toast.error(err.response.data.error);
+      });
   }
 
   return (
@@ -97,6 +103,11 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
           </span>
         </Link>
       </p>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        className="font-medium"
+      />
     </section>
   );
 };

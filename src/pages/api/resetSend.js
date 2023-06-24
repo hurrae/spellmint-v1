@@ -11,8 +11,12 @@ export default async function handler(req, res) {
   if (method == "POST") {
     let user = await Users.findOne({ email: req.body.email });
     if (!user) {
-      return res.status(404).json({ error: "User not found" });
+      return res.status(404).json({ error: "User not found! Please Signup." });
     }
+    if (!user.password) {
+      return res.status(404).json({ error: "Please Sign In with Google" });
+    }
+    // console.log("USer in forget: ", user);
     // console.log("Working Fine");
 
     const resetToken = crypto.randomBytes(8).toString("hex");
