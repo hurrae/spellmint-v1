@@ -56,12 +56,12 @@ const Navbar = () => {
               <div>
                 <a
                   href="/profile/#pricing"
-                  className="mr-3 px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
+                  className="mr-3 lg:px-6 p-1  border-2 rounded bg-[#F8F8FB] dark:hover:bg-gray-700 dark:text-white group"
                 >
                   Upgrade Plan
                 </a>
               </div>
-              <div className="flex items-center ml-3">
+              <div className="flex items-center ml-1 md:ml-3">
                 <div>
                   <button
                     type="button"

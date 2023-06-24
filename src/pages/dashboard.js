@@ -12,9 +12,11 @@ import {
   ArrowRight16Filled,
 } from "@fluentui/react-icons";
 import { getSession } from "next-auth/react";
+import { useState } from "react";
 
 const dashboard = ({ session }) => {
   const { expand } = useContext(StateContext);
+  const [selectCat, setselectCat] = useState("");
   // const { data: session } = useSession();
   console.log(session, "i am session you wanted");
   return (
@@ -39,6 +41,7 @@ const dashboard = ({ session }) => {
                   data-modal-toggle="project-modal"
                   className="w-fit mt-2 rounded p-2 px-4 font-semibold bg-[#7371EE] text-white"
                   type="button"
+                  onClick={() => setselectCat("")}
                 >
                   New Project
                 </button>
@@ -63,26 +66,31 @@ const dashboard = ({ session }) => {
                 </div>
                 <div className="grid gap-4 grid-cols-1 lg:grid-cols-5">
                   <Category
+                    setselectCat={setselectCat}
                     title="Software Product"
                     desc="Develops and sells software products."
                     imgLink="https://i.imgur.com/CejNbCf.png"
                   />
                   <Category
+                    setselectCat={setselectCat}
                     title="Digital Agency"
                     desc="Offers digital marketing and advertising solutions."
                     imgLink="https://i.imgur.com/rs5y2JZ.png"
                   />
                   <Category
+                    setselectCat={setselectCat}
                     title="Education"
                     desc="Provides educational services or products."
                     imgLink="https://i.imgur.com/HwnPl1a.png"
                   />
                   <Category
+                    setselectCat={setselectCat}
                     title="Finance"
                     desc="Offers financial services, like banking or investing."
                     imgLink="https://i.imgur.com/EW9S0Pq.png"
                   />
                   <Category
+                    setselectCat={setselectCat}
                     title="Retail"
                     desc="Sells consumer goods directly to customers."
                     imgLink="https://i.imgur.com/8054JB5.png"
@@ -129,16 +137,21 @@ const dashboard = ({ session }) => {
           </div>
         </div>
       </div>
-      <CreateProjectModal session={session} />
+      <CreateProjectModal category={selectCat} session={session} />
     </>
   );
 };
 
 export default dashboard;
 
-const Category = ({ title, desc, imgLink }) => {
+const Category = ({ setselectCat, title, desc, imgLink }) => {
   return (
-    <div className="border-2 rounded-lg overflow-hidden">
+    <div
+      data-modal-target="project-modal"
+      data-modal-toggle="project-modal"
+      onClick={() => setselectCat(title)}
+      className="border-2 rounded-lg overflow-hidden"
+    >
       <div className="h-34 bg-gray-50">
         <img className="mx-auto" src={imgLink} alt="" />
       </div>

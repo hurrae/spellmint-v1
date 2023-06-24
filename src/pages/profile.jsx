@@ -86,10 +86,10 @@ const profile = ({ session, userData, appuserData }) => {
         <Navbar />
         <Sidebar />
 
-        <div className={`p-4 ${expand ? "ml-64" : "ml-20"} `}>
-          <div className="p-4 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+        <div className={`p-4 ${expand ? "lg:ml-64" : "ml-20"} `}>
+          <div className="lg:p-4 py-2 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div id="Settings" className=" mb-8 rounded rounded-lg border">
-              <div className="p-6 space-y-4">
+              <div className="p-6 lg:p-6 space-y-4">
                 <h3 className="text-xl font-bold">Profile Settings</h3>
                 {/* <div className="flex space-x-4">
                   {image ? (
@@ -125,13 +125,13 @@ const profile = ({ session, userData, appuserData }) => {
                   <div className="flex space-x-4">
                     <img
                       src={session.user.image}
-                      className="h-[100px] w-[100px] rounded rounded-full"
+                      className="h-[80px] w-[80px] lg:h-[100px] lg:w-[100px] rounded rounded-full"
                       alt=""
                     />
                     <button
                       type="button"
                       disabled
-                      className="border border-2 rounded my-auto flex bg-[#F8F8FB] p-2 px-5 h-fit"
+                      className="border border-2 rounded my-auto flex bg-[#F8F8FB] p-2 px-3 lg:px-5 h-fit"
                     >
                       <div className="my-auto mr-2">
                         <FcGoogle className="text-xl" />
@@ -148,7 +148,7 @@ const profile = ({ session, userData, appuserData }) => {
                 )}
 
                 <form action="" onSubmit={formik.handleSubmit}>
-                  <div className="w-[65%] gap-4 grid grid-cols-2">
+                  <div className="lg:w-[65%] gap-4 grid grid-cols-2">
                     <div>
                       <label
                         htmlFor={"FullName"}
@@ -283,7 +283,7 @@ const profile = ({ session, userData, appuserData }) => {
                       <span className="font-bold text-[#111829]">{cwc}</span> /{" "}
                       {awc} words
                     </h2>
-                    <div className="w-[400px] bg-gray-200 rounded-full h-2 mb-8 dark:bg-gray-700">
+                    <div className="w-[300px] lg:w-[400px] bg-gray-200 rounded-full h-2 mb-8 dark:bg-gray-700">
                       <div
                         className="bg-[#7371EE] h-2 rounded-full dark:bg-blue-500"
                         style={{ width: `${(cwc / awc) * 100}%` }}

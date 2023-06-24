@@ -151,7 +151,7 @@ const Sidebar = () => {
             <button
               onClick={toggleMenu}
               // onClick={() => setexpand(false)}
-              className=" p-1 rounded border-2 mr-4"
+              className="hidden md:block p-1 rounded border-2 mr-4"
             >
               <ArrowExportRtl24Regular className="text-[#697283] p-[3px]" />
             </button>

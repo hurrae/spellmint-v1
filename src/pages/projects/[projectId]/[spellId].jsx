@@ -102,9 +102,13 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
             <Navbar />
             <Sidebar />
 
-            <div className={` p-6 pb-0 pl-0 ${expand ? "ml-64" : "ml-14"} `}>
+            <div
+              className={` p-6 pr-0 lg:pr-6 pb-0 pl-0 ${
+                expand ? "lg:ml-64" : "ml-14"
+              } `}
+            >
               {/* <div className="p-6 sm:ml-64 h-screen"> */}
-              <div className="p-6 pl-0 pt-0 pb-0 space-y-3 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+              <div className="p-6 pr-0 lg:pr-6 pl-0 pt-0 pb-0 space-y-3 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
                 <div className="flex justify-between">
                   <div className="ml-4 flex space-x-3">
                     <span
@@ -173,8 +177,8 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
                   </div>
                 </div>
 
-                <div className="w-full flex mb-4 justify-between">
-                  <div className="w-1/3">
+                <div className="w-full flex lg:flex-row flex-col mb-4 justify-between">
+                  <div className="lg:w-1/3">
                     <div className="border flex space-x-3 w-full p-5 px-6 bg-[#F8F8FB]">
                       <h2 className="text-xl font-bold my-auto">ChatApp</h2>
                       <span className="h-fit my-auto font-medium text-sm border-2 rounded bg-[#FFFFFF] px-2 rounded text-[#697283]">
@@ -194,7 +198,7 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
                       toast={toast}
                     />
                   </div>
-                  <div className="w-2/3">
+                  <div className="lg:w-2/3">
                     {/* <Editor initText={initText} setinitText={setinitText} /> */}
                     <Editor2
                       initText={initText}

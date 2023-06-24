@@ -42,7 +42,7 @@ const SpellShareDoc = ({ initText }) => {
       </Head>
       <Navbar />
 
-      <div className="mt-14 w-2/3 mx-auto">
+      <div className="mt-14 px-2 lg:w-2/3 mx-auto">
         <div>
           <ReadEditor initText={initText} />
         </div>

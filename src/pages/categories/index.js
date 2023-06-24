@@ -21,9 +21,9 @@ const CategoriesIndex = ({ session }) => {
         <Navbar />
         <Sidebar />
 
-        <div className={`p-6 ${expand ? "ml-64" : "ml-20"} `}>
+        <div className={`p-6 ${expand ? "lg:ml-64" : "ml-20"} `}>
           {/* <div className="p-6 sm:ml-64 h-screen"> */}
-          <div className="p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
+          <div className="py-2 lg:p-6 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
             <div className=" rounded justify-between">
               <h2 className="text-2xl font-bold my-auto">Browse Categories</h2>
               <p className="text-grshade">
@@ -31,7 +31,7 @@ const CategoriesIndex = ({ session }) => {
                 potential of our AI.
               </p>
             </div>
-            <div className="grid gap-4 grid-cols-4 xl:grid-cols-5 w-[97%]">
+            <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%]">
               {CategoriesData.map((category, index) => {
                 return (
                   <Category
