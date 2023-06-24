@@ -154,7 +154,7 @@ const CreateSpellModal = ({
                   >
                     Spell Type
                   </label>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                     {SpellData.map((spell, index) => {
                       // const path = `/Spells/${spell.name}.svg`;
                       // console.log("path: ", path);
