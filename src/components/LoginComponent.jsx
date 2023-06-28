@@ -45,13 +45,15 @@ const LoginComponent = ({ forgotBool, toast }) => {
   }
 
   return (
-    <section className=" w-[80%] mx-auto flex flex-col gap-10">
+    <section className="w-[90%] lg:w-[80%] mx-auto flex flex-col gap-10">
       <div className="title mt-2 space-y-3">
-        <img src="/logowname.svg" className="" alt="" />
+        <a href="/">
+          <img src="/logowname.svg" className="" alt="" />
+        </a>
         <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
           Welcome back to Spellmint
         </h3>
-        <p className="w-3/4 text-xl text-gray-400">
+        <p className="w-[85%] lg:w-3/4 text-xl text-gray-400">
           Sign in to your account below.
         </p>
       </div>

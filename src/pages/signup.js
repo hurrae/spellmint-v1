@@ -70,9 +70,11 @@ const signup = () => {
       <div className="font-inter">
         <div className="flex h-full">
           <div className="w-[100%] lg:w-[40%] py-8  flex flex-col my-auto">
-            <section className=" w-[80%] mx-auto flex flex-col gap-10">
+            <section className=" w-[90%] lg:w-[80%] mx-auto flex flex-col gap-10">
               <div className="title space-y-4">
-                <img src="/logowname.svg" className="" alt="" />
+                <a href="/">
+                  <img src="/logowname.svg" className="" alt="" />
+                </a>
                 <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
                   Create your Spellmint account
                 </h3>

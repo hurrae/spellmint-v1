@@ -38,7 +38,9 @@ const ResetSection = ({ resetToken }) => {
   return (
     <section className=" w-[80%] mx-auto flex flex-col gap-9">
       <div className="title space-y-4">
-        <img src="/logowname.svg" className="" alt="" />
+        <a href="/">
+          <img src="/logowname.svg" className="" alt="" />
+        </a>
         <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
           Reset your password
         </h3>
