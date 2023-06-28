@@ -47,7 +47,7 @@ const LoginComponent = ({ forgotBool, toast }) => {
   return (
     <section className=" w-[80%] mx-auto flex flex-col gap-10">
       <div className="title mt-2 space-y-3">
-        <img src="/logowname.svg" className="w-[50%]" alt="" />
+        <img src="/logowname.svg" className="" alt="" />
         <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
           Welcome back to Spellmint
         </h3>
@@ -148,7 +148,7 @@ const LoginComponent = ({ forgotBool, toast }) => {
       <p className=" text-gray-400 ">
         Don't have an account?{" "}
         <Link href={"/signup"}>
-          <span className="text-blue-700 underline underline-offset-2">
+          <span className="text-[#7371EE] underline underline-offset-2">
             Sign Up
           </span>
         </Link>

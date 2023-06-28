@@ -23,6 +23,10 @@ const dashboard = ({ session }) => {
     <>
       <Head>
         <title>Dashboard | Spellmint</title>
+        <meta
+          name="description"
+          content="Swap chaos for clarity with Spellmint, the AI that turns brainstorming into brilliance. Equip your teams with cutting-edge planning tools for decision-making so smooth, it'll feel like gliding on air!"
+        />
       </Head>
 
       <div>
@@ -110,7 +114,8 @@ const dashboard = ({ session }) => {
                   assist you with any concerns you have about using Spellmint.
                 </p>
                 <a
-                  href=""
+                  href="https://spellmint.zohodesk.in/"
+                  target="_blank"
                   className="text-[#697283] underline underline-offset-2"
                 >
                   Open Help Center <ArrowRight16Filled />
@@ -128,7 +133,8 @@ const dashboard = ({ session }) => {
                 </p>
                 <a
                   className="underline underline-offset-2 text-[#697283]"
-                  href=""
+                  href="https://www.youtube.com/@Spellmint"
+                  target="_blank"
                 >
                   Open Spellmint University <ArrowRight16Filled />
                 </a>
@@ -150,7 +156,7 @@ const Category = ({ setselectCat, title, desc, imgLink }) => {
       data-modal-target="project-modal"
       data-modal-toggle="project-modal"
       onClick={() => setselectCat(title)}
-      className="border-2 rounded-lg overflow-hidden"
+      className="border-2 rounded-lg overflow-hidden cursor-pointer"
     >
       <div className="h-34 bg-gray-50">
         <img className="mx-auto" src={imgLink} alt="" />

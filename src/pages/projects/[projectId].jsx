@@ -55,7 +55,13 @@ const ProjectDashboard = ({ session, url, projectData }) => {
   return (
     <>
       <Head>
-        <title>Project | Spellmint</title>
+        <title>{`${
+          projData.name ? projData.name : "Project"
+        } | Spellmint`}</title>
+        <meta
+          name="description"
+          content="Swap chaos for clarity with Spellmint, the AI that turns brainstorming into brilliance. Equip your teams with cutting-edge planning tools for decision-making so smooth, it'll feel like gliding on air!"
+        />
       </Head>
       {projData ? (
         <>

@@ -16,6 +16,10 @@ const CategoriesIndex = ({ session }) => {
     <>
       <Head>
         <title>Categories | Spellmint</title>
+        <meta
+          name="description"
+          content="Swap chaos for clarity with Spellmint, the AI that turns brainstorming into brilliance. Equip your teams with cutting-edge planning tools for decision-making so smooth, it'll feel like gliding on air!"
+        />
       </Head>
       <div>
         <Navbar />
