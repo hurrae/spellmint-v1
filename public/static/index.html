@@ -255,12 +255,24 @@ a,
             text-overflow: ellipsis;
           }
           /* Removes native scrollbar */
-          .no-scrollbar {
+          /* .no-scrollbar {
             -ms-overflow-style: none;
             overflow: -moz-scrollbars-none;
           }
           .no-scrollbar::-webkit-scrollbar {
             display: none;
+          } */
+          ::-webkit-scrollbar {
+            width: 6px;
+          }
+          /*track*/
+          ::-webkit-scrollbar-track {
+            border-style: none;
+          }
+          /*thumb*/
+          ::-webkit-scrollbar-thumb {
+            background: #7371ee;
+            border-radius: 8px;
           }
         </style>
       </div>
