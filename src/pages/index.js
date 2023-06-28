@@ -98,7 +98,7 @@ export async function getServerSideProps({ req }) {
   if (session) {
     return {
       redirect: {
-        destination: "/",
+        destination: "/dashboard",
         permanent: false,
       },
     };
