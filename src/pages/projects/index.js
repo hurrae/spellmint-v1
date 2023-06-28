@@ -58,7 +58,7 @@ const projects = ({ session, projectData }) => {
         <div className={`p-6 ${expand ? "lg:ml-64" : "ml-20"} `}>
           {/* <div className="p-6 sm:ml-64 h-screen"> */}
           <div className="lg:p-6 py-2 space-y-6 border-gray-200 rounded-lg dark:border-gray-700 mt-12">
-            <div className="flex mb-4 justify-between">
+            <div className="flex flex-col space-y-2 lg:space-y-0 lg:flex-row mb-4 justify-between">
               <div className=" rounded justify-between">
                 <h2 className="text-2xl font-bold my-auto">Browse Projects</h2>
                 <p className="text-grshade">
@@ -132,7 +132,7 @@ export async function getServerSideProps({ req }) {
   if (!session) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "/",
         permanent: false,
       },
     };
