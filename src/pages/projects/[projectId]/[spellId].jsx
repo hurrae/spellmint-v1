@@ -94,7 +94,11 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
   return (
     <>
       <Head>
-        <title>Spell | Spellmint</title>
+        <title>{`${spellData ? spellData.name : "Spell"} | Spellmint`}</title>
+        <meta
+          name="description"
+          content="Swap chaos for clarity with Spellmint, the AI that turns brainstorming into brilliance. Equip your teams with cutting-edge planning tools for decision-making so smooth, it'll feel like gliding on air!"
+        />
       </Head>
       {spellData ? (
         <>
@@ -436,7 +440,7 @@ export async function getServerSideProps({ req }) {
   if (!session) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "/",
         permanent: false,
       },
     };

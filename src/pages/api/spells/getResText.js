@@ -16,9 +16,9 @@ export default async function handler(req, res) {
         return res.status(404).json({ error: "Spell not found" });
       }
 
-      const { res_text } = spell;
+      const { res_text, name } = spell;
 
-      res.status(200).json({ res_text });
+      res.status(200).json({ res_text, name });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: "Internal Server Error" });

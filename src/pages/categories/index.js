@@ -16,6 +16,10 @@ const CategoriesIndex = ({ session }) => {
     <>
       <Head>
         <title>Categories | Spellmint</title>
+        <meta
+          name="description"
+          content="Swap chaos for clarity with Spellmint, the AI that turns brainstorming into brilliance. Equip your teams with cutting-edge planning tools for decision-making so smooth, it'll feel like gliding on air!"
+        />
       </Head>
       <div>
         <Navbar />
@@ -31,7 +35,7 @@ const CategoriesIndex = ({ session }) => {
                 potential of our AI.
               </p>
             </div>
-            <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-[97%]">
+            <div className="grid gap-4 grid-cols-1 lg:grid-cols-4 xl:grid-cols-5 w-[97%]">
               {CategoriesData.map((category, index) => {
                 return (
                   <Category
@@ -79,7 +83,7 @@ export async function getServerSideProps({ req }) {
   if (!session) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "/",
         permanent: false,
       },
     };

@@ -62,13 +62,17 @@ const signup = () => {
     <>
       <Head>
         <title>Sign Up | Spellmint</title>
+        <meta
+          name="description"
+          content="Swap chaos for clarity with Spellmint, the AI that turns brainstorming into brilliance. Equip your teams with cutting-edge planning tools for decision-making so smooth, it'll feel like gliding on air!"
+        />
       </Head>
       <div className="font-inter">
         <div className="flex h-full">
           <div className="w-[100%] lg:w-[40%] py-8  flex flex-col my-auto">
             <section className=" w-[80%] mx-auto flex flex-col gap-10">
               <div className="title space-y-4">
-                <img src="/logowname.svg" className="w-[50%]" alt="" />
+                <img src="/logowname.svg" className="" alt="" />
                 <h3 className="text-[#111829] pt-3 font-bold text-[28px]">
                   Create your Spellmint account
                 </h3>
@@ -205,7 +209,7 @@ const signup = () => {
               <p className="text-gray-400 ">
                 Already have an account?{" "}
                 <Link href={"/login"}>
-                  <span className="text-blue-700 underline underline-offset-2">
+                  <span className="text-[#7371EE] underline underline-offset-2">
                     Sign In
                   </span>
                 </Link>

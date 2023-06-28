@@ -133,7 +133,8 @@ const Sidebar = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="https://spellmint.zohodesk.in/"
+              target="_blank"
               className="px-4 flex items-center p-2 text-grshade transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
             >
               <Info24Regular />

@@ -7,7 +7,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Head from "next/head";
 
-const SpellShareDoc = ({ initText }) => {
+const SpellShareDoc = ({ initText, spellName }) => {
   // const [initText, setinitText] = useState(null);
   // const [load, setload] = useState(false);
   // console.log("Spell Sh Id: ", spellShId);
@@ -38,7 +38,11 @@ const SpellShareDoc = ({ initText }) => {
   return (
     <>
       <Head>
-        <title>PRD | Spellmint</title>
+        <title>{`${spellName ? spellName : "Spell"} | Spellmint`}</title>
+        <meta
+          name="description"
+          content="Swap chaos for clarity with Spellmint, the AI that turns brainstorming into brilliance. Equip your teams with cutting-edge planning tools for decision-making so smooth, it'll feel like gliding on air!"
+        />
       </Head>
       <Navbar />
 
@@ -67,6 +71,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         initText: res.data.res_text,
+        spellName: res.data.name,
       },
     };
   } catch (error) {
