@@ -188,11 +188,11 @@ const signup = () => {
                     <input type="checkbox" required />
                     <p>
                       By signing up, I agree to the{" "}
-                      <Link href={"/"}>
+                      <a href={"/terms-and-conditions"}>
                         <span className="text-blshade underline underline-offset-2">
                           terms & conditions
                         </span>
-                      </Link>
+                      </a>
                     </p>
                   </div>
                 </div>
