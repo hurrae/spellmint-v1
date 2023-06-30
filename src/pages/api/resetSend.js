@@ -40,8 +40,8 @@ export default async function handler(req, res) {
 
     const msg = {
       to: req.body.email, // Change to your recipient
-      from: "developer@spellmint.com", // Change to your verified sender
-      subject: "Spellmint - Password Reset Mail",
+      from: "support@spellmint.com", // Change to your verified sender
+      subject: "Spellmint - Password Reset Request for Your Spellmint Account",
       text: "Click here to reset your Password",
       html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
         <head>

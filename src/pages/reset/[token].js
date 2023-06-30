@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import ResetSection from "@/components/ResetSection";
+import Head from "next/head";
 
 const reset = () => {
   const router = useRouter();
@@ -26,16 +27,21 @@ const reset = () => {
   }, [token]);
 
   return (
-    valid && (
-      <div className="font-inter h-screen">
-        <div className="flex h-full">
-          <div className="w-[100%] lg:w-[40%] py-8  flex flex-col my-auto">
-            <ResetSection resetToken={token} />
+    <>
+      <Head>
+        <title>Spellmint - Password Reset</title>
+      </Head>
+      {valid && (
+        <div className="font-inter h-screen">
+          <div className="flex h-full">
+            <div className="w-[100%] lg:w-[40%] py-8  flex flex-col my-auto">
+              <ResetSection resetToken={token} />
+            </div>
+            <div className="hidden lg:block w-[60%] flex bg-[url('https://i.imgur.com/ZD4cEUb.png')] bg-no-repeat bg-cover bg-center"></div>
           </div>
-          <div className="hidden lg:block w-[60%] flex bg-[url('https://i.imgur.com/C1N7oXZ.png')] bg-no-repeat bg-cover bg-center"></div>
         </div>
-      </div>
-    )
+      )}
+    </>
   );
 };
 
