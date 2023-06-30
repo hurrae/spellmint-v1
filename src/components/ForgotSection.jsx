@@ -33,6 +33,8 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
     onSubmit,
   });
 
+  const [resetClicked, setresetClicked] = useState(false);
+
   async function onSubmit(values) {
     axios({
       method: "post",
@@ -90,7 +92,12 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
 
         {/* login buttons */}
         <div className="input-button">
-          <button type="submit" className={styles.button}>
+          <button
+            type="submit"
+            disabled={resetClicked}
+            onClick={() => resetClicked(true)}
+            className={styles.button}
+          >
             Reset Password
           </button>
         </div>
