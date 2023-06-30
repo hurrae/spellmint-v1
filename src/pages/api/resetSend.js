@@ -248,14 +248,8 @@ export default async function handler(req, res) {
         </body>
       </html>`,
     };
-    sgMail
-      .send(msg)
-      .then(() => {
-        console.log("Email sent");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    const sgres = await sgMail.send(msg);
+    console.log("Sgres: ", sgres);
     res.status(201).json({ status: "OK", msg: "Email Sent Successfully" });
   } else {
     res.status(200).json({ name: "John Doe" });
