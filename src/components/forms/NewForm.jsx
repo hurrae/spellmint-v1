@@ -151,7 +151,7 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
                         type={el.type}
                         id={el.id}
                         rows={el.rows}
-                        className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-[#7371EE] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                         placeholder={el.placeholder}
                         required={el.required}
                         {...formik.getFieldProps(el.name)}
@@ -195,7 +195,7 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
                                 type={el.type}
                                 id={"Feature" + feature}
                                 rows={1}
-                                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                                 placeholder={"Real-time tracking"}
                                 required={false}
                                 {...formik.getFieldProps(
@@ -215,7 +215,7 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
                                 type={el.type}
                                 id={"FeatureDescription" + feature}
                                 rows={2}
-                                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                                 placeholder={
                                   "User can see their location and the driver's current location on the map."
                                 }

@@ -158,7 +158,7 @@ export default async function handler(req, res) {
                   height="100%"
                   valign="top"
                   bgcolor="">
-                  <div>Hey,</div>
+                  <div>Hey ${req.body.name},</div>
       
       <div>&nbsp;</div>
       

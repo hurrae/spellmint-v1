@@ -325,7 +325,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
                 type="text"
                 id="PurposeAndScope"
                 rows="1"
-                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 placeholder="To build a reliable ride-hailing app"
                 required
                 {...formik.getFieldProps("PurposeAndScope")}
@@ -342,7 +342,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
                 type="text"
                 id="ProductDescription"
                 rows="2"
-                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 placeholder="An app connecting drivers and passengers for efficient city travel"
                 required
                 {...formik.getFieldProps("ProductDescription")}
@@ -359,7 +359,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
                 type="text"
                 id="KeyUsers"
                 rows="1"
-                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 placeholder="Commuters, Tourists, Drivers"
                 required
                 {...formik.getFieldProps("KeyUsers")}
@@ -377,7 +377,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
                 type="text"
                 id="UserActions"
                 rows="2"
-                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 placeholder="Request ride, Accept ride, Navigate to destination"
                 required
                 {...formik.getFieldProps("UserActions")}
@@ -395,7 +395,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
                 type="text"
                 id="targetmarket"
                 rows="1"
-                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 placeholder="Small businesses in the retail sector"
               />
             </div>
@@ -411,7 +411,7 @@ const SpellForm = ({ initText, setinitText, spellData }) => {
                 type="text"
                 id="targetmarket"
                 rows="1"
-                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                 placeholder="Small businesses in the retail sector"
               />
             </div>

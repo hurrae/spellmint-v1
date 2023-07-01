@@ -33,6 +33,7 @@ const redirect = () => {
           method: "post",
           url: `${process.env.NEXT_PUBLIC_HOST}/api/sendWelcome`,
           data: {
+            name: session.user.name,
             email: session.user.email,
           },
         });

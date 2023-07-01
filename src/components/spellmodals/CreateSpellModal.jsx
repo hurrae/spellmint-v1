@@ -141,7 +141,7 @@ const CreateSpellModal = ({
                     type="text"
                     name="spellname"
                     id="spellname"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#7371EE] focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                     placeholder="Eg: ChatApp - PRD"
                     required
                     onChange={(e) => setspellname(e.target.value)}
@@ -186,7 +186,7 @@ const CreateSpellModal = ({
                             type="radio"
                             value="product"
                             name="bordered-radio"
-                            className={`w-4 h-4 ${textcolors[id]} bg-gray-100 border-gray-300 ${ringcolors[id]}  dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
+                            className={`w-4 h-4 ${textcolors[id]} bg-gray-100 border-gray-300 ${ringcolors[id]}  dark:focus:ring-[#7371EE] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
                           />
                         </div>
                       );
@@ -201,7 +201,7 @@ const CreateSpellModal = ({
                   spellSelect && !load
                     ? "bg-[#7371EE] hover:bg-[#6462e1]"
                     : "bg-[#9b9af1]"
-                } flex justify-center text-center w-full text-white bg-[#7371EE]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
+                } flex justify-center text-center w-full text-white bg-[#7371EE]  focus:ring-4 focus:outline-none focus:ring-[#7371EE] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
               >
                 <span className="">Start Minting</span>
                 <img src="/Sparkles.svg" className="ml-2" alt="" />
