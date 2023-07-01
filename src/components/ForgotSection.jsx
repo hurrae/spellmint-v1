@@ -92,12 +92,7 @@ const BeforeSubmit = ({ setforgetSubmit }) => {
 
         {/* login buttons */}
         <div className="input-button">
-          <button
-            type="submit"
-            disabled={resetClicked}
-            onClick={() => resetClicked(true)}
-            className={styles.button}
-          >
+          <button type="submit" className={styles.button}>
             Reset Password
           </button>
         </div>
