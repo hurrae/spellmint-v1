@@ -190,7 +190,7 @@ export default async function handler(req, res) {
                   valign="top"
                   bgcolor="">
                   <div>
-      <div>Hey,</div>
+      <div>Hey ${user.name},</div>
       
       <div>&nbsp;</div>
       

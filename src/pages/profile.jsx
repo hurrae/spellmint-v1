@@ -164,7 +164,7 @@ const profile = ({ session, userData, appuserData }) => {
                         type={"text"}
                         disabled
                         id={"FullName"}
-                        className="bg-gray-100 shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        className="bg-gray-100 shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                         placeholder={"Full Name"}
                         required={true}
                         {...formik.getFieldProps("fullname")}
@@ -180,7 +180,7 @@ const profile = ({ session, userData, appuserData }) => {
                       <input
                         type={"email"}
                         id={"Email"}
-                        className="bg-gray-100 shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        className="bg-gray-100 shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                         placeholder={"abcd@email.com"}
                         required={true}
                         {...formik.getFieldProps("email")}
@@ -199,7 +199,7 @@ const profile = ({ session, userData, appuserData }) => {
                           <input
                             type={"password"}
                             id={"NewPassword"}
-                            className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                             placeholder={"***************"}
                             required={true}
                             {...formik.getFieldProps("newPass")}
@@ -224,7 +224,7 @@ const profile = ({ session, userData, appuserData }) => {
                           <input
                             type={"password"}
                             id={"ConfirmNewPassword"}
-                            className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                            className="shadow-sm border border-gray-300 text-gray-900  rounded-lg focus:ring-[#7371EE] focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                             placeholder={"***************"}
                             required={true}
                             {...formik.getFieldProps("confirmNewPass")}

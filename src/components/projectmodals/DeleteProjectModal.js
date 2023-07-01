@@ -99,7 +99,7 @@ const DeleteProjectModal = ({ toDelete, session }) => {
             <button
               type="button"
               data-modal-hide="project-delete-modal"
-              className="w-full border border-2 text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="w-full border border-2 text-black bg-gray-100  focus:ring-4 focus:outline-none focus:ring-[#7371EE] font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Cancel
             </button>
@@ -108,7 +108,7 @@ const DeleteProjectModal = ({ toDelete, session }) => {
               type="button"
               className={`w-full text-white ${
                 load ? "bg-[#ec8791]" : "bg-[#CC3F4D]"
-              } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
+              } focus:ring-4 focus:outline-none focus:ring-[#7371EE] font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
             >
               Delete Project
             </button>

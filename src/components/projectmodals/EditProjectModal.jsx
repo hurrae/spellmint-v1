@@ -122,7 +122,7 @@ const EditProjectModal = ({ projData, session }) => {
                   type="text"
                   name="projectname"
                   id="projectname"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#7371EE] focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Eg: ChatApp"
                   required
                   {...formik.getFieldProps("name")}
@@ -141,7 +141,7 @@ const EditProjectModal = ({ projData, session }) => {
                   disabled
                   required
                   {...formik.getFieldProps("category")}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#7371EE] focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 >
                   <option>Choose Category</option>
                   <option>Software Product</option>
@@ -169,7 +169,7 @@ const EditProjectModal = ({ projData, session }) => {
                   type="text"
                   name="desc"
                   id="desc"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#7371EE] focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Eg: ChatApp is a messaging and communication platform that allows users to send text messages, voice messages, photos, videos, and other media files to their friends, family, and colleagues. "
                   style={{
                     height: "auto",
@@ -234,7 +234,7 @@ const EditProjectModal = ({ projData, session }) => {
                 disabled={load}
                 className={`w-full text-white ${
                   !load ? "bg-[#7371EE] hover:bg-[#6462e1]" : "bg-[#9b9af1]"
-                } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
+                } focus:ring-4 focus:outline-none focus:ring-[#7371EE] font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
               >
                 Save Changes
               </button>

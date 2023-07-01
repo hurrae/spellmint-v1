@@ -218,7 +218,7 @@ const signup = () => {
               </p>
             </section>
           </div>
-          <div className="background-container hidden lg:block w-[60%] flex bg-[url('https://i.imgur.com/ZD4cEUb.png')] bg-no-repeat bg-cover bg-center"></div>
+          <div className="background-container hidden lg:block w-[60%] flex bg-[url('/onboardimg.webp')] bg-no-repeat bg-cover bg-center"></div>
         </div>
       </div>
       <ToastContainer
