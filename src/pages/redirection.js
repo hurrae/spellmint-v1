@@ -24,29 +24,6 @@ const redirect = () => {
     console.log("i have sent the order sucessfully");
     const { data } = await axios.post("/api/appusers/newUser", data2, config);
 
-    console.log("Redirection Data: ", data);
-
-    try {
-      if (!data.message) {
-        console.log("Redirecton: New User");
-        const sgres = await axios({
-          method: "post",
-          url: `${process.env.NEXT_PUBLIC_HOST}/api/sendWelcome`,
-          data: {
-            email: session.user.email,
-          },
-        });
-        console.log("Sendgrid response: ", sgres);
-
-        // alert("Redirecton: New User");
-      } else {
-        console.log("Old User");
-        // alert("Redirecton: old user");
-      }
-    } catch (error) {
-      console.log("Error at send welcome mail: ", error);
-    }
-
     // Router.push({
     //   pathname: "/dashboard",
     // });
