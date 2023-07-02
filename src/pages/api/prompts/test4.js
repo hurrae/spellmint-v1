@@ -74,7 +74,7 @@ export default async function handler(req, res) {
       };
     });
 
-    // console.log("Prompts: ", generatedPrompts);
+    console.log("Prompts: ", generatedPrompts);
     const responses = await Promise.all(
       generatedPrompts.map((prompt) => {
         return openai.createChatCompletion({
@@ -104,7 +104,7 @@ export default async function handler(req, res) {
       text: response.data.choices[0].message.content,
       usage: response.data.usage,
     }));
-    // console.log("Gen Responses: ", generatedResponses);
+    console.log("Gen Responses: ", generatedResponses);
 
     res.status(200).json({ prd: generatedResponses });
   } catch (error) {
