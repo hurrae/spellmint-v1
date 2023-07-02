@@ -24,6 +24,7 @@ import ShareSpellModal from "@/components/spellmodals/ShareSpellModal";
 import PageNotFound from "@/components/PageNotFound";
 import Head from "next/head";
 import NewForm from "@/components/forms/NewForm";
+import Titles from "@/components/data/RTETitle";
 
 const SpellDashboard = ({ session, spellsData, appUserData }) => {
   const { expand } = useContext(StateContext);
@@ -54,7 +55,9 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
       : spellData
       ? '<h2 style="text-align: center"> ' +
         spellData.proj_name +
-        " - Product Requirements Document</h2><p><br></p>"
+        ` - ${
+          Titles[spellData.proj_category][spellData.spell_type]
+        }</h2><p><br></p>`
       : ""
   );
 
@@ -184,9 +187,11 @@ const SpellDashboard = ({ session, spellsData, appUserData }) => {
                 <div className="w-full flex lg:flex-row flex-col mb-4 justify-between">
                   <div className="lg:w-1/3">
                     <div className="border flex space-x-3 w-full p-5 px-6 bg-[#F8F8FB]">
-                      <h2 className="text-xl font-bold my-auto">ChatApp</h2>
+                      <h2 className="text-xl font-bold my-auto">
+                        {spellData.proj_name}
+                      </h2>
                       <span className="h-fit my-auto font-medium text-sm border-2 rounded bg-[#FFFFFF] px-2 rounded text-[#697283]">
-                        Software Product
+                        {spellData.proj_category}
                       </span>
                     </div>
                     {/* <SpellForm

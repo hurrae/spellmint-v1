@@ -44,6 +44,7 @@ const CategoriesIndex = ({ session }) => {
                     title={category.title}
                     desc={category.desc}
                     imgLink={category.imgLink}
+                    id={category.id}
                   />
                 );
               })}
@@ -58,12 +59,14 @@ const CategoriesIndex = ({ session }) => {
 
 export default CategoriesIndex;
 
-const Category = ({ title, desc, imgLink, setselectCat }) => {
+const Category = ({ id, title, desc, imgLink, setselectCat }) => {
   return (
     <div
-      className="border-2 rounded-lg overflow-hidden cursor-pointer"
-      data-modal-target="project-modal"
-      data-modal-toggle="project-modal"
+      className={`border-2 rounded-lg overflow-hidden ${
+        id < 8 ? "cursor-pointer" : "opacity-50"
+      }`}
+      data-modal-target={id < 8 ? "project-modal" : ""}
+      data-modal-toggle={id < 8 ? "project-modal" : ""}
       onClick={() => setselectCat(title)}
     >
       <div className="h-34 bg-gray-50">
