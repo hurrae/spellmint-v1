@@ -160,37 +160,35 @@ const CreateSpellModal = ({
                       // console.log("path: ", path);
                       const id = spell.id - 1;
                       return (
-                        <label key={index} htmlFor={`bordered-radio-${id}`}>
-                          <div
-                            key={index}
-                            onClick={() => setspellSelect(spell.name)}
-                            className={`flex items-center ${
-                              spellSelect == spell.name ? bgcolors[id] : ""
-                            } bg-opacity-10 px-3 border-2 ${
-                              spellSelect == spell.name ? bordercolors[id] : ""
-                            } rounded`}
+                        <div
+                          key={index}
+                          onClick={() => setspellSelect(spell.name)}
+                          className={`flex items-center ${
+                            spellSelect == spell.name ? bgcolors[id] : ""
+                          } bg-opacity-10 px-3 border-2 ${
+                            spellSelect == spell.name ? bordercolors[id] : ""
+                          } rounded`}
+                        >
+                          <img
+                            src={`/Spells/${spell.name}.svg`}
+                            // src={path}
+                            className={`rounded ${bgcolors[id]}`}
+                            alt=""
+                          />
+                          <label
+                            htmlFor={`bordered-radio-${id}`}
+                            className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                           >
-                            <img
-                              src={`/Spells/${spell.name}.svg`}
-                              // src={path}
-                              className={`rounded ${bgcolors[id]}`}
-                              alt=""
-                            />
-                            <span
-                              // htmlFor={`bordered-radio-${id}`}
-                              className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                            >
-                              {spell.name}
-                            </span>
-                            <input
-                              id={`bordered-radio-${id}`}
-                              type="radio"
-                              value="product"
-                              name="bordered-radio"
-                              className={`w-4 h-4 ${textcolors[id]} bg-gray-100 border-gray-300 ${ringcolors[id]}  dark:focus:ring-[#7371EE] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
-                            />
-                          </div>
-                        </label>
+                            {spell.name}
+                          </label>
+                          <input
+                            id={`bordered-radio-${id}`}
+                            type="radio"
+                            value="product"
+                            name="bordered-radio"
+                            className={`w-4 h-4 ${textcolors[id]} bg-gray-100 border-gray-300 ${ringcolors[id]}  dark:focus:ring-[#7371EE] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600`}
+                          />
+                        </div>
                       );
                     })}
                   </div>
