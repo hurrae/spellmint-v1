@@ -63,7 +63,7 @@ const Category = ({ id, title, desc, imgLink, setselectCat }) => {
   return (
     <div
       className={`border-2 rounded-lg overflow-hidden ${
-        id < 8 ? "cursor-pointer" : ""
+        id < 8 ? "cursor-pointer" : "opacity-50"
       }`}
       data-modal-target={id < 8 ? "project-modal" : ""}
       data-modal-toggle={id < 8 ? "project-modal" : ""}

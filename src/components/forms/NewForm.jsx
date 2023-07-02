@@ -5,6 +5,7 @@ import React from "react";
 import FieldsMap from "../data/FieldsMap";
 import axios from "axios";
 import { AddCircle20Regular, Dismiss20Regular } from "@fluentui/react-icons";
+import Titles from "../data/RTETitle";
 
 const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
   const [load, setload] = useState(false);
@@ -57,7 +58,9 @@ const NewForm = ({ spellData, initText, setinitText, appUserData, toast }) => {
         let defStr =
           '<h2 style="text-align: center"> ' +
           spellData.proj_name +
-          " - Product Requirements Document</h2><p><br></p>";
+          ` - ${
+            Titles[spellData.proj_category][spellData.spell_type]
+          }</h2><p><br></p>`;
         data.forEach((el) => {
           defStr += el.text;
           defStr += "<p><br></p>";
