@@ -165,11 +165,11 @@ const CreateProjectModal = ({ session, category }) => {
                   <option>Healthcare</option>
                   <option>Retail</option>
                   <option>E-Commerce</option>
-                  <option>Media & Entertainment</option>
-                  <option>Hospitality</option>
-                  <option>Legal Services</option>
-                  <option>Insurance</option>
-                  <option>Sports & Fitness</option>
+                  <option disabled>Media & Entertainment</option>
+                  <option disabled>Hospitality</option>
+                  <option disabled>Legal Services</option>
+                  <option disabled>Insurance</option>
+                  <option disabled>Sports & Fitness</option>
                 </select>
                 {/* {formik.touched.category && formik.errors.category && (
                   <p className="text-red-500">{formik.errors.category}</p>
