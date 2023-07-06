@@ -3,7 +3,7 @@ const PromptsMap = {
     Product: [
       {
         name: "Prompt 1",
-        prompt: `Generate an overview of a product that includes three sections: Product Description, Scenario (explained in a way a 5-year old would understand), and Use-cases.\n\nPurpose and Scope: "{{PurposeAndScope-Software}}"\n\nProduct Description: "{{ProductDescription-Software}}"`,
+        prompt: `As a seasoned product manager, provide an extensive overview of the software product including 'Product Description', a 'Scenario', and 'Use-cases'. The 'Product Description' should encompass the purpose, key features, and user benefits of the product. The 'Scenario' should be a simple story explaining how the product might be used in real life, making sure a 5-year old could understand it. 'Use-cases' should detail the situations or tasks where the product could be used. Think about the next steps in terms of user feedback collection and product iteration.\n\nPurpose and Scope: "{{PurposeAndScope-Software}}"\n\nProduct Description: "{{ProductDescription-Software}}"`,
         replacePart: [
           "PurposeAndScope-Software",
           "ProductDescription-Software",
@@ -11,58 +11,58 @@ const PromptsMap = {
       },
       {
         name: "Prompt 2",
-        prompt: `Based on the given input, generate a table outlining a user persona with the following details: Demographic Information, Behavior Patterns, Motivations, and Goals.\n\nKey Users: "{{KeyUsers-Software}}"`,
+        prompt: `As a seasoned product manager, considering your key users, develop a user persona table with columns for 'Demographic Information', 'Behavior Patterns', 'Motivations', and 'Goals'. This information will help you understand your users better and make product decisions that better cater to their needs. Your next action could be to validate these personas with actual user data or feedback.\n\nKey Users: "{{KeyUsers-Software}}"`,
         replacePart: ["KeyUsers-Software"],
       },
       {
         name: "Prompt 3",
-        prompt: `Generate a user-action table with the following Key Users and corresponding Actions.\n\nKey Users: "{{KeyUsers-Software}}"\nUser Actions: "{{UserActions-Software}}"`,
+        prompt: `As a seasoned product manager, develop a user-action table with 'Key User' and corresponding 'Actions'. This will help identify how different users interact with your product. Once the table is complete, consider how the product can be improved to make these actions easier or more intuitive.\n\nKey Users: "{{KeyUsers-Software}}"\nUser Actions: "{{UserActions-Software}}"`,
         replacePart: ["KeyUsers-Software", "UserActions-Software"],
       },
       {
         name: "Prompt 4",
-        prompt: `Generate a Customer Interface Requirements table with the 'Requirement' and 'Description' for the following customer interface requirements: "{{CustomerInterfaceRequirements-Software}}"`,
+        prompt: `As a seasoned product manager, generate a 'Customer Interface Requirements' table, detailing each 'Requirement' and its 'Description'. This will outline the important aspects of the user interface that must be present to provide a good customer experience. Afterward, consider this list while revising the UI/UX design of the product.\n Customer Interface Requirements: "{{CustomerInterfaceRequirements-Software}}"`,
         opPrompt: `Generate a Customer Interface Requirements table with the 'Requirement' and 'Description'.`,
         replacePart: ["CustomerInterfaceRequirements-Software"],
       },
       {
         name: "Prompt 5",
-        prompt: `Generate a table outlining the details of this specific feature within the product, including Feature name, Feature Description, Functional Requirements, Edge Cases, Happy Flows, and Unhappy Flows. \n\nFeature: "{{Features}}"`,
+        prompt: `As a seasoned product manager, delve into the specifics of a feature within the product. Provide a table that includes 'Feature Name', 'Feature Description', 'Functional Requirements', 'Edge Cases', 'Happy Flows', and 'Unhappy Flows'. This will help you fully understand the functionality and scope of the feature. The next step could be to develop user stories or tests based on these details. \n\nFeature: "{{Features}}"`,
         replacePart: ["Features"],
       },
       {
         name: "Prompt 6",
-        prompt: `Generate a table of environments the product should support.\n\nEnvironments: "{{Environments-Software}}"`,
+        prompt: `As a seasoned product manager, create a table of environments the product should support with the columns 'Environment Name' and 'Reason for Support'. Consider various operating systems, devices, or browsers users might use. Post this, you could work with your development team to ensure compatibility across these environments.\n\nEnvironments: "{{Environments-Software}}"`,
         replacePart: ["Environments-Software"],
       },
       {
         name: "Prompt 7",
-        prompt: `Generate a table of third-party integrations required for the product.\n\nThird-party Integrations: "{{ThirdPartyIntegrations-Software}}"`,
+        prompt: `As a seasoned product manager, draft a table of third-party integrations required for the product. Your table should include 'Integration', 'Purpose', and 'Benefit'. Understanding these integrations will help you ensure your product works seamlessly with other software. Post this, your next step could be to make a plan for the implementation of these integrations.\n\nThird-party Integrations: "{{ThirdPartyIntegrations-Software}}"`,
         replacePart: ["ThirdPartyIntegrations-Software"],
       },
       {
         name: "Prompt 8",
-        prompt: `Generate a table of report requirements for the product.\n\nReport Requirements: "{{ReportRequirements-Software}}"`,
+        prompt: `As a seasoned product manager, develop a 'Report Requirements' table for the product. The table should include 'Report Type', 'Purpose', and 'Key Metrics'. This will help you understand the insights you need to extract from the product usage data. Following this, you could collaborate with your data team to set up the necessary analytics.\n\nReport Requirements: "{{ReportRequirements-Software}}"`,
         replacePart: ["ReportRequirements-Software"],
       },
       {
         name: "Prompt 9",
-        prompt: `Generate a table of admin requirements for the product.\n\nAdmin Requirements: "{{AdminRequirements-Software}}"`,
+        prompt: `As a seasoned product manager, construct an 'Admin Requirements' table for the product. This table should contain 'Requirement', 'Purpose', and 'Admin Role'. These requirements will help you design the administrative side of your product. The next step could be to discuss these requirements with your development team.\n\nAdmin Requirements: "{{AdminRequirements-Software}}"`,
         replacePart: ["AdminRequirements-Software"],
       },
       {
         name: "Prompt 10",
-        prompt: `Generate a table of customer support requirements for the product.\n\nCustomer Support Requirements: "{{CustomerSupportRequirements-Software}}"`,
+        prompt: `As a seasoned product manager, compose a table of 'Customer Support Requirements' for the product. The table should include 'Requirement', 'Purpose', and 'Benefit to Customer'. This will ensure you have a thorough support plan for your customers. Post this, you could start recruiting for your customer support team or outsourcing your customer support.\n\nCustomer Support Requirements: "{{CustomerSupportRequirements-Software}}"`,
         replacePart: ["CustomerSupportRequirements-Software"],
       },
       {
         name: "Prompt 11",
-        prompt: `Generate a table of data collection requirements for the product.\n\nData Collection Requirements: "{{DataCollectionRequirements-Software}}"`,
+        prompt: `As a seasoned product manager, generate a table of 'Data CollectionRequirements' for the product. The table should have the columns 'Data Type', 'Reason for Collection', and 'Usage'. This will help you understand what data you need to collect for the product and why. Your next action could be to consult with your legal team to ensure all data collection aligns with applicable laws and regulations.\n\nData Collection Requirements: "{{DataCollectionRequirements-Software}}"`,
         replacePart: ["DataCollectionRequirements-Software"],
       },
       {
         name: "Prompt 12",
-        prompt: `Generate a elaborate go-to-market strategy for the product.\n\nGo-to-Market Strategy: "{{GoToMarketStrategy-Software}}"`,
+        prompt: `As an experienced product manager, create a comprehensive go-to-market (GTM) strategy for the software product. The GTM strategy should address key areas including 'Target Audience', 'Unique Selling Proposition', 'Pricing Strategy', 'Distribution Channels', 'Marketing and Communication Plan', 'Sales Strategy', and 'Partnerships'.\n\nGo-to-Market Strategy: "{{GoToMarketStrategy-Software}}"`,
         replacePart: ["GoToMarketStrategy-Software"],
       },
       {
@@ -96,27 +96,27 @@ const PromptsMap = {
     Marketing: [
       {
         name: "Prompt 18",
-        prompt: `As a marketing expert, provide a detailed analysis of the market for the software product.\n\nMarket Analysis: "{{MarketAnalysis-Software}}"`,
+        prompt: `As a seasoned marketing expert, conduct an in-depth market analysis for the software product. The market analysis should include key areas such as 'Market Size', 'Market Trends', 'Customer Segments', 'Competitor Analysis', 'Regulatory Environment', and 'SWOT Analysis'. After completing this detailed market analysis, provide actionable next steps for how this information should inform the product's go-to-market strategy, positioning, and key messaging.\n\nMarket Analysis: "{{MarketAnalysis-Software}}"`,
         replacePart: ["MarketAnalysis-Software"],
       },
       {
         name: "Prompt 19",
-        prompt: `Elaborate on the channels you plan to use for marketing the software product. Please provide a table with each channel and a brief description of the marketing strategy for it.\n\nMarketing Channels: "{{MarketingChannels-Software}}"`,
+        prompt: `As a seasoned marketing expert, elaborate on the marketing channels you plan to leverage for promoting the software product. Create a comprehensive table including each channel, its target audience, content type, frequency of interaction, the estimated budget, and the specific marketing strategy for it. Once the table is completed, provide the next steps to initiate these strategies, outlining any necessary resources, partnerships, or tools to successfully execute these plans. \n\nMarketing Channels: "{{MarketingChannels-Software}}"`,
         replacePart: ["MarketingChannels-Software"],
       },
       {
         name: "Prompt 20",
-        prompt: `Describe in detail the Unique Selling Proposition (USP) of the software product.\n\nUSP: "{{USP-Software}}"`,
+        prompt: `As an experienced marketing expert, delve into the Unique Selling Proposition (USP) of the software product in detail. Identify what makes this product stand apart from its competitors in the market. Your USP table should have the following: 'Key Feature', 'Customer Benefit' and 'Value Proposition'. After describing the USP, list the next steps to integrate this USP into your marketing and branding messages across various channels and touchpoints. Also, think about any potential improvements or additions to the product that could strengthen this USP further. \n\nUSP: "{{USP-Software}}"`,
         replacePart: ["USP-Software"],
       },
       {
         name: "Prompt 21",
-        prompt: `Provide a comprehensive budget breakdown for the initial campaign of the software product.\n\nBudget: "{{Budget-Software}}"`,
+        prompt: `"As a seasoned marketing professional, please provide a comprehensive budget breakdown table for the initial campaign of the software product. Your budget should be detailed and well-structured, considering all potential costs and investments. Here's what the table columns should include: 'Media Spending', 'Creative Development', 'Tech and tools', 'PR and Events', 'Human Resources', 'Contingency'. Once the budget is broken down, please provide the next steps in terms of how this budget would be managed and monitored, and strategies for optimizing spending to get the best return on investment. \n\nBudget: "{{Budget-Software}}"`,
         replacePart: ["Budget-Software"],
       },
       {
         name: "Prompt 22",
-        prompt: `Generate a table outlining the Key Performance Indicators (KPIs) that will be used to measure the success of the marketing efforts.\n\nKPIs: "{{KPIs-Software}}"`,
+        prompt: `As an experienced marketing strategist, please generate a table outlining the Key Performance Indicators (KPIs) that will be used to measure the success of the marketing efforts. Each KPI should be carefully chosen and directly tied to the marketing objectives. Your table should include the following columns: 'KPI Name', 'Definition', 'Objective Alignment', 'Measurement Method', 'Target'. Once the KPIs are defined, please detail the next steps on how to monitor these KPIs regularly, make adjustments to the marketing strategy based on the data, and optimize the efforts to achieve the desired outcomes. \n\nKPIs: "{{KPIs-Software}}"`,
         replacePart: ["KPIs-Software"],
       },
     ],
