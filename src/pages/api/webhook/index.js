@@ -38,34 +38,40 @@ export default async function handler(req, res) {
       let planName = "Free";
       if (
         (event.data.object.currency == "usd" &&
-          (event.data.object.amount_total == 2900 ||
-            event.data.object.amount_total == 29900)) ||
+          (event.data.object.amount_total == 800 ||
+            event.data.object.amount_total == 8000)) ||
         (event.data.object.currency == "inr" &&
-          (event.data.object.amount_total == 237754 ||
-            event.data.object.amount_total == 2451322)) ||
+          (event.data.object.amount_total == 60000 ||
+            event.data.object.amount_total == 600000)) ||
         (event.data.object.currency == "aud" &&
-          (event.data.object.amount_total == 4234 ||
-            event.data.object.amount_total == 43652)) ||
+          (event.data.object.amount_total == 1100 ||
+            event.data.object.amount_total == 11000)) ||
         (event.data.object.currency == "gbp" &&
-          (event.data.object.amount_total == 2267 ||
-            event.data.object.amount_total == 23372))
+          (event.data.object.amount_total == 600 ||
+            event.data.object.amount_total == 6000)) ||
+        (event.data.object.currency == "eur" &&
+          (event.data.object.amount_total == 700 ||
+            event.data.object.amount_total == 7000))
       ) {
-        planName = "Basic";
+        planName = "Starter";
       } else if (
         (event.data.object.currency == "usd" &&
-          (event.data.object.amount_total == 9900 ||
-            event.data.object.amount_total == 99900)) ||
+          (event.data.object.amount_total == 1600 ||
+            event.data.object.amount_total == 16000)) ||
         (event.data.object.currency == "inr" &&
-          (event.data.object.amount_total == 811642 ||
-            event.data.object.amount_total == 8190202)) ||
+          (event.data.object.amount_total == 140000 ||
+            event.data.object.amount_total == 1300000)) ||
         (event.data.object.currency == "aud" &&
-          (event.data.object.amount_total == 14453 ||
-            event.data.object.amount_total == 145848)) ||
+          (event.data.object.amount_total == 2400 ||
+            event.data.object.amount_total == 24000)) ||
         (event.data.object.currency == "gbp" &&
-          (event.data.object.amount_total == 7738 ||
-            event.data.object.amount_total == 78088))
+          (event.data.object.amount_total == 1200 ||
+            event.data.object.amount_total == 12000)) ||
+        (event.data.object.currency == "eur" &&
+          (event.data.object.amount_total == 1400 ||
+            event.data.object.amount_total == 14000))
       ) {
-        planName = "Pro";
+        planName = "Plus";
       }
       console.log(`Payment received!`);
       axios({
