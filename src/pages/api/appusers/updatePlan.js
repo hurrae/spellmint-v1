@@ -23,11 +23,11 @@ export default async function handler(req, res) {
 
       // Update the allotted words based on the plan
       if (plan === "Free") {
-        user.allottedWords = 2000;
-      } else if (plan === "Basic") {
-        user.allottedWords = 20000;
-      } else if (plan === "Pro") {
         user.allottedWords = 100000;
+      } else if (plan === "Starter") {
+        user.allottedWords = 500000;
+      } else if (plan === "Plus") {
+        user.allottedWords = 1000000;
       }
       user.consumedWords = 0;
       user.paymentDate = new Date();

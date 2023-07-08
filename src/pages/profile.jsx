@@ -68,7 +68,7 @@ const profile = ({ session, userData, appuserData }) => {
   //     inputRef.current.click();
   //   };
   let cwc = 0;
-  let awc = 2000;
+  let awc = 100000;
 
   if (appuserData.consumedWords > 0) {
     cwc = appuserData.consumedWords;
@@ -296,8 +296,8 @@ const profile = ({ session, userData, appuserData }) => {
                   </div>
                   <div className="pt-2">
                     {appuserData.plan &&
-                    (appuserData.plan == "Basic" ||
-                      appuserData.plan == "Pro") ? (
+                    (appuserData.plan == "Starter" ||
+                      appuserData.plan == "Plus") ? (
                       <a
                         target="_blank"
                         href="https://billing.stripe.com/p/login/6oE4id9RdeHV1EI3cc"
@@ -351,8 +351,12 @@ function PricingPage() {
     //   pricing-table-id="prctbl_1NJKbySJu3RZdCRnAMCxL81R"
     //   publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
     // ></stripe-pricing-table>
+    // <stripe-pricing-table
+    //   pricing-table-id="prctbl_1NKv5rSJu3RZdCRngTTFRFrM"
+    //   publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
+    // ></stripe-pricing-table>
     <stripe-pricing-table
-      pricing-table-id="prctbl_1NKv5rSJu3RZdCRngTTFRFrM"
+      pricing-table-id="prctbl_1NRaJMSJu3RZdCRn32IKp4V8"
       publishable-key="pk_live_51NJHfWSJu3RZdCRnFpBRW2FzC74yFwwBr9D1n2a42bXbwsbur0qQCHePCKyOZ0ZUmlapUcKXjwYYXTfudfYUv8pw00DEN3Gsct"
     ></stripe-pricing-table>
     // <stripe-pricing-table
