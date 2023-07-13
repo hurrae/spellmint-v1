@@ -16,7 +16,7 @@ const appUserSchema = new Schema({
   },
   projects: [projectSchema],
   consumedWords: { type: Number, default: 0 },
-  allottedWords: { type: Number, default: 2000 },
+  allottedWords: { type: Number, default: 100000 },
   plan: { type: String, default: "Free" },
   paymentDate: { type: Date, default: Date.now },
 });
