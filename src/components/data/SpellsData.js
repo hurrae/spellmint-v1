@@ -60,8 +60,6 @@ export const CatSpellMap = {
   "Software Product": [
     "Product",
     "Marketing",
-    "Growth",
-    "Design",
     "Engineering",
     "Finance",
     "Sales",
