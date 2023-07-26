@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     const responses = await Promise.all(
       generatedPrompts.map((prompt) => {
         return openai.createChatCompletion({
-          model: "gpt-3.5-turbo",
+          model: "gpt-4-0613",
           messages: [
             {
               role: "user",

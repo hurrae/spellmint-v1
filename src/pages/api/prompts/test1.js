@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   try {
     const completion = await openai.createCompletion({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4-0613",
       prompt:
         "Generate an overview of a product that includes three sections: Product Description, Scenario (explained in a way a 5-year old would understand), and Use-cases. \nPurpose and Scope: “To build a reliable ride-hailing app”\nProduct Description: “An app connecting drivers and passengers for efficient city travel”\nNote: \n1. As an AI with extensive training, generate comprehensive and accurate information.\n2. Modify, correct, or suggest additional details as necessary to ensure completeness.\n3. Always provide detailed responses, and structure the outputs as numbered points for easy comprehension.",
       max_tokens: 500,
