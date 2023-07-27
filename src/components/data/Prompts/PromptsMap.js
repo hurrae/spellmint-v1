@@ -3,7 +3,7 @@ const PromptsMap = {
     Product: [
       {
         name: "Prompt 1",
-        prompt: `As a seasoned product manager, provide an extensive overview of the software product including 'Product Description', a 'Scenario', and 'Use-cases'. The 'Product Description' should encompass the purpose, key features, and user benefits of the product. The 'Scenario' should be a simple story explaining how the product might be used in real life, making sure a 5-year old could understand it. 'Use-cases' should detail the situations or tasks where the product could be used. Think about the next steps in terms of user feedback collection and product iteration.\n\nPurpose and Scope: "{{PurposeAndScope-Software}}"\n\nProduct Description: "{{ProductDescription-Software}}"`,
+        prompt: `Based on the given input, generate an overview of a product (H2 tag) that includes three sections: Product Description (H3 tag), Scenario (H3 tag), and Use-cases (H3 tag). Make sure there are 10 use-cases. Scenario should be atleast 300 words elaborate. Each Use-case should be atleast 100 words. \n\n With respect to the following details:\n\nPurpose and Scope: "{{PurposeAndScope-Software}}"\n\nProduct Description: "{{ProductDescription-Software}}"`,
         replacePart: [
           "PurposeAndScope-Software",
           "ProductDescription-Software",
@@ -11,58 +11,57 @@ const PromptsMap = {
       },
       {
         name: "Prompt 2",
-        prompt: `As a seasoned product manager, considering your key users, develop a user persona table with columns for 'Demographic Information', 'Behavior Patterns', 'Motivations', and 'Goals'. This information will help you understand your users better and make product decisions that better cater to their needs. Your next action could be to validate these personas with actual user data or feedback.\n\nKey Users: "{{KeyUsers-Software}}"`,
+        prompt: `Based on the given input, generate an Overview of the user persona that includes 4 sections: Demographic Information (H3 tag), Behavior Patterns (H3 tag), Motivations (H3 tag), and Goals (H3 tag). All sections need to be alteast 500 words long. Give a suitable title for these sections. \n\nKey Users: "{{KeyUsers-Software}}"`,
         replacePart: ["KeyUsers-Software"],
       },
       {
         name: "Prompt 3",
-        prompt: `As a seasoned product manager, develop a user-action table with 'Key User' and corresponding 'Actions'. This will help identify how different users interact with your product. Once the table is complete, consider how the product can be improved to make these actions easier or more intuitive.\n\nKey Users: "{{KeyUsers-Software}}"\nUser Actions: "{{UserActions-Software}}"`,
+        prompt: `Generate only a table with 2 columns: 'Key Users' and 'Actions'. Make sure that the Actions are rephrased and made atleast 200 words long. Title of the Table: 'Key Users and their Actions'. \n\nKey Users: "{{KeyUsers-Software}}"\nUser Actions: "{{UserActions-Software}}"`,
         replacePart: ["KeyUsers-Software", "UserActions-Software"],
       },
       {
         name: "Prompt 4",
-        prompt: `As a seasoned product manager, generate a 'Customer Interface Requirements' table, detailing each 'Requirement' and its 'Description'. This will outline the important aspects of the user interface that must be present to provide a good customer experience. Afterward, consider this list while revising the UI/UX design of the product.\n Customer Interface Requirements: "{{CustomerInterfaceRequirements-Software}}"`,
-        opPrompt: `Generate a Customer Interface Requirements table with the 'Requirement' and 'Description'.`,
+        prompt: `Generate only a table with 2 columns: 'Requirement' and 'Description', for the following customer interface requirements. Also, give a title for the table. \n Customer Interface Requirements: "{{CustomerInterfaceRequirements-Software}}"`,
         replacePart: ["CustomerInterfaceRequirements-Software"],
       },
       {
         name: "Prompt 5",
-        prompt: `As a seasoned product manager, delve into the specifics of a feature within the product. Provide a table that includes 'Feature Name', 'Feature Description', 'Functional Requirements', 'Edge Cases', 'Happy Flows', and 'Unhappy Flows'. This will help you fully understand the functionality and scope of the feature. The next step could be to develop user stories or tests based on these details. \n\nFeature: "{{Features}}"`,
+        prompt: `Generate generate an overview of of the following features that includes 6 sections: Feature name (H3 tag), Feature Description (H4 tag), Functional Requirements (H4 tag), Edge Cases (H4 tag), Happy Flows (H4 tag), and Unhappy Flows (H4 tag). Each section should be atleast 300 words long. \n\nFeature: "{{Features}}"`,
         replacePart: ["Features"],
       },
       {
         name: "Prompt 6",
-        prompt: `As a seasoned product manager, create a table of environments the product should support with the columns 'Environment Name' and 'Reason for Support'. Consider various operating systems, devices, or browsers users might use. Post this, you could work with your development team to ensure compatibility across these environments.\n\nEnvironments: "{{Environments-Software}}"`,
+        prompt: `Generate only a table with the 'Requirement' and 'Description' for the following Environments. Make sure the descriptions are elaborate. Title for the table: 'Environments'.\n\nEnvironments: "{{Environments-Software}}"`,
         replacePart: ["Environments-Software"],
       },
       {
         name: "Prompt 7",
-        prompt: `As a seasoned product manager, draft a table of third-party integrations required for the product. Your table should include 'Integration', 'Purpose', and 'Benefit'. Understanding these integrations will help you ensure your product works seamlessly with other software. Post this, your next step could be to make a plan for the implementation of these integrations.\n\nThird-party Integrations: "{{ThirdPartyIntegrations-Software}}"`,
+        prompt: `Generate only a table with the 'Requirement', 'Description' & 'Benefits' for the following integrations. Make sure the descriptions are elaborate. Title for the table: 'Third-party Integrations'. \n\nThird-party Integrations: "{{ThirdPartyIntegrations-Software}}"`,
         replacePart: ["ThirdPartyIntegrations-Software"],
       },
       {
         name: "Prompt 8",
-        prompt: `As a seasoned product manager, develop a 'Report Requirements' table for the product. The table should include 'Report Type', 'Purpose', and 'Key Metrics'. This will help you understand the insights you need to extract from the product usage data. Following this, you could collaborate with your data team to set up the necessary analytics.\n\nReport Requirements: "{{ReportRequirements-Software}}"`,
+        prompt: `Generate only a table with 3 columns: 'Report Type', 'Purpose', and 'Key Metrics', for the following report requirements. Make sure the descriptions are elaborate. Title for the table: 'Report Requirements'. \n\nReport Requirements: "{{ReportRequirements-Software}}"`,
         replacePart: ["ReportRequirements-Software"],
       },
       {
         name: "Prompt 9",
-        prompt: `As a seasoned product manager, construct an 'Admin Requirements' table for the product. This table should contain 'Requirement', 'Purpose', and 'Admin Role'. These requirements will help you design the administrative side of your product. The next step could be to discuss these requirements with your development team.\n\nAdmin Requirements: "{{AdminRequirements-Software}}"`,
+        prompt: `Generate only a table with 2 columns: 'Requirement' and 'Description', for the following Admin requirements. Make sure the descriptions are elaborate. Title for the table: 'Admin Requirements' \n\nAdmin Requirements: "{{AdminRequirements-Software}}"`,
         replacePart: ["AdminRequirements-Software"],
       },
       {
         name: "Prompt 10",
-        prompt: `As a seasoned product manager, compose a table of 'Customer Support Requirements' for the product. The table should include 'Requirement', 'Purpose', and 'Benefit to Customer'. This will ensure you have a thorough support plan for your customers. Post this, you could start recruiting for your customer support team or outsourcing your customer support.\n\nCustomer Support Requirements: "{{CustomerSupportRequirements-Software}}"`,
+        prompt: `Generate only a table with 3 columns: 'Requirement', 'Purpose', and 'Benefit to Customer', for the following Customer Support Requirements. Make sure the descriptions are elaborate. Title for the table: 'Customer Support Requirements' \n\nCustomer Support Requirements: "{{CustomerSupportRequirements-Software}}"`,
         replacePart: ["CustomerSupportRequirements-Software"],
       },
       {
         name: "Prompt 11",
-        prompt: `As a seasoned product manager, generate a table of 'Data CollectionRequirements' for the product. The table should have the columns 'Data Type', 'Reason for Collection', and 'Usage'. This will help you understand what data you need to collect for the product and why. Your next action could be to consult with your legal team to ensure all data collection aligns with applicable laws and regulations.\n\nData Collection Requirements: "{{DataCollectionRequirements-Software}}"`,
+        prompt: `Generate only a table with 3 columns: 'Data Type', 'Reason for Collection', and 'Usage', for the following Data Collection Requirements. Make sure the descriptions are elaborate. Title for the table: 'Data Collection Requirements' \n\nData Collection Requirements: "{{DataCollectionRequirements-Software}}"`,
         replacePart: ["DataCollectionRequirements-Software"],
       },
       {
         name: "Prompt 12",
-        prompt: `As an experienced product manager, create a comprehensive go-to-market (GTM) strategy for the software product. The GTM strategy should address key areas including 'Target Audience', 'Unique Selling Proposition', 'Pricing Strategy', 'Distribution Channels', 'Marketing and Communication Plan', 'Sales Strategy', and 'Partnerships'.\n\nGo-to-Market Strategy: "{{GoToMarketStrategy-Software}}"`,
+        prompt: `Generate a comprehensive 'Go-to-market (GTM) Strategy' (H4 tag) with the follwing sections: 'Target Audience' (H3 tag), 'Unique Selling Proposition' (H3 tag), 'Pricing Strategy' (H3 tag), 'Distribution Channels'(H3 tag), 'Marketing and Communication Plan'(H3 tag), 'Sales Strategy'(H3 tag), and 'Partnerships' (H3 tag). Each section should be atleast 300 words long. \n\nGo-to-Market Strategy: "{{GoToMarketStrategy-Software}}"`,
         replacePart: ["GoToMarketStrategy-Software"],
       },
       {
