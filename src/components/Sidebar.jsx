@@ -103,6 +103,44 @@ const Sidebar = () => {
               </span>
             </a>
           </li>
+          <li>
+            <a
+              href="/lepton"
+              className={`px-4 ${
+                actLink == "categories"
+                  ? "text-[#7371EE] border-r-4"
+                  : "text-grshade"
+              } flex border-[#7371EE] items-center p-2  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
+            >
+              <Wand24Regular />
+              <span
+                className={`flex-1 ml-3 whitespace-nowrap ${
+                  expand ? "" : "hidden"
+                }`}
+              >
+                Lepton
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/lepton"
+              className={`px-4 ${
+                actLink == "categories"
+                  ? "text-[#7371EE] border-r-4"
+                  : "text-grshade"
+              } flex border-[#7371EE] items-center p-2  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
+            >
+              <Wand24Regular />
+              <span
+                className={`flex-1 ml-3 whitespace-nowrap ${
+                  expand ? "" : "hidden"
+                }`}
+              >
+                Translation
+              </span>
+            </a>
+          </li>
         </ul>
         <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
           <li>
